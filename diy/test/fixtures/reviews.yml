@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: 1
+  content: MyText
+  time: 1
+  cost: 1
+  image: MyString
+  project: one
+  user: one
+
+two:
+  rating: 1
+  content: MyText
+  time: 1
+  cost: 1
+  image: MyString
+  project: two
+  user: two
