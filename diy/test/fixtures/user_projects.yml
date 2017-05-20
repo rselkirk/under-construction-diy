@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  project: one
+  completes: false
+  saves: false
+
+two:
+  user: two
+  project: two
+  completes: false
+  saves: false
