@@ -10,13 +10,26 @@
       </div>
       <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
-          <li class="has-submenu">
-            <a href="#">Login</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">Login</a></li>
-              <li><a href="#">Sign Up</a></li>
-            </ul>
-          </li>
+
+          <% if current_user %>
+            <li class="has-submenu">
+              <span class="fa fa-user-circle-o fa-2x"></span>
+              <ul class="submenu menu vertical" data-submenu>
+                <li><%= link_to 'Profile', '/' %></li>
+                <li><%= link_to 'Logout', '/logout' %></li>
+              </ul>
+            </li>
+
+          <% else %>
+            <li class="has-submenu">
+              <a href="#">Login</a>
+              <ul class="submenu menu vertical" data-submenu>
+                <li><%= link_to 'Login', '/login' %></li>
+                <li><%= link_to 'Signup', '/signup' %></li>
+              </ul>
+            </li>
+          <% end %>
+
           <li class="has-submenu">
             <a href="#">Add Project</a>
             <ul class="submenu menu vertical" data-submenu>
