@@ -1,44 +1,50 @@
 <div class="top-bar-container" data-sticky-container>
   <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
     <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li><span class="menu-text"><%= link_to 'Site Title', '/' %></span></li>
-          <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
 
-          <% if current_user %>
+      <div class="top-bar-title">
+        <%= link_to 'Site Title', '/' %>
+      </div>
+
+      <div>
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+          </ul>
+        </div>
+
+        <div class="top-bar-right">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <% if current_user %>
+              <li class="has-submenu">
+                <span class="fa fa-user-circle-o fa-2x"></span>
+                <ul class="submenu menu vertical" data-submenu>
+                  <li><%= link_to 'Profile', user_path(current_user)%></li>
+                  <li><%= link_to 'Logout', '/logout' %></li>
+                </ul>
+              </li>
+
+            <% else %>
+              <li class="has-submenu">
+                <a href="#">Login</a>
+                <ul class="submenu menu vertical" data-submenu>
+                  <li><%= link_to 'Login', '/login' %></li>
+                  <li><%= link_to 'Signup', '/signup' %></li>
+                </ul>
+              </li>
+            <% end %>
+
             <li class="has-submenu">
-              <span class="fa fa-user-circle-o fa-2x"></span>
+              <a href="#">Add Project</a>
               <ul class="submenu menu vertical" data-submenu>
-                <li><%= link_to 'Profile', user_path(current_user)%></li>
-                <li><%= link_to 'Logout', '/logout' %></li>
+                <li><a href="#">Add Link</a></li>
+                <li><a href="#">Create New</a></li>
               </ul>
             </li>
-
-          <% else %>
-            <li class="has-submenu">
-              <a href="#">Login</a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><%= link_to 'Login', '/login' %></li>
-                <li><%= link_to 'Signup', '/signup' %></li>
-              </ul>
-            </li>
-          <% end %>
-
-          <li class="has-submenu">
-            <a href="#">Add Project</a>
-            <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">Add Link</a></li>
-              <li><a href="#">Create New</a></li>
-            </ul>
-          </li>
-        </ul>
+          </ul><!-- /dropdown menu -->
+        </div><!-- /top-bar-right -->
       </div>
-    </div>
-  </div>
-</div>
+    </div><!-- /top-bar -->
+  </div><!-- /sticky sticky-topbar -->
+</div><!-- /top-bar-container -->
