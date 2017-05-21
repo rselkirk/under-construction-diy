@@ -13,6 +13,12 @@
 
   <body>
 
+    <% if current_user %>
+      Signed in as <%= current_user.first_name %>  <%= current_user.last_name %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+
     <main>
       <%= yield %>
     </main>
