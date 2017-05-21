@@ -9,8 +9,10 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to '/'
     else
-      redirect_to '/login'
+      flash.now[:error] = 'Invalid email or password'
+      render :new
     end
+
   end
 
   def destroy

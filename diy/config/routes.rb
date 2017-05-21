@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :sessions
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
 
 
   resources :reviews, only: [:destroy]
