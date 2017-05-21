@@ -4,11 +4,17 @@ ul {
 }
 
  .project_thumbnail {
-  max-width: 306px;
+   margin-left: 2em;
+   margin-right: 2em;
+ }
+
+  .thumbnail_content {
   border: 1px solid black;
   border-radius: 8px;
-  margin-top: 15px;
+  margin: 3em;
+  display: inline-block;
  }
+
 
  .title {
   padding-top: 5px;
@@ -16,14 +22,15 @@ ul {
   padding-right: 5px;
  }
 
-.thumbnail-img {
+.img {
   border: 1px solid black;
   border-radius: 8px;
-  max-width: 100%;
-  height: 250px;
+  width: 12em;
+  height: 11em;
   padding: 5px;
   margin: 10px;
  }
+
 
  .icon_group {
   border-top: 1px solid black;
