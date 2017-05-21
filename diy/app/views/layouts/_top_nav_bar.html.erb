@@ -3,7 +3,7 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li><span class="menu-text">Site Title</span></li>
+          <li><span class="menu-text"><%= link_to 'Site Title', '/' %></span></li>
           <li><input type="search" placeholder="Search"></li>
           <li><button type="button" class="button">Search</button></li>
         </ul>
@@ -15,7 +15,7 @@
             <li class="has-submenu">
               <span class="fa fa-user-circle-o fa-2x"></span>
               <ul class="submenu menu vertical" data-submenu>
-                <li><%= link_to 'Profile', '/' %></li>
+                <li><%= link_to 'Profile', user_path(current_user)%></li>
                 <li><%= link_to 'Logout', '/logout' %></li>
               </ul>
             </li>
