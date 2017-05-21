@@ -7,8 +7,15 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :users, except: [:index]
+  resources :users, only: [:create, :show]
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  
+  resources :sessions
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+
 
   resources :reviews, only: [:destroy]
 end
