@@ -55,24 +55,33 @@ Project.create!([{
   title: 'Rustic Park Bench',
   summary: Faker::Hipster.paragraph(1),
   instructions: Faker::Hipster.paragraph(4),
-  origin: true,
-  user_id: 1
+  user_id: 1,
+  cost: 75,
+  time: 5,
+  material: Faker::Hipster.paragraph(1),
+  url: ''
  }])
 
 Project.create([{
   title: 'Family Picnic Table',
   summary: Faker::Hipster.paragraph(1),
   instructions: Faker::Hipster.paragraph(3),
-  origin: true,
-  user_id: 2
+  user_id: 2,
+  cost: 100,
+  time: 6,
+  material: Faker::Hipster.paragraph(1),
+  url: ''
  }])
 
 Project.create([{
   title: 'Industrial Bookshelf',
   summary: Faker::Hipster.paragraph(1),
   instructions: Faker::Hipster.paragraph(5),
-  origin: true,
-  user_id: 3
+  user_id: 3,
+  cost: 200,
+  time: 3,
+  material: Faker::Hipster.paragraph(1),
+  url: ''
  }])
 
 
@@ -285,7 +294,7 @@ puts "Re-creating ProjectUploads..."
 # ProjectwUpload
 
 ProjectUpload.create!([{
-  image_url: open_asset('diy.jpg'), 
+  image_url: open_asset('diy.jpg'),
   project_id: 2
 }])
 
@@ -294,7 +303,7 @@ puts "Re-creating ReviewUploads..."
 # REVIEWUPLOAD
 
 ReviewUpload.create([{
-  image_url: open_asset('diy.jpg'), 
+  image_url: open_asset('diy.jpg'),
   review_id: 2
 }])
 
