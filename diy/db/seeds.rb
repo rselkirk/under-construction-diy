@@ -13,6 +13,41 @@ def open_asset(file_name)
 end
 
 
+Comment.destroy_all
+ProjectTag.destroy_all
+ProjectUpload.destroy_all
+UserProject.destroy_all
+Rating.destroy_all
+Review.destroy_all
+Project.destroy_all
+ReviewUpload.destroy_all
+User.destroy_all
+
+# USERS
+
+puts "Re-creating Users ..."
+
+User.create!([{
+  first_name: 'Rachel',
+  last_name: 'S',
+  email: 'rachel@email.com',
+  password_digest: '$2a$10$KMWUaL935DPYkkrC0i/lZ.lqu7uM0E6pWqAx.O3hZH3epcIGjpIau'
+}])
+
+User.create!([{
+  first_name: 'Roxanne',
+  last_name: 'S',
+  email: 'roxanne@email.com',
+  password_digest: '$2a$10$KMWUaL935DPYkkrC0i/lZ.lqu7uM0E6pWqAx.O3hZH3epcIGjpIau'
+}])
+
+User.create!([{
+  first_name: 'Markus',
+  last_name: 'S',
+  email: 'markus@email.com',
+  password_digest: '$2a$10$KMWUaL935DPYkkrC0i/lZ.lqu7uM0E6pWqAx.O3hZH3epcIGjpIau'
+}])
+
 
 # PROJECTS
 
@@ -26,7 +61,7 @@ Project.create!([{
   user_id: 1
  }])
 
-Project.create!([{
+Project.create([{
   title: 'Family Picnic Table',
   summary: Faker::Hipster.paragraph(1),
   instructions: Faker::Hipster.paragraph(3),
@@ -34,7 +69,7 @@ Project.create!([{
   user_id: 2
  }])
 
-Project.create!([{
+Project.create([{
   title: 'Industrial Bookshelf',
   summary: Faker::Hipster.paragraph(1),
   instructions: Faker::Hipster.paragraph(5),
@@ -47,6 +82,7 @@ Project.create!([{
 
 puts "Re-creating Tags ..."
 
+
 tag1 = Tag.create!([{ name: 'woodworking'}])
 tag2 = Tag.create!([{ name: 'outdoor'}])
 tag2 = Tag.create!([{ name: 'furniture'}])
@@ -55,7 +91,7 @@ tag2 = Tag.create!([{ name: 'furniture'}])
 
 puts "Re-creating ProjectTags ..."
 
-ProjectTag.create([{
+ProjectTag.create!([{
    project_id: 1,
    tag_id:3
  }])
@@ -96,35 +132,35 @@ UserProject.create!([{
   saves: false
  }])
 
- UserProject.create!([{
+ UserProject.create([{
   user_id: 1,
   project_id:2,
   completes: true,
   saves: true
  }])
 
- UserProject.create!([{
+ UserProject.create([{
   user_id: 1,
   project_id:3,
   completes: true,
   saves: true
  }])
 
- UserProject.create!([{
+ UserProject.create([{
   user_id: 2,
   project_id:3,
   completes: true,
   saves: true
  }])
 
- UserProject.create!([{
+ UserProject.create([{
   user_id: 2,
   project_id:2,
   completes: true,
   saves: false
  }])
 
-  UserProject.create!([{
+  UserProject.create([{
   user_id: 3,
   project_id:1,
   completes: false,
@@ -134,7 +170,8 @@ UserProject.create!([{
 
 puts "Re-creating Comments..."
 
-Comment.create([{
+
+Comment.create!([{
   content: Faker::Hipster.paragraph(3),
   user_id: 1,
   project_id: 1
@@ -144,7 +181,9 @@ puts "Re-creating Rating..."
 
 # RATING
 
-Rating.create([{
+Rating.destroy_all
+
+Rating.create!([{
   rating: 2
 }])
 
@@ -173,7 +212,8 @@ Rating.create([{
 
 puts "Re-creating Reviews..."
 
-Review.create([{
+
+Review.create!([{
   content: Faker::Hipster.paragraph(3),
   time: 3,
   cost: 3,
@@ -238,9 +278,10 @@ Review.create([{
 
 puts "Re-creating ProjectUploads..."
 
+
 # ProjectwUpload
 
-ProjectUpload.create([{
+ProjectUpload.create!([{
   image_url: open_asset('diy.jpg'), 
   project_id: 1
 }])
@@ -253,7 +294,5 @@ ReviewUpload.create([{
   image_url: open_asset('diy.jpg'), 
   review_id: 2
 }])
-
-
 
 puts "DONE!"

@@ -4,15 +4,13 @@ ul {
 }
 
  .project_thumbnail {
-   margin-left: 2em;
-   margin-right: 2em;
+   display: inline-block;
  }
 
   .thumbnail_content {
   border: 1px solid black;
   border-radius: 8px;
-  margin: 3em;
-  display: inline-block;
+  margin: 2em;
  }
 
  .title {
