@@ -1,77 +1,94 @@
-div {
-  display: table;
-}
-
 .project-page {
-  width: 60%;
+  width: 50%;
   padding: 40px 0;
   margin: -30px auto 0 auto;
   box-sizing: border-box;
 }
 
 .project-content{
-
+  display: grid;
 }
-// top page/ user info
+// top page/user info
 .top-page{
   position: relative;
-  padding-left: 60px;
-  min-height: 48px;
 }
 
 .user-project-info {
-
+  padding: 3%;
 }
 
-.middle-page {
+.user-pic-size {
+  padding: 1%;
+  float: left;
+  border-radius: 50%;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 19%;
+  max-height: 100%;
+}
 
+.project-title {
+  font-size: 2.7em;
+  padding-left: 4%;
+}
+
+.project-by {
+  padding-left: 4%;
+}
+
+//middle page
+.mid-page {
+  width: 100%;
+  display: flex;
+  border-radius: 3px;
+  background-color: grey; 
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 
 // middle page left
-//note: shots will push right content; adjust the width
-
-.shots {
-  float: left;
-  width: 74%;
-  position: relative;
-  z-index: 1;
+//shots contains both both project pictures and its sub pictures
+.mid-left {
+  width: 700px;
+  min-height: 300px;
+  margin: 0 0 30px 0;
+  padding: 10px;
 }
 
+//note: project-pictures will push right content; adjust the width
 .project-pictures {
-  width: 130%;
-  margin: 0 0 30px 0;
+
+}
+
+.main-project-img {
+  max-width: 700px;
   padding: 20px;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  max-height: 600px;
 }
 
 .attach-pictures {
   display: inline-table;
-  margin: 20px 0 0 0;
+  padding: 20px 20px 0px 20px;
   min-height: 40px;
   background-repeat: no-repeat;
   background-position: 0 0; 
 }
 
-.main-project-img {
-  position: relative;
-  float: left;
-  width: 74.5454%;
-}
-
 .sub-project-img {
-  width: 10%
+  width: 20%
 }
-
 
 //midle page right
+.mid-right {
+  padding-top: 1.21%;
+  display: flex;
+  justify-content: space-around;
+  width: 314px;
+  flex-direction: column;
+}
 
 .complete-check {
   font-size: 12em;
-}
-
-.right-side {
-  padding-top: 1.21%
 }
 
 .share-bar {
@@ -108,17 +125,4 @@ div {
 .project-tabs {
 
 }
-
-.project-tabs > .instructions {
-
-}
-
-.project-tabs > .reviews {
-
-}
-
-.project-tabs > .tips-comments{
-
-}
-
 
