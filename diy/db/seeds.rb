@@ -12,7 +12,6 @@ def open_asset(file_name)
   File.open(Rails.root.join('db', 'seed_assets', file_name))
 end
 
-
 Comment.destroy_all
 ProjectTag.destroy_all
 ProjectUpload.destroy_all
@@ -47,7 +46,6 @@ User.create!([{
   email: 'markus@email.com',
   password_digest: '$2a$10$KMWUaL935DPYkkrC0i/lZ.lqu7uM0E6pWqAx.O3hZH3epcIGjpIau'
 }])
-
 
 # PROJECTS
 
@@ -91,6 +89,11 @@ tag2 = Tag.create!([{ name: 'furniture'}])
 
 puts "Re-creating ProjectTags ..."
 
+ProjectTag.create([{
+   project_id: 2,
+   tag_id:1
+ }])
+
 ProjectTag.create!([{
    project_id: 1,
    tag_id:3
@@ -127,7 +130,7 @@ puts "Re-creating UserProjects ..."
 
 UserProject.create!([{
   user_id: 1,
-  project_id:1,
+  project_id:2,
   completes: true,
   saves: false
  }])
@@ -174,7 +177,7 @@ puts "Re-creating Comments..."
 Comment.create!([{
   content: Faker::Hipster.paragraph(3),
   user_id: 1,
-  project_id: 1
+  project_id: 2
 }])
 
 puts "Re-creating Rating..."
@@ -217,7 +220,7 @@ Review.create!([{
   content: Faker::Hipster.paragraph(3),
   time: 3,
   cost: 3,
-  project_id: 1,
+  project_id: 2,
   user_id: 1,
   rating_id:1
 }])
@@ -283,7 +286,7 @@ puts "Re-creating ProjectUploads..."
 
 ProjectUpload.create!([{
   image_url: open_asset('diy.jpg'), 
-  project_id: 1
+  project_id: 2
 }])
 
 puts "Re-creating ReviewUploads..."
