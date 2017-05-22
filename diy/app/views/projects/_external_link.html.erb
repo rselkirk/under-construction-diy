@@ -1,11 +1,10 @@
 <%= form_for :project, url: '/projects' do |f| %>
-
   <ul class="button-group round">
     <li><a id="create_project" class="button">Create your own</a></li>
-    <li><a id ='external_link'class="button">Add a link</a></li>
+    <li><a id = "external_link"class="button">Add a link</a></li>
   </ul>
 
-<div id = "create_project_toggle" class="row">
+  <div id = "create_project_toggle" class="row">
     <div class="large-4 columns">
       <label>Title
         <%= f.text_field :title , placeholder: "Title" %>
@@ -51,29 +50,5 @@
     <td class="button postfix"><%= f.submit "Submit" %></td>
   
   </div>
-
-  <div id = "external_link_toggle" class="row">
-    <div class="large-4 columns">
-      <label>link
-        <%= f.text_field :url , placeholder: "https:" %>
-      </label>
-    </div>
-    <div class="large-4 columns">
-      <label>Title
-        <%= f.text_field :title , placeholder: "Title" %>
-      </label>
-    </div>
-    <div class="large-4 columns">
-      <label>Summary
-        <%= f.text_field :summary , placeholder: "Summary" %>
-      </label>
-    </div>
-    <div class="large-4 columns">
-      <label>Tags
-        <%= f.text_field :tags , placeholder: "Tags" %>
-      </label>
-    </div>
-    <td class="button postfix"><%= f.submit "Submit" %></td>
-  </div>
-
+  
 <% end %>
