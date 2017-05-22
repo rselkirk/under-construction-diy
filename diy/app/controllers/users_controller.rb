@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find params[:id]
+    @project = User_project.find.where
   end
 
   def new
@@ -19,12 +20,12 @@ class UsersController < ApplicationController
     end
 
 
-
   def destroy
     @user.destroy
   end
 
   private
+
   def user_params
     params.require(:product).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
