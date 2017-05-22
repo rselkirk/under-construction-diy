@@ -42,6 +42,7 @@ gem 'rmagick'
 gem 'font-awesome-sass'
 gem 'foundation-rails'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'faker'
 
 # bundle exec rake doc:rails generates the API under doc/api.

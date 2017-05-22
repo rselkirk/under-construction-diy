@@ -5,4 +5,6 @@ class Project < ApplicationRecord
   has_many :comments
   has_many :tags
 
+  mount_uploader :project_image, ProjectImageUploader
+
 end
