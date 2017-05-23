@@ -1,10 +1,12 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    # this dislays all projects starting with the most recently created
+    @projects = Project.all.order(created_at: :desc)
   end
 
   def new
+    # keep these 2 instance variables - they are needed for the 'add new project' form to work
     @project = Project.new
     @project_upload = ProjectUpload.new
   end
