@@ -4,17 +4,14 @@ ul {
 }
 
  .project_thumbnail {
-   margin-left: 2em;
-   margin-right: 2em;
+   display: inline-block;
  }
 
   .thumbnail_content {
   border: 1px solid black;
   border-radius: 8px;
-  margin: 3em;
-  display: inline-block;
+  margin: 2em;
  }
-
 
  .title {
   padding-top: 5px;
@@ -31,7 +28,6 @@ ul {
   margin: 10px;
  }
 
-
  .icon_group {
   border-top: 1px solid black;
   margin: 0px;
@@ -39,12 +35,6 @@ ul {
  }
 
  .favourite {
-  float: right;
-  padding-left: 3px;
-  padding-right: 3px;
- }
-
- .saves {
   float: right;
   padding-left: 3px;
   padding-right: 3px;

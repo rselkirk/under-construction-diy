@@ -6,4 +6,9 @@
   Password: <%= password_field_tag :password %>
   <%= submit_tag "Submit" %>
 
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+    </div>
+    
 <% end %>

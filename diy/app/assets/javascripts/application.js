@@ -15,5 +15,10 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require ./project/project-type
 
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(window).load(function() {
+    $(document).foundation();
+  });
+});
