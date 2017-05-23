@@ -1,0 +1,48 @@
+<%-# Project Info -%>
+
+  <td>
+  <%= image_tag @project_uploads[0].image_url%>
+  </td>
+  
+  <p># of Saves</p>
+  <dt>Title</dt>
+  <dd><%= @project.title %></dd>
+  <dt>Summary</dt>
+  <dd><%= @project.summary %></dd>
+  <dt>Instructions</dt>
+  <dd><%= @project.instructions %></dd>
+  <dt>Cost</dt>
+  <dd><%= @project.cost %></dd>
+  <dt>Time</dt>
+  <dd><%= @project.time %></dd>
+  <dt>Material</dt>
+  <dd><%= @project.material %></dd>
+  <dt>URL</dt>
+  <dd><%= @project.url %></dd>
+  
+<%-# Reviws are rendered to review partial  -%>
+<h2>Reviews</h2>
+  <% @project.reviews.reverse_each do |review| %>
+  <%= render 'review', review:review %>
+<% end %>
+
+<%-# This is the Review form for logged in users -%>
+  <% if current_user %>
+    <%= form_for [@project, @review] do |form| %>
+        <%= form.label :rating %>
+        <%= form.select(:rating) do %>
+        <% [1, 2, 3, 4, 5].each do |c| -%>
+          <%= content_tag(:option, c, value: c) %>
+        <% end %>
+      <% end %>
+        <%= form.label :content %>
+        <%= form.text_area :content, class: 'form-control' %>
+        <%= form.label :time %>
+        <%= form.text_area :time, class: 'form-control' %>
+        <%= form.label :cost %>
+        <%= form.text_area :cost, class: 'form-control' %>
+        
+      <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+

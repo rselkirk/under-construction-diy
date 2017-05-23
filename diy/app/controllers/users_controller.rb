@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find params[:id]
-    @project = User_project.find.where
+    @user_id = @current_user.id
+    @projects = Project.joins("join project_statuses on projects.id = project_statuses.project_id").where("project_statuses.saves='t' and project_statuses.user_id=#{@user_id}")
+  
   end
 
   def new
@@ -18,7 +20,6 @@ class UsersController < ApplicationController
         render :new
       end
     end
-
 
   def destroy
     @user.destroy

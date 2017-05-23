@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 
+  def index
+    @projects = Project.all
+  end
+
   def new
     @project = Project.new
     @project_upload = ProjectUpload.new
@@ -9,17 +13,17 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.new(project_params)
 
     if @project.save
-      # redirect_to user_path(current_user) #*** uncomment this after user_project.rb is corrected
-      redirect_to :root #*** temporary redirect - change this later
+      redirect_to user_path(current_user)
     else
       render :new
     end
   end
 
   def show
-    @project = Project.order(id: :desc).all
+    @project = Project.find params[:id]
+    @project_uploads = @project.project_uploads
+    @review = Review.new
   end
-
 
   private
 
