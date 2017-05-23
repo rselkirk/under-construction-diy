@@ -93,7 +93,7 @@ tag1 = Tag.create!([{ name: 'woodworking'}])
 tag2 = Tag.create!([{ name: 'outdoor'}])
 tag2 = Tag.create!([{ name: 'furniture'}])
 
-# ProjectTAGS
+# PROJECT-TAGS
 
 puts "Re-creating ProjectTags ..."
 
@@ -132,7 +132,7 @@ ProjectTag.create([{
   tag_id:3
 }])
 
-# USERSPROJECTS
+# PROJECT-STATUSES
 
 puts "Re-creating ProjectStatuses ..."
 
@@ -257,7 +257,7 @@ Review.create([{
 puts "Re-creating ProjectUploads..."
 
 
-# ProjectwUpload
+# PROJECT-UPLOADS
 
 ProjectUpload.create!([{
   image_url: open_asset('diy.jpg'),
@@ -266,7 +266,7 @@ ProjectUpload.create!([{
 
 puts "Re-creating ReviewUploads..."
 
-# REVIEWUPLOAD
+# REVIEW-UPLOADS
 
 ReviewUpload.create([{
   image_url: open_asset('diy.jpg'),
