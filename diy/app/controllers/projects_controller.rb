@@ -5,7 +5,6 @@ class ProjectsController < ApplicationController
   end
   
   def create
-
     @project = current_user.projects.new(project_params)
 
     if @project.save
@@ -14,6 +13,13 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @project = Project.find params[:id]
+    @project_uploads = @project.project_uploads
+    @review = Review.new
+  end
+  
 
   private
   
