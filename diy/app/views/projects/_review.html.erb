@@ -1,0 +1,12 @@
+  <Article>
+  <% if current_user && current_user.id == review.user_id %>
+    <%= link_to fa_icon('trash'), [review], class: 'btn btn-sm btn-danger review-delete pull-right', method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+    
+  <dt>By <%=review.user.first_name%> <%=review.user.last_name%> </dt>
+  Content<%= review.content %>
+  Time <%= review.time %>
+  Cost <%= review.cost %>
+
+  </Article>
+
