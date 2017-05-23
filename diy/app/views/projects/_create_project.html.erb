@@ -1,0 +1,50 @@
+<!-- Form for User-Created Project -->
+  <div id="create_project_toggle" class="row">
+  <%= form_for @project, html: { multipart: true } do |f| %>
+
+    <div class="small-12 columns">
+      <% f.fields_for :project_uploads, ProjectUpload.new do |ff| %>
+        <div class="field">
+          <%= ff.label :image_url %><br>
+          <%= ff.file_field :image_url, :multiple => true, name: "project[project_upload_attributes][][image_url]" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Title</label>
+      <%= f.text_field :title , placeholder: "Title" %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Summary</label>
+        <%= f.text_field :summary , placeholder: "Summary" %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Instructions</label>
+        <%= f.text_field :instructions , placeholder: "Instructions" %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Materials</label>
+        <%= f.text_field :material , placeholder: "Materials" %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Time</label>
+        <%= f.text_field :time , placeholder: "Time" %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Cost</label>
+        <%= f.text_field :cost , placeholder: "Cost" %>
+    </div>
+
+    <div class="small-12 columns">
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+<% end %>

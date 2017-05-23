@@ -3,8 +3,8 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :reviews
   has_many :comments
-  has_many :project_uploads
+  has_many :project_uploads, inverse_of: :project
 
-  mount_uploader :project_image, ProjectImageUploader
+  accepts_nested_attributes_for :project_uploads, allow_destroy: true
 
 end

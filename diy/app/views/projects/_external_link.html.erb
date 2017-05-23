@@ -1,54 +1,24 @@
-<%= form_for :project, url: '/projects' do |f| %>
-  <ul class="button-group round">
-    <li><a id="create_project" class="button">Create your own</a></li>
-    <li><a id = "external_link"class="button">Add a link</a></li>
-  </ul>
+<!-- Form for External Link Project -->
+  <div id="external_link_toggle" class="row">
+    <%= form_for :project, url: '/projects' do |f| %>
 
-  <div id = "create_project_toggle" class="row">
-    <div class="large-4 columns">
-      <label>Title
+    <div class="small-12 columns">
+      <label>Link</label>
+        <%= f.text_field :url , placeholder: "https:" %>
+    </div>
+
+    <div class="small-12 columns">
+      <label>Title</label>
         <%= f.text_field :title , placeholder: "Title" %>
-      </label>
     </div>
 
-    <div class="large-4 columns">
-      <label>Summary
+    <div class="small-12 columns">
+      <label>Summary</label>
         <%= f.text_field :summary , placeholder: "Summary" %>
-      </label>
     </div>
 
-    <div class="large-12 columns">
-      <label>Instructions
-        <%= f.text_field :instructions , placeholder: "Instructions" %>
-      </label>
+    <div class="small-12 columns">
+      <td class="button postfix"><%= f.submit "Submit" %></td>
     </div>
-
-    <div class="large-12 columns">
-      <label>Materials
-        <%= f.text_field :material , placeholder: "Materials" %>
-      </label>
-    </div>
-    
-    <div class="large-12 columns">
-      <label>Time
-        <%= f.text_field :time , placeholder: "Time" %>
-      </label>
-    </div>
-    
-    <div class="large-12 columns">
-      <label>Cost
-        <%= f.text_field :cost , placeholder: "Cost" %>
-      </label>
-    </div>
-    
-    <div class="large-12 columns">
-      <label>Tags
-        <%= f.text_field :tags , placeholder: "Tags" %>
-      </label>
-    </div>
-    
-    <td class="button postfix"><%= f.submit "Submit" %></td>
-  
+    <% end %>
   </div>
-  
-<% end %>
