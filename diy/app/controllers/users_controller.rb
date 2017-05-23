@@ -31,8 +31,4 @@ class UsersController < ApplicationController
     params.require(:product).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
-  def user_favourites
-    ProjectStatus.where(["user_id = ? and saves = ?", @current_user, true]).pluck("project_id")
-  end
-
 end
