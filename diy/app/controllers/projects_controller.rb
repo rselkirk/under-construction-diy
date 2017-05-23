@@ -1,5 +1,10 @@
 class ProjectsController < ApplicationController
 
+  def index
+    @projects = Project.all
+    puts @projects.inspect
+  end
+
   def new
     @projects = Project.order(id: :desc).all
   end

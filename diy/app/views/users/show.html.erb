@@ -1,24 +1,15 @@
 
 <h1>My Profile</h1>
-<p>show index of all my saved projects</p>
+<p>Here are your saved projects:</p>
 
-
-<div class="row">
+<div class="profile-row">
   <div class="medium-9 columns">
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-    <%= render 'layouts/project_thumbnail' %>
-</div>
+    <%= render(:partial => 'projects/project', :collection => @projects) %>
+  </div>
   <div class="medium-3 columns">
     <div class="profile-bar">
-      <p>content here</p>
+      <p>Profile</p>
+      <p>Hello, <%= current_user.first_name %>!</p>
     </div>
   </div>
 </div>

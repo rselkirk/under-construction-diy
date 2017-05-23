@@ -135,7 +135,7 @@ ProjectTag.create([{
 
 # USERSPROJECTS
 
-puts "Re-creating UserProjects ..."
+puts "Re-creating ProjectStatuses ..."
 
 UserProject.create!([{
   user_id: 1,

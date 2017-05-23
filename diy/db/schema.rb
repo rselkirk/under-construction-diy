@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521235018) do
+ActiveRecord::Schema.define(version: 20170522191004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170521235018) do
     t.integer  "project_id"
     t.index ["project_id"], name: "index_comments_on_project_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "project_statuses", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.boolean  "completes"
+    t.boolean  "saves"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_project_statuses_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_project_statuses_on_user_id", using: :btree
   end
 
   create_table "project_tags", force: :cascade do |t|
@@ -90,17 +101,6 @@ ActiveRecord::Schema.define(version: 20170521235018) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_projects", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "project_id"
-    t.boolean  "completes"
-    t.boolean  "saves"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_user_projects_on_project_id", using: :btree
-    t.index ["user_id"], name: "index_user_projects_on_user_id", using: :btree
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 20170521235018) do
 
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
+  add_foreign_key "project_statuses", "projects"
+  add_foreign_key "project_statuses", "users"
   add_foreign_key "project_tags", "projects"
   add_foreign_key "project_tags", "tags"
   add_foreign_key "project_uploads", "projects"
@@ -120,6 +122,4 @@ ActiveRecord::Schema.define(version: 20170521235018) do
   add_foreign_key "reviews", "projects"
   add_foreign_key "reviews", "ratings"
   add_foreign_key "reviews", "users"
-  add_foreign_key "user_projects", "projects"
-  add_foreign_key "user_projects", "users"
 end

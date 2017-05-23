@@ -4,5 +4,6 @@ class Project < ApplicationRecord
   has_many :reviews
   has_many :comments
   has_many :project_uploads
+  has_many :project_statuses
 
 end

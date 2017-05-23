@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find params[:id]
-    @project = User_project.find.where
+    @user_id = @current_user.id
+    @projects = Project.joins("join project_statuses on projects.id = project_statuses.project_id").where("project_statuses.saves='t' and project_statuses.user_id=#{@user_id}")
+  
   end
 
   def new
@@ -19,7 +21,6 @@ class UsersController < ApplicationController
       end
     end
 
-
   def destroy
     @user.destroy
   end
@@ -28,6 +29,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:product).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
+
+  def user_favourites
+    ProjectStatus.where(["user_id = ? and saves = ?", @current_user, true]).pluck("project_id")
   end
 
 end
