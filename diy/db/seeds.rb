@@ -16,7 +16,6 @@ Comment.destroy_all
 ProjectTag.destroy_all
 ProjectUpload.destroy_all
 UserProject.destroy_all
-Rating.destroy_all
 Review.destroy_all
 Project.destroy_all
 ReviewUpload.destroy_all
@@ -189,39 +188,6 @@ Comment.create!([{
   project_id: 2
 }])
 
-puts "Re-creating Rating..."
-
-# RATING
-
-Rating.destroy_all
-
-Rating.create!([{
-  rating: 2
-}])
-
-Rating.create([{
-  rating: 3
-}])
-
-Rating.create([{
-  rating: 1
-}])
-
-Rating.create([{
-  rating: 4
-}])
-Rating.create([{
-  rating: 1
-}])
-
-Rating.create([{
-  rating: 3
-}])
-
-Rating.create([{
-  rating: 2
-}])
-
 puts "Re-creating Reviews..."
 
 
@@ -231,7 +197,7 @@ Review.create!([{
   cost: 3,
   project_id: 2,
   user_id: 1,
-  rating_id:1
+  rating:1
 }])
 
 Review.create([{
@@ -240,7 +206,7 @@ Review.create([{
   cost: 3,
   project_id: 1,
   user_id: 2,
-  rating_id:2
+  rating:2
 }])
 
 Review.create([{
@@ -249,7 +215,7 @@ Review.create([{
   cost: 3,
   project_id: 2,
   user_id: 1,
-  rating_id:3
+  rating:3
 }])
 
 Review.create([{
@@ -258,7 +224,7 @@ Review.create([{
   cost: 3,
   project_id: 2,
   user_id: 2,
-  rating_id:4
+  rating:4
 }])
 
 Review.create([{
@@ -267,7 +233,7 @@ Review.create([{
   cost: 3,
   project_id: 3,
   user_id: 1,
-  rating_id:5
+  rating:5
 }])
 
 Review.create([{
@@ -276,7 +242,7 @@ Review.create([{
   cost: 3,
   project_id: 3,
   user_id: 2,
-  rating_id:6
+  rating:6
 }])
 
 Review.create([{
@@ -285,7 +251,7 @@ Review.create([{
   cost: 3,
   project_id: 3,
   user_id: 3,
-  rating_id:7
+  rating:7
 }])
 
 puts "Re-creating ProjectUploads..."
