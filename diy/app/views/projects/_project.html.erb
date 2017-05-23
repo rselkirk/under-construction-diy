@@ -1,0 +1,27 @@
+
+<article class="project_thumbnail">
+  <div class="thumbnail_content">
+    <div class="title"
+      <h3><%= project.title %></h3>
+    </div>
+    <div class="img">
+      <p>Image Here </p>
+      <a class="thumbnail-over" href="image link goes here"><a>
+        <span class="summary">
+        </span>
+    </div>
+    <footer>
+      <ul class="icon_group">
+        <li class="rating">
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        </li>
+        <li class="rating_count">(<%= project.reviews.count %>)</li>
+        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= ProjectStatus.where(["project_id = ? and saves = ?", project.id, true]).count %>)</li>
+      </ul>
+    </footer>
+   </div>
+</article>

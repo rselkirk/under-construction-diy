@@ -15,7 +15,7 @@ end
 Comment.destroy_all
 ProjectTag.destroy_all
 ProjectUpload.destroy_all
-UserProject.destroy_all
+ProjectStatus.destroy_all
 Review.destroy_all
 Project.destroy_all
 ReviewUpload.destroy_all
@@ -134,44 +134,44 @@ ProjectTag.create([{
 
 # USERSPROJECTS
 
-puts "Re-creating UserProjects ..."
+puts "Re-creating ProjectStatuses ..."
 
-UserProject.create!([{
+ProjectStatus.create!([{
   user_id: 1,
   project_id:2,
   completes: true,
   saves: false
  }])
 
- UserProject.create([{
+ ProjectStatus.create([{
   user_id: 1,
   project_id:2,
   completes: true,
   saves: true
  }])
 
- UserProject.create([{
+ ProjectStatus.create([{
   user_id: 1,
   project_id:3,
   completes: true,
   saves: true
  }])
 
- UserProject.create([{
+ ProjectStatus.create([{
   user_id: 2,
   project_id:3,
   completes: true,
   saves: true
  }])
 
- UserProject.create([{
+ ProjectStatus.create([{
   user_id: 2,
   project_id:2,
   completes: true,
   saves: false
  }])
 
-  UserProject.create([{
+  ProjectStatus.create([{
   user_id: 3,
   project_id:1,
   completes: false,
