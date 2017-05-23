@@ -1,5 +1,11 @@
+<ul>
+  <li><a id="create_project" class="button">Create your own</a></li>
+  <li class="divider"></li>
+  <li><a id="external_link" class="button">Add a link</a></li>
+</ul>
+
 <!-- Form for User-Created Project -->
-<div id="create_project_toggle">
+<div id="create_project_toggle" class="row">
   <%= form_for @project, html: { multipart: true } do |f| %>
 
     <div class="small-12 columns">
@@ -50,7 +56,7 @@
 </div>
 
 <!-- Form for External Link Project -->
-<div id="external_link_toggle">
+<div id="external_link_toggle" class="row">
   <%= form_for :project, url: '/projects' do |f| %>
 
   <div class="small-12 columns">
