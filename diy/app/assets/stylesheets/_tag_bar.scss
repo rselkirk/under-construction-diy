@@ -1,0 +1,31 @@
+//position relative will hide scroll bar
+.tag-bar-container{
+  position: relative;
+  margin: 0px auto;
+}
+
+.tag-bar-wrapper {
+  overflow: auto; 
+  padding: 0;
+}
+
+//having 2 flex somehow makes this scroll sideways
+
+.tag-bar-wrapper-flex {
+   height: 60px;
+  display: flex;
+}
+
+.tag-word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  height: 56px;
+  width: 90px;
+  margin: 0 5px;
+  background-size: cover;
+  white-space: nowrap;
+  background-color: green;
+  border-radius: 20px;
+}
