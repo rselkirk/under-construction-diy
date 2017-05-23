@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :reviews
   has_many :comments
+  has_many :project_statuses
 
   validates :first_name, presence: true
   validates :last_name, presence: true

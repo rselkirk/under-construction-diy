@@ -1,5 +1,9 @@
 class ProjectsController < ApplicationController
 
+  def index
+    @projects = Project.all
+  end
+
   def new
     @projects = Project.order(id: :desc).all
   end
@@ -20,7 +24,6 @@ class ProjectsController < ApplicationController
     @review = Review.new
   end
   
-
   private
   
   def project_params
