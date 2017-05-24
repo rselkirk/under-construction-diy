@@ -410,4 +410,3 @@ project_uploads_array =
 project_uploads_array.each do |i|                                                                                             
   ProjectUpload.create i                                                        
 end
-
