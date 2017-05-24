@@ -11,7 +11,7 @@
   <dl>
     <dd># of Saves</dd>
     <dt>Avg Rating</dt>
-    <dd><%= @project.reviews.average(:rating).to_i %></dd>
+    <dd><%= @project.avg_rating %></dd>
     <dt>Title</dt>
     <dd><%= @project.title %></dd>
     <dt>Summary</dt>

@@ -21,7 +21,7 @@
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <i class="fa fa-star-o" aria-hidden="true"></i>
-          <%= project.reviews.average(:rating).to_i %>
+          <%= project.avg_rating %>
         </li>
         <li class="rating_count">(<%= project.reviews.length %>)</li>
         <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i>
