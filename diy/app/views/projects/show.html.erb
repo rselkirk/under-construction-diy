@@ -1,24 +1,41 @@
-<%-# Project Info -%>
+<%-# the Save/Unsave button -%>
+<%= form_for [@project, @project_status] do |f| %>
+  <%= f.hidden_field :saves %>
+  <%= f.submit "Save/Unsave" %>
+<% end %>
 
-  <td>
-  <%= image_tag @project_uploads[0].image_url%>
-  </td>
-  
-  <p># of Saves</p>
-  <dt>Title</dt>
-  <dd><%= @project.title %></dd>
-  <dt>Summary</dt>
-  <dd><%= @project.summary %></dd>
-  <dt>Instructions</dt>
-  <dd><%= @project.instructions %></dd>
-  <dt>Cost</dt>
-  <dd><%= @project.cost %></dd>
-  <dt>Time</dt>
-  <dd><%= @project.time %></dd>
-  <dt>Material</dt>
-  <dd><%= @project.material %></dd>
-  <dt>URL</dt>
-  <dd><%= @project.url %></dd>
+<%-# Completed/Uncompleted button -%>
+<%= form_for [@project, @project_status] do |f| %>
+  <%= f.hidden_field :completes %>
+  <%= f.submit "Completed?" %>
+<% end %>
+
+<%-# Project's Images -%>
+<td>
+  <%= image_tag @project_uploads.each do |img| %>
+  <%= image_tag img.image_url %>
+  <% end %>
+</td>
+
+<%-# Project's Data -%>
+<p># of Saves</p>
+<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>
+<p># of Completed</p>
+<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>
+<dt>Title</dt>
+<dd><%= @project.title %></dd>
+<dt>Summary</dt>
+<dd><%= @project.summary %></dd>
+<dt>Instructions</dt>
+<dd><%= @project.instructions %></dd>
+<dt>Cost</dt>
+<dd><%= @project.cost %></dd>
+<dt>Time</dt>
+<dd><%= @project.time %></dd>
+<dt>Material</dt>
+<dd><%= @project.material %></dd>
+<dt>URL</dt>
+<dd><%= @project.url %></dd>
   
 <%-# Reviws are rendered to review partial  -%>
 <h2>Reviews</h2>
@@ -26,7 +43,7 @@
   <%= render 'review', review:review %>
 <% end %>
 
-<%-# This is the Review form for logged in users -%>
+<%-# User's Review form for logged in users -%>
   <% if current_user %>
     <%= form_for [@project, @review] do |form| %>
         <%= form.label :rating %>
