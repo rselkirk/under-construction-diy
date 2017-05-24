@@ -12,4 +12,5 @@ class Review < ApplicationRecord
   # validates :user_id, presence: true
   # validates :cost, presence: true
 
+
 end
