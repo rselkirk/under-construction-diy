@@ -4,11 +4,14 @@
     <div class="title"
       <h3><%= link_to project.title, project_path(project.id) %></h3>
     </div>
-    <div class="img">
-      <p>Image Here </p>
-      <a class="thumbnail-over" href="image link goes here"><a>
-        <span class="summary">
-        </span>
+    <div class="img-container">
+      <a class="thumbnail-over" href="<%= project_path(project.id) %>">
+        <% if project.project_uploads.blank? %>
+          <p>No image for this project</p>
+        <% else %>
+          <%= image_tag project.project_uploads[0].image_url, class: "thumbnail_lg" %>
+        <% end %>
+      </a>
     </div>
     <footer>
       <ul class="icon_group">
@@ -18,9 +21,11 @@
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <i class="fa fa-star-o" aria-hidden="true"></i>
+          <%= project.reviews.average(:rating).to_i %>
         </li>
-        <li class="rating_count">(<%= project.reviews.count %>)</li>
-        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= ProjectStatus.where(["project_id = ? and saves = ?", project.id, true]).count %>)</li>
+        <li class="rating_count">(<%= project.reviews.length %>)</li>
+        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i>
+        (<%= project.project_statuses.saved.length %>)</li>
       </ul>
     </footer>
    </div>

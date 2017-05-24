@@ -13,19 +13,28 @@ ul {
   margin: 2em;
  }
 
+ .thumbnail_lg {
+ max-width: 11.8 em;
+ max-height: 10.8 em;
+
+ }
+
  .title {
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
  }
 
-.img {
-  border: 1px solid black;
+.img-container {
+  border: 1px grey;
   border-radius: 8px;
   width: 12em;
-  height: 11em;
-  padding: 5px;
+  height: 12em;
   margin: 10px;
+  overflow: hidden;
+    img {
+    width: 100%;
+    }
  }
 
  .icon_group {
