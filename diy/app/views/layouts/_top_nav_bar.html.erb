@@ -7,13 +7,14 @@
       </div>
 
       <div>
+        <!-- Left Nav Section -->
         <div class="top-bar-left">
           <ul class="menu">
             <li><input type="search" placeholder="Search"></li>
             <li><button type="button" class="button">Search</button></li>
           </ul>
         </div>
-
+        <!-- Right Nav Section -->
         <div class="top-bar-right">
           <ul class="dropdown menu" data-dropdown-menu>
             <% if current_user %>
@@ -21,7 +22,8 @@
                 <span class="fa fa-user-circle-o fa-2x"></span>
                 <ul class="submenu menu vertical" data-submenu>
                   <li><%= link_to 'Profile', user_path(current_user)%></li>
-                  <li><%= link_to 'Logout', '/logout' %></li>
+                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                  <li><%= link_to 'Logout', logout_path %></li>
                 </ul>
               </li>
 
@@ -29,20 +31,14 @@
               <li class="has-submenu">
                 <a href="#">Login</a>
                 <ul class="submenu menu vertical" data-submenu>
-                  <li><%= link_to 'Login', '/login' %></li>
-                  <li><%= link_to 'Signup', '/signup' %></li>
+                  <li><%= link_to 'Login', login_path %></li>
+                  <li><%= link_to 'Signup', signup_path %></li>
                 </ul>
               </li>
             <% end %>
-
-            <li class="has-submenu">
-              <a href="#">Add Project</a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="#">Add Link</a></li>
-                <li><a href="/projects/new">Create New</a></li>
-              </ul>
-            </li>
-          </ul><!-- /dropdown menu -->
+            <li class="divider"></li>
+            <li><%= link_to 'Add Project', new_project_path %></li>
+          </ul>
         </div><!-- /top-bar-right -->
       </div>
     </div><!-- /top-bar -->

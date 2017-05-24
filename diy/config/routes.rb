@@ -5,9 +5,13 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :reviews, only: [:create]
+    resources :project_statuses, only: [:create, :update]
+    member do
+      put "like" => "projet#vote"
+    end
   end
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
