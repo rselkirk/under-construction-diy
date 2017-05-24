@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
