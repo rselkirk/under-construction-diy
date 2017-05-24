@@ -22,6 +22,7 @@
                 <span class="fa fa-user-circle-o fa-2x"></span>
                 <ul class="submenu menu vertical" data-submenu>
                   <li><%= link_to 'Profile', user_path(current_user)%></li>
+                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                   <li><%= link_to 'Logout', logout_path %></li>
                 </ul>
               </li>

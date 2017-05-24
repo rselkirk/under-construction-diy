@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   
