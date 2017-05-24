@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
     @project = Project.find params[:id]
     @project_uploads = @project.project_uploads
     @review = Review.new
+    @project_status = ProjectStatus.find_by(project_id: @project.id)
+    puts @project_status.inspect
   end
 
   private
