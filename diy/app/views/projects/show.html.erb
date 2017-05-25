@@ -1,14 +1,17 @@
-<%-# Save/Unsave button -%>
-  <%= form_for [@project, @project_status] do |f| %>
-    <%= f.hidden_field :saves %>
-    <%= f.submit "Save/Unsave" %>
-  <% end %>
+<%-# the Save/Unsave button -%>
+<div id="saves-count"><%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }
+ %></div>
+
+<h6>Number of Saved Projects</h6>
+<div id="saves-count-show"><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></div>
+
 
 <%-# Completed/Uncompleted button -%>
-  <%= form_for [@project, @project_status] do |f| %>
-    <%= f.hidden_field :completes %>
-    <%= f.submit "Completed?" %>
-  <% end %>
+<div id="completes-count"><%= button_to "Complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } } %></div>
+
+<h6>Number of Completed Projects</h6>
+<div id="completes-count-show"><%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %></div>
+
 
 <%-# Project Images -%>
   <div>
@@ -21,11 +24,8 @@
   <% end %>
   <div>
 
+
 <%-# Project Details -%>
-<dt># of Saves</dt>
-<dd><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></dd>
-<dt># of Completed</dt>
-<dd><%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %></dd>
 <dt>Avg Rating</dt>
 <dd><%= @project.avg_rating %></dd>
 <dt>Title</dt>
@@ -43,11 +43,13 @@
 <dt>URL</dt>
 <dd><%= @project.url %></dd>
 
+
 <%-# Reviews are rendered to review partial  -%>
   <h2>Reviews</h2>
   <% @project.reviews.reverse_each do |review| %>
     <%= render 'review', review:review %>
   <% end %>
+
 
 <%-# Review form displays only to logged in users -%>
   <% if current_user %>
@@ -77,4 +79,3 @@
       <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
-
