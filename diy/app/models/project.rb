@@ -9,4 +9,8 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :project_uploads, allow_destroy: true
 
+  def update_average_rating
+    update_attribute(:avg_rating, ((self.reviews.average(:rating)*2).ceil.to_f / 2))
+  end
+
 end
