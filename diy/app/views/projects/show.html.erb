@@ -1,27 +1,33 @@
-<%-# the Save/Unsave button -%>
-<%= form_for [@project, @project_status] do |f| %>
-  <%= f.hidden_field :saves %>
-  <%= f.submit "Save/Unsave" %>
-<% end %>
+<%-# Save/Unsave button -%>
+  <%= form_for [@project, @project_status] do |f| %>
+    <%= f.hidden_field :saves %>
+    <%= f.submit "Save/Unsave" %>
+  <% end %>
 
 <%-# Completed/Uncompleted button -%>
-<%= form_for [@project, @project_status] do |f| %>
-  <%= f.hidden_field :completes %>
-  <%= f.submit "Completed?" %>
-<% end %>
-
-<%-# Project's Images -%>
-<td>
-  <%= image_tag @project_uploads.each do |img| %>
-  <%= image_tag img.image_url %>
+  <%= form_for [@project, @project_status] do |f| %>
+    <%= f.hidden_field :completes %>
+    <%= f.submit "Completed?" %>
   <% end %>
-</td>
 
-<%-# Project's Data -%>
-<p># of Saves</p>
-<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>
-<p># of Completed</p>
-<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>
+<%-# Project Images -%>
+  <div>
+  <% if @project_uploads.blank? %>
+    <p><em>No image for this project</em></p>
+  <% else %>
+    <%= image_tag @project_uploads.each do |img| %>
+      <%= image_tag img.image_url %>
+    <% end %>
+  <% end %>
+  <div>
+
+<%-# Project Details -%>
+<dt># of Saves</dt>
+<dd><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></dd>
+<dt># of Completed</dt>
+<dd><%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %></dd>
+<dt>Avg Rating</dt>
+<dd><%= @project.avg_rating %></dd>
 <dt>Title</dt>
 <dd><%= @project.title %></dd>
 <dt>Summary</dt>
@@ -36,30 +42,39 @@
 <dd><%= @project.material %></dd>
 <dt>URL</dt>
 <dd><%= @project.url %></dd>
-  
-<%-# Reviws are rendered to review partial  -%>
-<h2>Reviews</h2>
-  <% @project.reviews.reverse_each do |review| %>
-  <%= render 'review', review:review %>
-<% end %>
 
-<%-# User's Review form for logged in users -%>
+<%-# Reviews are rendered to review partial  -%>
+  <h2>Reviews</h2>
+  <% @project.reviews.reverse_each do |review| %>
+    <%= render 'review', review:review %>
+  <% end %>
+
+<%-# Review form displays only to logged in users -%>
   <% if current_user %>
-    <%= form_for [@project, @review] do |form| %>
-        <%= form.label :rating %>
-        <%= form.select(:rating) do %>
+    <%= form_for [@project, @review], html: { multipart: true } do |form| %>
+
+      <%= form.label :rating %>
+      <%= form.select(:rating) do %>
         <% [1, 2, 3, 4, 5].each do |c| -%>
           <%= content_tag(:option, c, value: c) %>
         <% end %>
       <% end %>
-        <%= form.label :content %>
-        <%= form.text_area :content, class: 'form-control' %>
-        <%= form.label :time %>
-        <%= form.text_area :time, class: 'form-control' %>
-        <%= form.label :cost %>
-        <%= form.text_area :cost, class: 'form-control' %>
-        
+
+      <%= form.label :content %>
+      <%= form.text_area :content, class: 'form-control' %>
+
+      <%= form.label :time %>
+      <%= form.text_area :time, class: 'form-control' %>
+
+      <%= form.label :cost %>
+      <%= form.text_area :cost, class: 'form-control' %>
+
+      <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
+        <%= ff.label :image %><br>
+        <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
+      <% end %>
+
       <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
+    <% end %>
   <% end %>
-<% end %>
 
