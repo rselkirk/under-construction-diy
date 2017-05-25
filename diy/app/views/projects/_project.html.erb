@@ -19,8 +19,8 @@
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <i class="fa fa-star-o" aria-hidden="true"></i>
         </li>
-        <li class="rating_count">(<%= project.reviews.count %>)</li>
-        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= ProjectStatus.where(["project_id = ? and saves = ?", project.id, true]).count %>)</li>
+        <li class="rating_count">(<%= project.review_count %>)</li>
+        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= project.save_count %>)</li>
       </ul>
     </footer>
    </div>
