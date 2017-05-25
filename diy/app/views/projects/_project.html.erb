@@ -23,9 +23,8 @@
           <i class="fa fa-star-o" aria-hidden="true"></i>
           <%= project.avg_rating %>
         </li>
-        <li class="rating_count">(<%= project.reviews.length %>)</li>
-        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i>
-        (<%= project.project_statuses.saved.length %>)</li>
+        <li class="rating_count">(<%= project.review_count %>)</li>
+        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= project.save_count %>)</li>
       </ul>
     </footer>
    </div>
