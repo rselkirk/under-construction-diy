@@ -1,4 +1,4 @@
-<h1>projects Search</h1>
+<h1>Search For a Project!</h1>
 
 <%= form_for search_path, method: :get do |f| %>
   <p>
@@ -15,6 +15,6 @@
         <%= link_to project.title, controller: "projects", action: "show", id: project.id%>
       </h3>
     </li>
+    <%= will_paginate @projects %>
   <% end %>
-  <%= will_paginate @projects %>
 </ul>

@@ -14,11 +14,6 @@ class Project < ApplicationRecord
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-end
-
-Project.import force: true
-
-@projects = Project.search('foobar').records
 
   def update_average_rating
     update_attribute(:avg_rating, ((self.reviews.average(:rating)*2).ceil.to_f / 2))
@@ -43,5 +38,9 @@ Project.import force: true
   def update_average_time
     update_attribute(:avg_time, (self.reviews.average(:time)))
   end
-
 end
+
+
+Project.import force: true
+
+@projects = Project.search('foobar').records

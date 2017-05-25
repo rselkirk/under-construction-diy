@@ -30,12 +30,11 @@ rails s -p 8080
 * ...
 
 * Search set up
-## First start by installing the new version of Java on your Vagrant 
-## apt-get install software-properties-common
+## First start with 'bundle install'
+## Then install the new version of Java on your Vagrant 
+## sudo apt-get install software-properties-common
 ## followed by 
 ## sudo add-apt-repository ppa:webupd8team/java
-
-## remember to bundle install the new gems inside that file
 
 ## then go to the elastic search side and download Elastic Search FILE 
 ## https://www.elastic.co/downloads/elasticsearch
