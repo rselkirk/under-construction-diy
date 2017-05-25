@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :project_statuses, only: [:update]
   end
 
+  get 'search', to: 'search#search'
+
   resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
