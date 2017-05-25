@@ -18,7 +18,7 @@
   <% if @project_uploads.blank? %>
     <p><em>No image for this project</em></p>
   <% else %>
-    <%= image_tag @project_uploads.each do |img| %>
+    <% @project_uploads.each do |img| %>
       <%= image_tag img.image_url %>
     <% end %>
   <% end %>

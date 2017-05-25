@@ -2,7 +2,7 @@ class Review < ApplicationRecord
 
   belongs_to :project
   belongs_to :user
-  has_many :review_uploads, inverse_of: :review
+  has_many :review_uploads, inverse_of: :review, dependent: :destroy
 
   accepts_nested_attributes_for :review_uploads, allow_destroy: true
 
@@ -12,7 +12,7 @@ class Review < ApplicationRecord
   # validates :user_id, presence: true
   # validates :cost, presence: true
 
-
+  # after_commit :remove_review_uploads!, on: :destroy
   after_create :update_project_average_rating, :update_project_review_count, :update_project_complete_count, :update_project_save_count, :update_project_average_cost, :update_project_average_time
 
 
