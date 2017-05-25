@@ -7,8 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Seeding Data ..."
 
-# Helper functions
-
 
 Comment.destroy_all
 ProjectTag.destroy_all
