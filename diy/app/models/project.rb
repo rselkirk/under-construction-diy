@@ -1,3 +1,6 @@
+require 'elasticsearch/model'
+
+
 class Project < ApplicationRecord
   # acts_as_votable
   
@@ -9,4 +12,10 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :project_uploads, allow_destroy: true
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 end
+
+Project.import force: true
+
+@projects = Project.search('foobar').records

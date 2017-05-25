@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'search', to: 'search#search'
+
   resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
