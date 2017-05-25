@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @current_user = User.find params[:id]
     @user_id = @current_user.id
     @projects = Project.joins("join project_statuses on projects.id = project_statuses.project_id").where("project_statuses.saves='t' and project_statuses.user_id=#{@user_id}")
-  
   end
 
   def new
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        redirect_to '/'
+        render :show
       else
         flash.now[:error] = @user.errors.full_messages.first(5).join(', ')
         render :new
