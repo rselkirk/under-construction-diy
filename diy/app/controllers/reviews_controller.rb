@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
 
-  def new 
+  def new
     @review = Review.new
+    @review_upload = ReviewUpload.new
   end
-  
+
   def create
     @project = Project.find(params[:project_id])
     # @review = Review.new(review_params)
@@ -16,7 +17,8 @@ class ReviewsController < ApplicationController
     @review.cost = review_params[:cost]
 
     if @review.save
-      redirect_to project_path(@project), notice: 'Review was successfully created.'
+      #*** add flash messages for errors as well
+      redirect_to project_path(@project), :notice => 'Review was successfully created.'
     else
       redirect_to project_path(@project)
     end
@@ -35,7 +37,13 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :time, :cost, :rating)
+    params.require(:review).permit(
+      :content,
+      :time,
+      :cost,
+      :rating,
+      review_uploads_attributes: [:id, :review_id, :image_url]
+    )
   end
-  
+
 end

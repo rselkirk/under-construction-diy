@@ -2,8 +2,9 @@ require 'elasticsearch/model'
 
 
 class Project < ApplicationRecord
-  # acts_as_votable
-  
+
+  attr_accessor :avg_rating
+
   belongs_to :user
   has_many :reviews
   has_many :comments

@@ -1,16 +1,19 @@
 class Review < ApplicationRecord
-  
+
   belongs_to :project
   belongs_to :user
-  has_many :review_uploads
-  
+  has_many :review_uploads, inverse_of: :review, dependent: :destroy
+
+  accepts_nested_attributes_for :review_uploads, allow_destroy: true
+
   after_create :update_project_average_rating, :update_project_review_count, :update_project_complete_count, :update_project_save_count, :update_project_average_cost, :update_project_average_time
-  
-  validates :content, presence: true
-  validates :project_id, presence: true
-  validates :user_id, presence: true
-  validates :time, presence: true
-  validates :cost, presence: true
+
+  #*** Removed these validations for testing. Uncomment before deploying to production.
+  # validates :content, presence: true
+  # validates :project_id, presence: true
+  # validates :user_id, presence: true
+  # validates :time, presence: true
+  # validates :cost, presence: true
 
 
   def update_project_average_rating
@@ -37,5 +40,4 @@ class Review < ApplicationRecord
     self.project.update_average_time
   end
 
-  
 end
