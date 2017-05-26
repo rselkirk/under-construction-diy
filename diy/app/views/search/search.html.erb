@@ -1,0 +1,20 @@
+<h1>Search For a Project!</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <p>
+    <%= f.label "Search for" %>
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Go ", name: nil %>
+  </p>
+<% end %>
+
+<ul class="search-results">
+  <% @projects.each do |project| %>
+    <li>
+      <h3>
+        <%= link_to project.title, controller: "projects", action: "show", id: project.id%>
+      </h3>
+    </li>
+    <%= will_paginate @projects %>
+  <% end %>
+</ul>
