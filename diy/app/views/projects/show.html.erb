@@ -1,13 +1,16 @@
+<% if current_user %>
 <%-# the Save/Unsave button -%>
 <div id="saves-count"><%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }
  %></div>
+<% end %>
 
 <h6>Number of Saved Projects</h6>
 <div id="saves-count-show"><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></div>
 
-
+<% if current_user %>
 <%-# Completed/Uncompleted button -%>
 <div id="completes-count"><%= button_to "Complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } } %></div>
+<% end %>
 
 <h6>Number of Completed Projects</h6>
 <div id="completes-count-show"><%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %></div>

@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
     @project = Project.find params[:id]
     @project_uploads = @project.project_uploads
     @review = Review.new
-    @project_status = ProjectStatus.where(project_id: @project.id, user_id: current_user.id).first_or_create
+    @project_status = ProjectStatus.where(project_id: @project.id).first_or_create
     puts @project_status.inspect
   end
 
