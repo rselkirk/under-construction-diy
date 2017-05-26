@@ -1,6 +1,5 @@
 require 'elasticsearch/model'
 
-
 class Project < ApplicationRecord
 
   attr_accessor :avg_rating
