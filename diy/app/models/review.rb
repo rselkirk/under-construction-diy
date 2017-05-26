@@ -9,6 +9,7 @@ class Review < ApplicationRecord
   validates :content, presence: true
   validates :project_id, presence: true
   validates :user_id, presence: true
+  validates :time, presence: true
   validates :cost, presence: true
 
 
