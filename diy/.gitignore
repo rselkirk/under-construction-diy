@@ -21,4 +21,4 @@
 .byebug_history
 
 # Ignore uploads in file system during development and testing
-/public/uploads/*
+/public/uploads

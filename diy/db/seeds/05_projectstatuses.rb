@@ -1,4 +1,4 @@
-# PROJECTSTATUSES
+# PROJECT_STATUSES
 
 puts "Re-creating ProjectStatuses ..."
 
@@ -67,4 +67,4 @@ ProjectStatus.create!(
       project_id: proj_3,
       completes: completes,
       saves: saves)
-end 
+end
