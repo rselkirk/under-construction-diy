@@ -1,4 +1,4 @@
-# ProjectTAGS
+# PROJECT_TAGS
 
 puts "Re-creating ProjectTags ..."
 

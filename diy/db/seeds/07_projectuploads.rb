@@ -1,4 +1,4 @@
-# ProjectwUpload
+# PROJECT_UPLOADS
 
 puts "Re-creating ProjectUploads..."
 
