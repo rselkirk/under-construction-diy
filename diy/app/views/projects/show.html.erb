@@ -1,4 +1,5 @@
 <% if current_user %>
+
 <%-# the Save/Unsave button -%>
 <div id="saves-count"><%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }
  %></div>
