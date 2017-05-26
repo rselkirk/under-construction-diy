@@ -6,14 +6,14 @@ class Review < ApplicationRecord
 
   accepts_nested_attributes_for :review_uploads, allow_destroy: true
 
-  #*** Removed these validations for testing
+  after_create :update_project_average_rating, :update_project_review_count, :update_project_complete_count, :update_project_save_count, :update_project_average_cost, :update_project_average_time
+
+  #*** Removed these validations for testing. Uncomment before deploying to production.
   # validates :content, presence: true
   # validates :project_id, presence: true
   # validates :user_id, presence: true
+  # validates :time, presence: true
   # validates :cost, presence: true
-
-  # after_commit :remove_review_uploads!, on: :destroy
-  after_create :update_project_average_rating, :update_project_review_count, :update_project_complete_count, :update_project_save_count, :update_project_average_cost, :update_project_average_time
 
 
   def update_project_average_rating
