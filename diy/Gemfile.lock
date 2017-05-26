@@ -49,6 +49,7 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bonsai-elasticsearch-rails (0.0.4)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.1.0)
@@ -221,6 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bonsai-elasticsearch-rails
   byebug
   carrierwave
   coffee-rails (~> 4.2)
