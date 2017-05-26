@@ -17,9 +17,11 @@ Things you may want to cover:
 * Database initialization
 
 * How to run the server
+run elastic search server first: bin/elastic search
 rails s -p 8080
 
-* Run `bundle install` to install dependenciesR
+
+* Run `bundle install` to install dependencies
 
 * How to run the test suite
 
