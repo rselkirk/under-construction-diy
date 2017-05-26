@@ -13,9 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require_tree .
+// require_tree .
 //= require ./project/project-type
 //= require scroller
+// require ./project/saves-completes-counter
 
 $(function(){
   $(window).load(function() {
