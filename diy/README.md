@@ -24,6 +24,7 @@ rails s -p 8080
 * Run `bundle install` to install dependencies
 
 * How to run the test suite
+bundle exec rspec
 
 * Services (job queues, cache servers, search engines, etc.)
 
