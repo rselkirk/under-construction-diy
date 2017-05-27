@@ -407,6 +407,6 @@ project_uploads_array =
 }
 ]
 
-project_uploads_array.each do |i|
-  ProjectUpload.create i
+project_uploads_array.each do |image|
+  ProjectUpload.create image
 end
