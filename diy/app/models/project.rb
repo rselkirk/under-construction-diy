@@ -3,7 +3,17 @@ require 'elasticsearch/model'
 
 class Project < ApplicationRecord
   include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model::Callbacks
+
+  after_commit ->{ __elasticsearch__.index_document }, on: :create
+  after_commit ->{ __elasticsearch__.update_document }, on: :update
+  after_commit ->{
+    begin
+      __elasticsearch__.delete_document
+    rescue Elasticsearch::Transport::Transport::Errors::NotFound
+      nil
+    end
+  }, on: :destroy
 
   attr_accessor :avg_rating
 
