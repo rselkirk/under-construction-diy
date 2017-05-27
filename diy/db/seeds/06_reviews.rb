@@ -3,7 +3,7 @@
 puts "Re-creating Reviews..."
 
 
-Review.create!(
+Review.create(
   content: Faker::Hipster.paragraph(3),
   time: 3,
   cost: 3,
@@ -81,7 +81,7 @@ Review.create(
       user_id: user_id,
       rating: rating_1
     )
-    Review.create!(
+    Review.create(
       content: content,
       time: time_2,
       cost: cost_2,
@@ -89,7 +89,7 @@ Review.create(
       user_id: user_id,
       rating: rating_2
     )
-    Review.create!(
+    Review.create(
       content: content,
       time: time_3,
       cost: cost_3,

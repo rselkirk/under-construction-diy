@@ -20,7 +20,7 @@ class ProjectStatusesController < ApplicationController
                        :completes => ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count}
     else
       render :'projects/show'
-  end
+    end
   end
   
   private

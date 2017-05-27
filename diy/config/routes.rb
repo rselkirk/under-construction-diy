@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: 'projects#index'
+  root to: 'search#search'
+
+  get 'tags/:tag', to: 'projects#index', as: :tag
 
   resources :projects do
     resources :reviews, only: [:create]
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
-  
+
   resources :sessions
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
