@@ -3,7 +3,7 @@
 puts "Re-creating Reviews..."
 
 
-Review.create!(
+Review.create(
   content: Faker::Hipster.paragraph(3),
   time: 3,
   cost: 3,

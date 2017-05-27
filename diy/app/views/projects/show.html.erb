@@ -18,15 +18,15 @@
 
 
 <%-# Project Images -%>
-  <div>
-  <% if @project_uploads.blank? %>
-    <p><em>No image for this project</em></p>
-  <% else %>
-    <% @project_uploads.each do |img| %>
-      <%= image_tag img.image_url %>
-    <% end %>
+<div>
+<% if @project_uploads.blank? %>
+  <p><em>No image for this project</em></p>
+<% else %>
+  <% @project_uploads.each do |img| %>
+    <%= image_tag img.image_url %>
   <% end %>
-  <div>
+<% end %>
+<div>
 
 
 <%-# Project Details -%>
@@ -46,7 +46,8 @@
 <dd><%= @project.material %></dd>
 <dt>URL</dt>
 <dd><%= @project.url %></dd>
-
+<dt>Project's Tags</dt>
+<dd><%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></dd>
 
 <%-# Reviews are rendered to review partial  -%>
   <h2>Reviews</h2>
