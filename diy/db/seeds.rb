@@ -3,7 +3,7 @@
 
 puts "Ensuring ES indexes exist..."
 
-Project.create_index! force: true
+Project.__elasticsearch__.create_index! force: true
 
 puts "Destorying all then Seeding Data ..."
 
