@@ -10,7 +10,7 @@ User.create!(
   password_digest: '$2a$10$KMWUaL935DPYkkrC0i/lZ.lqu7uM0E6pWqAx.O3hZH3epcIGjpIau'
 )
 
-User.create!(
+User.create(
   first_name: 'Roxanne',
   last_name: 'S',
   email: 'roxanne@email.com',
@@ -18,7 +18,7 @@ User.create!(
 )
 
 # must be user 3 for other seeds to be correct
-User.create!(
+User.create(
   first_name: 'Instructables',
   last_name: '.',
   email: 'instructables@email.com',

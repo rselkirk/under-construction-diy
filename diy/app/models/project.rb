@@ -1,6 +1,5 @@
 require 'elasticsearch/model'
 
-
 class Project < ApplicationRecord
   include Elasticsearch::Model
   include Searchable
@@ -15,6 +14,21 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :project_uploads, allow_destroy: true
 
+<<<<<<< HEAD
+=======
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  after_create :update_project_stats
+
+  def update_project_stats
+    update_attribute(:avg_rating, 0)
+    update_attribute(:review_count, 0)
+    update_attribute(:complete_count, 0)
+    update_attribute(:save_count, 0)
+  end
+
+>>>>>>> master
   def update_average_rating
     update_attribute(:avg_rating, ((self.reviews.average(:rating)*2).ceil.to_f / 2))
   end

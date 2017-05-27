@@ -57,12 +57,12 @@ ProjectStatus.create!(
       project_id: proj_1,
       completes: completes,
       saves: saves)
-    ProjectStatus.create!(
+    ProjectStatus.create(
       user_id: user_id,
       project_id: proj_2,
       completes: completes,
       saves: saves)
-    ProjectStatus.create!(
+    ProjectStatus.create(
       user_id: user_id,
       project_id: proj_3,
       completes: completes,
