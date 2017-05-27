@@ -12,19 +12,9 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
 
  */
 
-@import "foundation_and_overrides";
  /* Add imports of custom sass/scss files here */
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-@import "projects";
-@import "_project_page";
-@import "_project";
-@import "reviews";
-@import "sessions";
-@import "_tag_bar";
-@import "users";

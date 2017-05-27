@@ -1,46 +1,28 @@
-<div class="top-bar-container" data-sticky-container>
-  <div class="sticky sticky-topbar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
-    <div class="top-bar">
+<div class="navbar">
+  <!-- Left Nav Section -->
+  <div>
+    <%= link_to 'Site Title', '/' %>
+  </div>
+  <div>
+    <span><input type="search" placeholder="Search"></span>
+    <span><button type="button" class="button">Search</button></span>
+  </div>
+  <!-- Right Nav Section -->
+  <% if current_user %>
+  <div>
+<!--     <span class="fa fa-user-circle-o fa-2x"></span> -->
+    <span><%= link_to 'Profile', user_path(current_user)%></span>
+    <span><%= link_to "Settings", edit_user_path(current_user) %></span>
+    <span><%= link_to 'Logout', logout_path %></span>
+  </div>
 
-      <div class="top-bar-title">
-        <%= link_to 'Site Title', '/' %>
-      </div>
-
-      <div>
-        <!-- Left Nav Section -->
-        <div class="top-bar-left">
-          <ul class="menu">
-            <li><input type="search" placeholder="Search"></li>
-            <li><button type="button" class="button">Search</button></li>
-          </ul>
-        </div>
-        <!-- Right Nav Section -->
-        <div class="top-bar-right">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <% if current_user %>
-              <li class="has-submenu">
-                <span class="fa fa-user-circle-o fa-2x"></span>
-                <ul class="submenu menu vertical" data-submenu>
-                  <li><%= link_to 'Profile', user_path(current_user)%></li>
-                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                  <li><%= link_to 'Logout', logout_path %></li>
-                </ul>
-              </li>
-
-            <% else %>
-              <li class="has-submenu">
-                <a href="#">Login</a>
-                <ul class="submenu menu vertical" data-submenu>
-                  <li><%= link_to 'Login', login_path %></li>
-                  <li><%= link_to 'Signup', signup_path %></li>
-                </ul>
-              </li>
-            <% end %>
-            <li class="divider"></li>
-            <li><%= link_to 'Add Project', new_project_path %></li>
-          </ul>
-        </div><!-- /top-bar-right -->
-      </div>
-    </div><!-- /top-bar -->
-  </div><!-- /sticky sticky-topbar -->
-</div><!-- /top-bar-container -->
+  <% else %>
+  <div>
+    <span><%= link_to 'Login', login_path %></span>
+    <span><%= link_to 'Signup', signup_path %></span>
+  </div>
+  <% end %>
+  <div>
+    <span><%= link_to 'Add Project', new_project_path %></span>
+  </div>
+</div>

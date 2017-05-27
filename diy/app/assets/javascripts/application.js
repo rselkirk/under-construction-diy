@@ -12,13 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
 //= require_tree .
-//= require ./project/project-type
-//= require scroller
-
-$(function(){
-  $(window).load(function() {
-    $(document).foundation();
-  });
-});
