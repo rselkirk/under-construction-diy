@@ -47,6 +47,12 @@
         <%= f.text_field :cost , placeholder: "Cost" %>
     </div>
 
+    <!-- Form for project tags -->
+    <div class='field'>
+      <%= f.label :tag_list, "Tags" %><br />
+      <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+    </div>
+
     <div class="small-12 columns">
       <div class="actions">
         <%= f.submit %>
@@ -77,5 +83,7 @@
   <div class="small-12 columns">
     <td class="button postfix"><%= f.submit "Submit" %></td>
   </div>
+
+
   <% end %>
 </div>

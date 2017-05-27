@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'projects#index'
 
+  get 'tags/:tag', to: 'projects#index', as: :tag
+
   resources :projects do
     resources :reviews, only: [:create]
     resources :project_statuses, only: [:update]
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit, :update]
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
-  
+
   resources :sessions
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

@@ -42,7 +42,7 @@
   width: 100%;
   display: flex;
   border-radius: 3px;
-  background-color: grey; 
+  background-color: grey;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 
@@ -71,7 +71,7 @@
   padding: 20px 20px 0px 20px;
   min-height: 40px;
   background-repeat: no-repeat;
-  background-position: 0 0; 
+  background-position: 0 0;
 }
 
 .sub-project-img {
@@ -104,11 +104,11 @@
 }
 
 .favourites {
-  
+
 }
 
 .related-project-pictures{
-  
+
 }
 
 .tags {
@@ -125,4 +125,13 @@
 .project-tabs {
 
 }
+
+#tag_cloud {
+  width: 400px;
+  line-height:1.7 em;
+  .s { font-size: .8em; }
+  .s { font-size: .8em; }
+  .s { font-size: .8em; }
+}
+
 
