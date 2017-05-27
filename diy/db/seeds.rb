@@ -5,7 +5,6 @@ puts "Seeding Data ..."
 
 
 Comment.destroy_all
-ProjectTag.destroy_all
 ProjectUpload.destroy_all
 ProjectStatus.destroy_all
 Review.destroy_all

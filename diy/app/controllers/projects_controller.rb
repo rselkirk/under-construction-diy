@@ -1,21 +1,24 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project
+    if
+      params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project
       .includes(:reviews)
       .all
       .order(created_at: :desc)
+    end
   end
 
   def new
-    # Keep these 2 instance variables. They're needed for uploading images.
     @project = Project.new
     @project_upload = ProjectUpload.new
   end
 
   def create
     @project = current_user.projects.new(project_params)
-
     if @project.save
       redirect_to user_path(current_user)
     else
@@ -28,7 +31,6 @@ class ProjectsController < ApplicationController
     @project_uploads = @project.project_uploads
     @review = Review.new
     @project_status = ProjectStatus.where(project_id: @project.id).first_or_create
-    puts @project_status.inspect
   end
 
   private
@@ -42,6 +44,7 @@ class ProjectsController < ApplicationController
       :time,
       :cost,
       :url,
+      :tag_list,
       project_uploads_attributes: [:id, :project_id, :image_url]
     )
   end

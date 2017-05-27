@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/F3pix/acts-as-taggable-on
+  revision: 7570774835cb9e391d0efb0c0dcbb971a55132c1
+  specs:
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -220,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on!
   bcrypt (~> 3.1.7)
   byebug
   carrierwave
