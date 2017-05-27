@@ -15,8 +15,6 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :project_uploads, allow_destroy: true
 
-<<<<<<< HEAD
-=======
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
@@ -29,7 +27,6 @@ class Project < ApplicationRecord
     update_attribute(:save_count, 0)
   end
 
->>>>>>> master
   def update_average_rating
     update_attribute(:avg_rating, ((reviews.average(:rating)*2).ceil.to_f / 2))
   end
