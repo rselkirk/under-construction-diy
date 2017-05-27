@@ -1,7 +1,9 @@
 require 'elasticsearch/model'
 
 
-class Project < SearchRecord
+class Project < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   attr_accessor :avg_rating
 
