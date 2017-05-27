@@ -6,8 +6,8 @@
   <dl>
     <dt>By <%= review.user.first_name %> <%= review.user.last_name %></dt>
     <dd>Content: <%= review.content %></dd>
-    <dd>Time: <%= review.time %></dd>
-    <dd>Cost: <%= review.cost %></dd>
+    <dd>Time (hours): <%= review.time %></dd>
+    <dd>Cost (dollars): <%= review.cost %></dd>
     <dd>
       <% if review.review_uploads.any? %>
         <% review.review_uploads.each do |img|%>

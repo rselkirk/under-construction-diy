@@ -44,13 +44,13 @@ gem 'foundation-rails'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'faker'
+
 gem 'will_paginate', '~> 3.1.0'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-persistence'
+gem 'bonsai-elasticsearch-rails'
 gem 'acts-as-taggable-on', :git => 'https://github.com/F3pix/acts-as-taggable-on'
-
-
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc

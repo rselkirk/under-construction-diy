@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   def show
     @current_user = User.find params[:id]
     @user_id = @current_user.id
-    @projects = Project.joins("join project_statuses on projects.id = project_statuses.project_id").where("project_statuses.saves='t' and project_statuses.user_id=#{@user_id}")
+    @saved_projects = Project.joins("join project_statuses on projects.id = project_statuses.project_id").where("project_statuses.saves='t' and project_statuses.user_id=#{@user_id}")
+    @completed_projects = Project.joins("join project_statuses on projects.id = project_statuses.project_id").where("project_statuses.completes='t' and project_statuses.user_id=#{@user_id}")
+    @created_projects = Project.where(user_id: @user_id)
   end
 
   def new

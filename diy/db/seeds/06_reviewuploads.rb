@@ -67,6 +67,6 @@ review_uploads_array =
 }
 ]
 
-review_uploads_array.each do |i|
-  ReviewUpload.create i
+review_uploads_array.each do |review|
+  ReviewUpload.create review
 end
