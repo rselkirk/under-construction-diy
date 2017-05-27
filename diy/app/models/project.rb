@@ -1,7 +1,7 @@
 require 'elasticsearch/model'
 
 
-class Project < ApplicationRecord
+class Project < SearchRecord
 
   attr_accessor :avg_rating
 
@@ -12,9 +12,6 @@ class Project < ApplicationRecord
   has_many :project_statuses
 
   accepts_nested_attributes_for :project_uploads, allow_destroy: true
-
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
 
   def update_average_rating
     update_attribute(:avg_rating, ((self.reviews.average(:rating)*2).ceil.to_f / 2))
@@ -42,6 +39,3 @@ class Project < ApplicationRecord
 end
 
 
-Project.import force: true
-
-@projects = Project.search('foobar').records
