@@ -5,8 +5,8 @@ puts "Ensuring ES indexes exist..."
 puts "Destorying all then Seeding Data ..."
 
 [Comment, ProjectTag, ProjectUpload, ProjectStatus, Review, Project, ReviewUpload, User].each do |model_class|
-  model_class.destroy_all
   model_class.__elasticsearch__.create_index! force: true
+  model_class.destroy_all
 end
 
 
