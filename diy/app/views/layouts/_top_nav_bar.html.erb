@@ -19,10 +19,11 @@
               </p>
             <% end %>
           </ul>
-          <% if @projects.size == 0 %>
-          No results
-          <% else %>
-          <%= @projects.size %> Project(s)
+          <% if @projects.nil? %>
+            <% elsif @projects.size == 0 %>
+            No results
+            <% else %>
+            <%= @projects.size %> Project(s)
           <% end %>
         </div>
         <!-- Right Nav Section -->
