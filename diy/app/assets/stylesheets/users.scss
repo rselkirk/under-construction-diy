@@ -12,6 +12,10 @@
   border: 1px solid black;
 }
 
-#created_projects #completed_projects {
+#created_projects {
+  display: none;
+}
+
+#completed_projects {
   display: none;
 }
