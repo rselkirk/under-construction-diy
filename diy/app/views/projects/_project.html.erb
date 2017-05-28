@@ -1,11 +1,10 @@
-
 <article class="project_thumbnail">
   <div class="thumbnail_content">
     <div class="title"
       <h3><%= link_to project.title, project_path(project.id) %></h3>
     </div>
-    <div class="img-container">
-      <a class="thumbnail-over" href="<%= project_path(project.id) %>">
+    <div class="img-container modal-trigger">
+      <div>
         <% if project.project_uploads.blank? %>
           <p>No image for this project</p>
         <% else %>
@@ -13,7 +12,7 @@
             <%= image_tag img.image_url, class: "thumbnail_lg" %>
           <% end %>
         <% end %>
-      </a>
+      </div>
     </div>
     <footer>
       <ul class="icon_group">
@@ -26,8 +25,8 @@
           <%= project.avg_rating %>
         </li>
         <li class="rating_count">(<%= project.review_count %>)</li>
-        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= project.save_count %>)</li>
+        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i>(<%= project.save_count %>)</li>
       </ul>
     </footer>
-   </div>
+  </div>
 </article>

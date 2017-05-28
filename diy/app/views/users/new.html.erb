@@ -1,18 +1,30 @@
-<h1>Signup!</h1>
-
-<%= form_for :user, url: '/users' do |f| %>
-
-  First Name: <%= f.text_field :first_name %>
-  Last Name: <%= f.text_field :last_name %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation: <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
-  
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+<div class='center-container'>
+  <div class='center'>
+    <div id='ui'>
+      <div id='ui-left'>
+        <%= form_for :user, url: '/users' do |f| %>
+        <h3>Sign Up</h3>
+        <div class='split-l'>
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+        </div>
+          First Name: <%= f.text_field :first_name %>
+        <div class='split-m'></div>
+          Last Name: <%= f.text_field :last_name %>
+        <div class='split-m'></div>
+          Email: <%= f.text_field :email %>
+        <div class='split-m'></div>
+          Password: <%= f.password_field :password %>
+        <div class='split-m'></div>
+          Password Confirmation: <%= f.password_field :password_confirmation %>
+        <div class='split-m'></div>
+          <%= f.submit "Submit" %>
+        <% end %>
+      </div>
     </div>
-    
-<% end %>
+    <div class='split-xl'></div>
+  </div>
+</div>
+
 

@@ -1,14 +1,32 @@
-<h1>Login</h1>
+<div class='center-container'>
+  <div class='center'>
+    <div id='ui'>
+      <div id='ui-left'>
+        <h3>Log In</h3>
 
-<%= form_tag '/login' do %>
+        <div class='split-l'></div>
+        <%= form_tag '/login' do %>
+          <label>
+<!--             <i class='material-icons'>perm_identity</i> -->
+          </label>
+          <%= text_field_tag :email %>
 
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+        <div class='split-m'></div>
+          <label>
+ <!--            <i class='material-icons'>lock_outline</i> -->
+          </label>
+          <%= password_field_tag :password %>
 
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
+        <div class='split-m'></div>
+          <%= submit_tag "Submit" %>
+
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+
+        <% end %>
+      </div>
     </div>
-    
-<% end %>
+    <div class='split-xl'></div>
+  </div>
+</div>
