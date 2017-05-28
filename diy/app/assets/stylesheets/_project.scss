@@ -62,7 +62,7 @@ body,html{
   min-height: 100%;
 }
 
-.shim{
+.overlay-layer {
   position: fixed;
   top: 0;
   left: 0;
@@ -72,25 +72,25 @@ body,html{
   background: #000;
   opacity: 0;
   transition: opacity .1s ease-out;
-  z-index: 1;
+  z-index: 4;
     &.open {
       pointer-events: auto;
       opacity: 0.5;
     }
 }
 
-.toggle-overlay{
+.modal-trigger {
   cursor: pointer;
   text-align: center;
   padding: 10px 20px;
   font-style: italic;
   outline: none;
 }
-.toggle-overlay:active{
+.modal-trigger:active {
   transform: translate3d(0,1px,0);
 }
 
-.content{
+.background-layer {
   transition: all .1s ease-in-out;
   -webkit-filter: blur(0);
     &.blur {
@@ -98,7 +98,7 @@ body,html{
     }
 }
 
-.overlay{
+.modal {
   position: fixed;
   top: 25%;
   right: 25%;
@@ -106,7 +106,7 @@ body,html{
   min-height: 200px;
   padding: 20px;
   background: #fff;
-  z-index: 2;
+  z-index: 5;
 
   opacity: 0;
   pointer-events: none;
@@ -114,13 +114,13 @@ body,html{
   transition: all .5s cubic-bezier(.14,1.42,.67,1);
 }
 
-.overlay.open{
+.modal.open {
   opacity: 1;
   pointer-events: auto;
   transform: scale(1,1);
 }
 
-.meta{
+.meta {
   margin-top: 100px;
   color: #999;
   font-size: 0.8em;

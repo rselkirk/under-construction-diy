@@ -3,7 +3,7 @@
     <div class="title"
       <h3><%= link_to project.title, project_path(project.id) %></h3>
     </div>
-    <div class="img-container toggle-overlay">
+    <div class="img-container modal-trigger">
       <div>
         <% if project.project_uploads.blank? %>
           <p>No image for this project</p>

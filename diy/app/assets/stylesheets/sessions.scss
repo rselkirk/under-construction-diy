@@ -27,7 +27,7 @@ a {
 
 .container {
   width: 90%;
-  max-width: 800px;
+
   margin: 0px auto;
   &.box {
     padding: 40px 0px;
@@ -62,10 +62,10 @@ p, h2, h4 {
   }
 }
 
-.center {
-  vertical-align: middle;
-  display: inline-block;
-}
+// .center {
+//   vertical-align: middle;
+//   display: inline-block;
+// }
 
 .split-xl {
   height: 80px;
