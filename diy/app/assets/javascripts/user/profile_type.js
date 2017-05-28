@@ -1,7 +1,4 @@
 $(document).ready(function onReady() {
-   
-  $( "#created_projects" ).hide()
-  $( "#completed_projects" ).hide()
 
   $( "#created_projects_button" ).click(function() {
     $( "#saved_projects" ).hide()
