@@ -1,86 +1,146 @@
-<% if current_user %>
+<div class="tag-bar-container">
+  <div class="tag-bar-wrapper">
+    <div class="tag-bar-wrapper-flex">
+      <div class="tag-bar-wrapper-flex">
+      <div class="tag-word"> Wood </div>
+      <div class="tag-word"> Wood </div>
+      <div class="tag-word"> Wood </div>
+      <div class="tag-word"> Wood </div>
+      </div>
+    </div>
+  </div>
+</div>
+<article class="project-page">
+  <div class="project-content">
+    <div class="top-page">
+      <div class="user-project-info">
+          <%= link_to root_path do %>
+            <%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%>
+          <% end %>
+        <div class="project-title"> <%= @project.title.titlecase %> </div>
+        <div class="project-by"> by Alvin time stamp </div>
+      </div>
+    </div>
+    <div class="mid-page">
+      <div class="mid-left">
+        <div class="project-pictures">
+          <% if @project_uploads.blank? %>
+            <p><em>No image for this project</em></p>
+          <% else %>
+            <% @project_uploads.each do |img| %>
+              <%= image_tag img.image_url %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="attach-pictures">
+        </div>
+      </div>
+      <div class="mid-right">
+        <div class="complete-check">
+          <h4> Complete! </h4>
+        </div>
 
-<%-# the Save/Unsave button -%>
-<div id="saves-count"><%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }
- %></div>
-<% end %>
+        <div class="share-bar">
+          <button class="button" type="button" data-toggle="example-dropdown-1">Share</button>
+          <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+              <%= link_to "http://www.facebook.com" do %>
+              <i class="fa fa-facebook-official" aria-hidden="true"> </i>
+              <% end %>
+              <%= link_to "http://www.tweeter.com" do %>
+              <i class="fa fa-twitter" aria-hidden="true"> </i>
+              <% end %>
+              <%= link_to "http://www.plus.google.com" do %>
+              <i class="fa fa-google-plus" aria-hidden="true"> </i>
+              <% end %>
+              <%= link_to "http://www.pinterest.com" do %>
+              <i class="fa fa-pinterest-p" aria-hidden="true"> </i>
+              <% end %>
+          </div>
+        </div>
 
-<h6>Number of Saved Projects</h6>
-<div id="saves-count-show"><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></div>
+        <div class="ratings">
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <dd><%= @project.avg_rating %></dd>
+        </div>
 
-<% if current_user %>
-<%-# Completed/Uncompleted button -%>
-<div id="completes-count"><%= button_to "Complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } } %></div>
-<% end %>
+        <div class="completed-number">
+          <i class="fa fa-wrench" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>)</i>
+        </div>
 
-<h6>Number of Completed Projects</h6>
-<div id="completes-count-show"><%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %></div>
+        <div class="favourites">
+          <i class="fa fa-bookmark-o" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>)</i>
+        </div>
 
+        <div class="related-project-pictures">
+        </div>
 
-<%-# Project Images -%>
-<div>
-<% if @project_uploads.blank? %>
-  <p><em>No image for this project</em></p>
-<% else %>
-  <% @project_uploads.each do |img| %>
-    <%= image_tag img.image_url %>
-  <% end %>
-<% end %>
-<div>
+        <div class="tags">
+        <h4><%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></h4>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-page">
+      <div class="project-summary">
+        <h4> <%= @project.summary %> </h4>
+      </div>
 
+      <div class="project-tabs">
 
-<%-# Project Details -%>
-<dt>Avg Rating</dt>
-<dd><%= @project.avg_rating %></dd>
-<dt>Title</dt>
-<dd><%= @project.title %></dd>
-<dt>Summary</dt>
-<dd><%= @project.summary %></dd>
-<dt>Instructions</dt>
-<dd><%= @project.instructions %></dd>
-<dt>Cost</dt>
-<dd><%= @project.cost %></dd>
-<dt>Time</dt>
-<dd><%= @project.time %></dd>
-<dt>Material</dt>
-<dd><%= @project.material %></dd>
-<dt>URL</dt>
-<dd><%= @project.url %></dd>
-<dt>Project's Tags</dt>
-<dd><%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></dd>
+        <section class="wrapper">
+          <ul class="tabs-project">
+            <li class="active">Reviews</li>
+            <li>Instructions</li>
+          </ul>
+          <ul class="tab__content">
+            <li class="active">
+              <div class="content__wrapper">
+                <% @project.reviews.reverse_each do |review| %>
+                  <%= render 'review', review:review %>
+                <% end %> </p>
+              </div>
+            </li>
+            <li>
+              <div class="content__wrapper">
+                <p>Project Instructions: <%= @project.instructions %></p>
+                <p>Project Cost: <%= @project.cost %></p>
+                <p>Project Time: <%= @project.time %></p>
+                <p>Project Material: <%= @project.material %></p>
+              </div>
+            </li>
+          </ul>
+        </section>
 
-<%-# Reviews are rendered to review partial  -%>
-  <h2>Reviews</h2>
-  <% @project.reviews.reverse_each do |review| %>
-    <%= render 'review', review:review %>
-  <% end %>
+        <div class="writable-reivews">
+        <%-# Review form displays only to logged in users -%>
+          <% if current_user %>
+            <%= form_for [@project, @review], html: { multipart: true } do |form| %>
 
+              <%= form.label :rating %>
+              <%= form.select(:rating) do %>
+                <% [1, 2, 3, 4, 5].each do |c| -%>
+                  <%= content_tag(:option, c, value: c) %>
+                <% end %>
+              <% end %>
+              <%= form.label :content %>
+              <%= form.text_area :content, class: 'form-control' %>
+              <%= form.label :time %>
+              <%= form.text_area :time, class: 'form-control' %>
+              <%= form.label :cost %>
+              <%= form.text_area :cost, class: 'form-control' %>
+              <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
+                <%= ff.label :image %><br>
+                <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
+              <% end %>
 
-<%-# Review form displays only to logged in users -%>
-  <% if current_user %>
-    <%= form_for [@project, @review], html: { multipart: true } do |form| %>
+              <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</article>
 
-      <%= form.label :rating %>
-      <%= form.select(:rating) do %>
-        <% [1, 2, 3, 4, 5].each do |c| -%>
-          <%= content_tag(:option, c, value: c) %>
-        <% end %>
-      <% end %>
-
-      <%= form.label :content %>
-      <%= form.text_area :content, class: 'form-control' %>
-
-      <%= form.label :time %>
-      <%= form.text_area :time, class: 'form-control' %>
-
-      <%= form.label :cost %>
-      <%= form.text_area :cost, class: 'form-control' %>
-
-      <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
-        <%= ff.label :image %><br>
-        <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
-      <% end %>
-
-      <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
-    <% end %>
-  <% end %>
