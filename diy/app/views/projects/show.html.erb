@@ -16,18 +16,17 @@
 <h6>Number of Completed Projects</h6>
 <div id="completes-count-show"><%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %></div>
 
-
 <%-# Project Images -%>
 <div>
-<% if @project_uploads.blank? %>
+<% if @project_uploads.blank? && @project.image.blank? %>
   <p><em>No image for this project</em></p>
 <% else %>
   <% @project_uploads.each do |img| %>
     <%= image_tag img.image_url %>
   <% end %>
+  <%= image_tag @project.image, class: "thumbnail_lg" %>
 <% end %>
 <div>
-
 
 <%-# Project Details -%>
 <dt>Avg Rating</dt>
@@ -54,7 +53,6 @@
   <% @project.reviews.reverse_each do |review| %>
     <%= render 'review', review:review %>
   <% end %>
-
 
 <%-# Review form displays only to logged in users -%>
   <% if current_user %>
