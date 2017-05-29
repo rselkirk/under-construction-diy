@@ -67,11 +67,11 @@
           <dd><%= @project.avg_rating %></dd>
         </div>
 
-        <div class="completed-number">
+        <div id='completes-count-show' class="completed-number">
           <i class="fa fa-wrench" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>)</i>
         </div>
 
-        <div class="favourites">
+        <div id='saves-count-show' class="favourites">
           <i class="fa fa-bookmark-o" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>)</i>
         </div>
 
@@ -148,10 +148,7 @@
 <%-# the Save/Unsave button -%>
 <div id="saves-count"><%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }
  %></div>
-<% end %>
-<h6>Number of Saved Projects</h6>
-<div id="saves-count-show"><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></div>
-<% if current_user %>
+
 <%-# Completed/Uncompleted button -%>
 <div id="completes-count"><%= button_to "Complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } } %></div>
 <% end %>

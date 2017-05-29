@@ -60,7 +60,7 @@
   </div><!--/ "row-centered" -->
 
 
-<!-- Form for External Link Project -->
+<!-- Form for Adding an external link -->
 <div id="external_link_toggle" class="row">
   <%= form_for @project, :url => { :action => "scrape" }, :html => { :method => "get" }, remote: true do |f| %>
   <div class="small-12 columns">
@@ -68,13 +68,13 @@
       <%= f.text_field :url , placeholder: "https:", id: "project_url" %>
   </div>
 
-  <div id='test' class="small-12 columns">
+  <div class="small-12 columns">
     <td class="button postfix" ><%= f.submit "Enter" %></td>
     </div>
   <% end %>
 </div>
 
-
+<!-- Form for External Link Project -->
 <div id="external_link_toggle" class="row">
 <%= form_for @project, html: { multipart: true } do |f| %>
 
