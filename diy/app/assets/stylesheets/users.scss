@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "_variables";
+
 .profile-row {
   margin-left: 80px;
   margin-right: 80px;
@@ -12,6 +14,10 @@
   border: 1px solid black;
 }
 
-#created_projects #completed_projects {
+#created_projects {
+  display: none;
+}
+
+#completed_projects {
   display: none;
 }

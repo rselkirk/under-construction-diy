@@ -1,10 +1,16 @@
-<div id='tag_cloud'>
+<div class="overlay-layer"></div>
+
+<div class="background-layer">
+  <!-- List of Tags -->
+  <div id='tag_cloud'>
     <% tag_cloud  Project.tag_counts, %w[s s s] do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class:css_class  %>
-<% end %>
+      <%= link_to tag.name, tag_path(tag.name), class:css_class  %>
+    <% end %>
+  </div>
+  <!-- Grid of Project Tiles -->
+  <%= render @projects %>
 </div>
-<section class="projects-index">
-<div class="projects">
-    <%= render @projects %>
+
+<div class="modal">
+  use 'pushstate' to render projects#show page here
 </div>
-</section>

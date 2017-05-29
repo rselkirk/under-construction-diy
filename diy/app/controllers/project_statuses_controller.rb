@@ -5,6 +5,7 @@ class ProjectStatusesController < ApplicationController
   end
 
   def update
+
     @project = Project.find(params[:project_id])
     project_id = params[:project_id]
     @status = ProjectStatus.where(project_id: project_id, user_id: current_user.id).first_or_create
@@ -15,12 +16,14 @@ class ProjectStatusesController < ApplicationController
       @status.completes = !@status.completes
       @status.save!
     end
+
     if @status.save
-      render :json => {:saves => ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count, 
-                       :completes => ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count}
+      render :json => {:saves => ProjectStatus.where(saves: true).count, 
+                       :completes => ProjectStatus.where(completes: true).count}
     else
       render :'projects/show'
     end
+
   end
   
   private

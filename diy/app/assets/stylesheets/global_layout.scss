@@ -1,0 +1,238 @@
+@import "_variables";
+
+/************************************/
+/* COMMON ELEMENTS */
+
+$a-tags: 'a, a:active, a:hover, a:visited';
+$a-tags-hover: 'a:active, a:hover';
+
+#{$a-tags} {
+  color: $color-secondary;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#{$a-tags-hover} {
+  color: $color-accent-dark;
+  cursor: pointer;
+}
+
+.button, input[name="commit"] {
+  padding: 15px;
+  border: none;
+  background: $color-primary;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: all 100ms linear;
+  &:hover {
+    border: none;
+    background: $color-accent-dark;
+    color: $color-primary;
+  }
+  &:active {
+    background: $color-accent-dark;
+  }
+  &.flip {
+    perspective: 1000;
+  &.flipped {
+    transform: rotateX(180deg);
+  }
+  &.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  }
+  }
+  &.complete {
+  color: #fff;
+  background: #95AB63;
+    &:hover {
+      background: #779f1f;
+    }
+  }
+  &.save {
+  color: #fff;
+  background: #4257ae;
+    &:hover {
+      background: #1839bd;
+    }
+  }
+  .backside {
+    display: none;
+    &.show {
+      display: inline-block;
+      transform: rotateX(180deg);
+    }
+  }
+  .front.hide {
+    display: none;
+  }
+  &.save {
+    &:before {
+      display: inline-block;
+      content: '\f067';
+      font-family: fontawesome;
+      padding: 0 10px 0 0;
+    }
+    &.added:before {
+      content: '\f02e';
+      transform: rotateX(180deg);
+    }
+  }
+  &.complete {
+    &:before {
+      display: inline-block;
+      content: '\f046';
+      font-family: fontawesome;
+      padding: 0 10px 0 0;
+    }
+    &.added:before {
+      content: '\f00c';
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+h1 {
+  color: $color-primary;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: $color-secondary;
+  font-style: italic;
+}
+
+h3 {
+  color: $color-accent-dark;
+  text-transform: uppercase;
+}
+
+h4 {
+  color: $color-accent-dark;
+}
+
+.spacer-xl {
+  height: 80px;
+  width: 80px;
+}
+
+.spacer-l {
+  height: 40px;
+  width: 40px;
+}
+
+.spacer-m {
+  height: 20px;
+  width: 20px;
+}
+
+.spacer-s {
+  height: 10px;
+  width: 10px;
+}
+
+/************************************/
+/* CONTAINERS */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  // contains all visible content, including navbar
+  // add styles here
+}
+
+.center-container {
+  height: 100%;
+  text-align: center;
+  &::before {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+.main-content {
+  // this is the container for all content visible below navbar
+  // add styles here
+}
+
+.navbar {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 70px;
+  background: #E7E3D8;
+  border-bottom: 1px solid #ADA397;
+  left: 0;
+  padding: 20px 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.row-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.shadow-box {
+  width: 500px;
+  background: #fff;
+  box-shadow: 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12), 0px 8px 10px -5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  padding: 25px;
+}
+
+/************************************/
+/* FORMS */
+
+input {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  background: transparent;
+  font-size: 13px;
+  padding: 10px;
+  padding-left: 42px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  cursor: text;
+  transition: 0.3s;
+  &:hover, &:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  &::-webkit-input-placeholder, &::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
+
+input[type="button"] {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+}
+
+label {
+  height: 37px;
+  width: 37px;
+  position: absolute;
+  .material-icons {
+    height: 100%;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 37px;
+    font-size: 24px;
+  }
+}

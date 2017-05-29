@@ -4,7 +4,6 @@ class Project < ApplicationRecord
   include Elasticsearch::Model
   include Searchable
 
-  attr_accessor
   acts_as_taggable_on :tags
 
   belongs_to :user

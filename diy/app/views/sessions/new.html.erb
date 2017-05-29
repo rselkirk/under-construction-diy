@@ -1,14 +1,19 @@
-<h1>Login</h1>
+<div class="center-container">
+  <div class="row-centered">
+    <div class="shadow-box">
+      <h3>Log In</h3>
 
-<%= form_tag '/login' do %>
-
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
-  <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-  <% end %>
-    </div>
-    
-<% end %>
+      <%= form_tag "/login" do %>
+        Email: <%= text_field_tag :email %>
+      <div class="spacer-m"></div>
+        Password: <%= password_field_tag :password %>
+      <div class="spacer-m"></div>
+        <%= submit_tag "Submit", class: "button" %>
+      <div class="spacer-m"></div>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+      <% end %>
+    </div><!--/ "shadow-box" -->
+  </div><!--/ "row-centered" -->
+</div><!--/ "center-container" -->
