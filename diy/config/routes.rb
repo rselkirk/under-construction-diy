@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'search#search'
 
   get 'tags/:tag', to: 'projects#index', as: :tag
+  get "/scrape" =>"projects#scrape"
 
   resources :projects do
     resources :reviews, only: [:create]

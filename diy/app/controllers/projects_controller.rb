@@ -17,6 +17,16 @@ class ProjectsController < ApplicationController
     @project_upload = ProjectUpload.new
   end
 
+  def scrape
+    @page = MetaInspector.new(project_params[:url])
+    @page_url = @page.url
+    @page_title = @page.title
+    @page_description = @page.description
+    @page_image = @page.images.best
+
+    render :json => { :url => @page_url, :title => @page_title, :description => @page_description,  :image => @page_image }
+  end
+
   def create
     @project = current_user.projects.new(project_params)
     if @project.save
@@ -44,9 +54,9 @@ class ProjectsController < ApplicationController
       :time,
       :cost,
       :url,
+      :image,
       :tag_list,
       project_uploads_attributes: [:id, :project_id, :image_url]
     )
   end
-
 end
