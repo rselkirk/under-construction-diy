@@ -1,88 +1,87 @@
-<div class='center-container'>
+<div class="center-container">
 
-  <div><a id="create_project" class="button">Create your own</a></div>
-  <div><a id="external_link" class="button">Add a link</a></div>
+  <div class="row-centered">
+    <div><a id="create_project" class="button">Create your own</a></div>
+    <div class="spacer-m"></div>
+    <div><a id="external_link" class="button">Add a link</a></div>
+  </div>
 
-
+  <div class="spacer-m"></div>
 
   <!-- Form for User-Created Project -->
-  <div class='center'>
-    <div id='ui'>
-      <div id='ui-left'>
-        <div id="create_project_toggle">
-          <%= form_for @project, html: { multipart: true } do |f| %>
+  <div class="row-centered">
+    <div class="shadow-box">
+      <div id="create_project_toggle">
+        <%= form_for @project, html: { multipart: true } do |f| %>
 
-          <%= f.fields_for :project_uploads, ProjectUpload.new do |ff| %>
+        <%= f.fields_for :project_uploads, ProjectUpload.new do |ff| %>
 
-          <h3>Image</h3>
-          <%= ff.file_field :image_url, :multiple => true, name: "project[project_uploads_attributes][][image_url]" %>
+        Image
+        <%= ff.file_field :image_url, :multiple => true, name: "project[project_uploads_attributes][][image_url]" %>
 
-          <% end %>
+        <% end %>
 
-          <div class='split-m'></div>
-          <h3>Title</h3>
-          <%= f.text_field :title , placeholder: "Title" %>
+        <div class="spacer-m"></div>
+        Title
+        <%= f.text_field :title , placeholder: "Title" %>
 
-          <div class='split-m'></div>
-          <h3>Summary</h3>
-          <%= f.text_field :summary , placeholder: "Summary" %>
+        <div class="spacer-m"></div>
+        Summary
+        <%= f.text_field :summary , placeholder: "Summary" %>
 
-          <div class='split-m'></div>
-          <h3>Instructions</h3>
-          <%= f.text_field :instructions , placeholder: "Instructions" %>
+        <div class="spacer-m"></div>
+        Instructions
+        <%= f.text_field :instructions , placeholder: "Instructions" %>
 
-          <div class='split-m'></div>
-          <h3>Materials</h3>
-          <%= f.text_field :material , placeholder: "Materials" %>
+        <div class="spacer-m"></div>
+        Materials
+        <%= f.text_field :material , placeholder: "Materials" %>
 
-          <div class='split-m'></div>
-          <h3>Time (hours)</h3>
-          <%= f.text_field :time , placeholder: "Time" %>
+        <div class="spacer-m"></div>
+        Time (hours)
+        <%= f.text_field :time , placeholder: "Time" %>
 
-          <div class='split-m'></div>
-          <h3>Cost (dollars)</h3>
-          <%= f.text_field :cost , placeholder: "Cost" %>
+        <div class="spacer-m"></div>
+        Cost (dollars)
+        <%= f.text_field :cost , placeholder: "Cost" %>
 
-          <!-- Form for project tags -->
-          <div class='split-m'></div>
-          <div class='field'>
-            <h3>Tags</h3>
-            <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
-          </div>
-
-          <div class='split-m'></div>
-          <%= f.submit %>
-          <% end %>
+        <!-- Form for project tags -->
+        <div class="spacer-m"></div>
+        <div class="field">
+          Tags
+          <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
         </div>
-      </div><!--/ 'ui-left' -->
-    </div><!--/ 'ui' -->
-  </div><!--/ 'center' -->
+
+        <div class="spacer-m"></div>
+        <%= f.submit %>
+        <% end %>
+      </div>
+    </div><!--/ "shadow-box" -->
+  </div><!--/ "row-centered" -->
 
   <!-- Form for External Link Project -->
-  <div class='center'>
-    <div id='ui'>
-      <div id='ui-left'>
-        <div id="external_link_toggle">
-          <%= form_for :project, url: '/projects' do |f| %>
+  <div class="row-centered">
+    <div class="shadow-box">
+      <div id="external_link_toggle">
+        <%= form_for :project, url: "/projects" do |f| %>
 
-          <div class='split-m'></div>
-          <h3>Link</h3>
-          <%= f.text_field :url , placeholder: "https:", id: "project_url" %>
+        <div class="spacer-m"></div>
+        Link
+        <%= f.text_field :url , placeholder: "https:", id: "project_url" %>
 
-          <div class='split-m'></div>
-          <h3>Title</h3>
-          <%= f.text_field :title , placeholder: "Title" %>
+        <div class="spacer-m"></div>
+        Title
+        <%= f.text_field :title , placeholder: "Title" %>
 
-          <div class='split-m'></div>
-          <h3>Summary</h3>
-          <%= f.text_field :summary , placeholder: "Summary" %>
+        <div class="spacer-m"></div>
+        Summary
+        <%= f.text_field :summary , placeholder: "Summary" %>
 
-          <div class='split-m'></div>
-          <%= f.submit "Submit" %>
+        <div class="spacer-m"></div>
+        <%= f.submit "Submit" %>
 
-          <% end %>
-        </div>
-      </div><!--/ 'ui-left' -->
-    </div><!--/ 'ui' -->
-  </div><!--/ 'center' -->
-</div><!--/ center-container -->
+        <% end %>
+      </div>
+    </div><!--/ "shadow-box" -->
+  </div><!--/ "row-centered" -->
+</div><!--/ "center-container" -->
