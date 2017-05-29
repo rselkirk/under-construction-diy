@@ -78,30 +78,30 @@
 <div id="external_link_toggle" class="row">
 <%= form_for @project, html: { multipart: true } do |f| %>
 
-<div id='url-show'>
-<%= f.text_field :url %>
-</div>
+  <div id='url-show'>
+  <%= f.text_field :url %>
+  </div>
 
-<div id='title-show'>
-<%= f.text_field :title %>
-</div>
+  <div id='title-show'>
+  <%= f.text_field :title %>
+  </div>
 
-<div id='description-show'>
-  <%= f.text_field :summary %>
-</div>
+  <div id='description-show'>
+    <%= f.text_field :summary %>
+  </div>
 
-<%= f.fields_for :project_uploads, ProjectUpload.new do |ff| %>
-  <p id="image-show-upload">
-    <%= ff.label :image %><br>
-    <%= ff.text_field :remote_image_url_url,name: "project[project_uploads_attributes][][image_url]" %>
-  </p>
-<% end %>
+  <div id="image-show-upload">
+    <%= f.text_field :image %>
+  </div>
 
-<div id='image-show'>
-</div>
 
-<div class="small-12 columns">
-  <td class="button postfix"><%= f.submit "Submit" %></td>
-</div>
+  <div id='image-show'>
+  </div>
+
+  <div class="small-12 columns">
+    <td class="button postfix"><%= f.submit "Submit" %></td>
+  </div>
 
 <% end %>
+
+</div>

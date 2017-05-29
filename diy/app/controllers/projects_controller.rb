@@ -19,13 +19,9 @@ class ProjectsController < ApplicationController
 
   def scrape
     @page = MetaInspector.new(project_params[:url])
-    puts "\nScraping #{@page.url} returned these results:"
     @page_url = @page.url
-    puts "\nTITLE: #{@page.title}"
     @page_title = @page.title
-    puts "\nDESCRIPTION: #{@page.description}"
     @page_description = @page.description
-    puts "\nIMAGE: #{@page.images}"
     @page_image = @page.images.best
 
     render :json => { :url => @page_url, :title => @page_title, :description => @page_description,  :image => @page_image }
@@ -58,6 +54,7 @@ class ProjectsController < ApplicationController
       :time,
       :cost,
       :url,
+      :image,
       :tag_list,
       project_uploads_attributes: [:id, :project_id, :image_url]
     )
