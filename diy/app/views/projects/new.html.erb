@@ -59,29 +59,49 @@
     </div><!--/ "shadow-box" -->
   </div><!--/ "row-centered" -->
 
-  <!-- Form for External Link Project -->
-  <div class="row-centered">
-    <div class="shadow-box">
-      <div id="external_link_toggle">
-        <%= form_for :project, url: "/projects" do |f| %>
 
-        <div class="spacer-m"></div>
-        Link
-        <%= f.text_field :url , placeholder: "https:", id: "project_url" %>
+<!-- Form for External Link Project -->
+<div id="external_link_toggle" class="row">
+  <%= form_for @project, :url => { :action => "scrape" }, :html => { :method => "get" }, remote: true do |f| %>
+  <div class="small-12 columns">
+    <label>Link</label>
+      <%= f.text_field :url , placeholder: "https:", id: "project_url" %>
+  </div>
 
-        <div class="spacer-m"></div>
-        Title
-        <%= f.text_field :title , placeholder: "Title" %>
+  <div id='test' class="small-12 columns">
+    <td class="button postfix" ><%= f.submit "Enter" %></td>
+    </div>
+  <% end %>
+</div>
 
-        <div class="spacer-m"></div>
-        Summary
-        <%= f.text_field :summary , placeholder: "Summary" %>
 
-        <div class="spacer-m"></div>
-        <%= f.submit "Submit" %>
+<div id="external_link_toggle" class="row">
+<%= form_for @project, html: { multipart: true } do |f| %>
 
-        <% end %>
-      </div>
-    </div><!--/ "shadow-box" -->
-  </div><!--/ "row-centered" -->
-</div><!--/ "center-container" -->
+<div id='url-show'>
+<%= f.text_field :url %>
+</div>
+
+<div id='title-show'>
+<%= f.text_field :title %>
+</div>
+
+<div id='description-show'>
+  <%= f.text_field :summary %>
+</div>
+
+<%= f.fields_for :project_uploads, ProjectUpload.new do |ff| %>
+  <p id="image-show-upload">
+    <%= ff.label :image %><br>
+    <%= ff.text_field :remote_image_url_url,name: "project[project_uploads_attributes][][image_url]" %>
+  </p>
+<% end %>
+
+<div id='image-show'>
+</div>
+
+<div class="small-12 columns">
+  <td class="button postfix"><%= f.submit "Submit" %></td>
+</div>
+
+<% end %>
