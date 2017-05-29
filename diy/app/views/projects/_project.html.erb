@@ -1,39 +1,35 @@
 <article class="project_thumbnail">
   <div class="thumbnail_content">
-    <div class="title"
-      <h3><%= link_to project.title, project_path(project.id) %></h3>
-    </div>
     <div class="img-container modal-trigger">
-      <div>
-        <% if project.project_uploads.blank? %>
-          <p>No image for this project</p>
-        <% else %>
-          <% project.project_uploads.each do |img| %>
-            <%= image_tag img.image_url, class: "thumbnail_lg" %>
-          <% end %>
-        <% end %>
+      <div class="tile"> 
+        <div class="container">
+          <!-- Normal Demo-->
+          <div class="column">
+            <!-- Post-->
+            <div class="post-module">
+              <!-- Thumbnail-->
+              <div class="thumbnail">
+                <div class="date">
+                  <div class="day">27</div>
+                  <div class="month">Mar</div>
+                </div>
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+              </div>
+              <!-- Post Content-->
+              <div class="post-content">
+                <div class="category">Photos</div>
+                <h1 class="title"><%= link_to project.title, project_path(project.id) %></h1>
+                <p class="description"><%= project.summary %></p>
+                <div class="post-meta"><span class="timestamp"><i class="fa fa-clock-">o</i> 6 mins ago</span><span class="comments"><i class="fa fa-comments"></i><a href="#"> 39 comments</a></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <footer>
-      <ul class="icon_group">
-        <li class="rating">
-          <% project.avg_rating.to_i.times do %>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          <% end %>
-          <% if (project.avg_rating % 1 != 0) %>
-            <i class="fa fa-star-half-o" aria-hidden="true"></i>
-              <% (4 - project.avg_rating.to_i).times do %>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-            <% end %>
-          <% elsif (project.avg_rating % 1 == 0) %>
-            <% (5 - project.avg_rating.to_i).times do %>
-              <i class="fa fa-star-o" aria-hidden="true"></i>
-            <% end %>
-          <% end %>
-        </li>
-        <li class="rating_count">(<%= project.review_count %>)</li>
-        <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i> (<%= project.save_count %>)</li>
-      </ul>
-    </footer>
+  </div>
+
   </div>
 </article>
+
+
