@@ -5,8 +5,8 @@
     <!-- Left Nav Section -->
   <div class="nav-bar-left">
     <div class="center-container">
+    <h4 class="search-title"> Search for </h4>
       <%= form_tag("/search", method: "get", class:"search-menu") do %>
-          <%= label_tag "Search" %>
           <%= text_field_tag :q, params[:q], class:"search-bar" %>
           <div class="spacer-l"> </div>
           <%= submit_tag "Go", class: "button search-button", name: nil %>
