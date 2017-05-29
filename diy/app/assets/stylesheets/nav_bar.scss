@@ -1,0 +1,44 @@
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1em;
+  border-bottom: 1px black solid;
+  padding-bottom: 1em;
+  background-color: lightgrey;
+}
+
+.nav-bar-title {
+  margin-left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar-left {
+  height: 2em;
+}
+
+.nav-bar-right {
+  margin-right: 1em;
+}
+
+.search-menu {
+  display: flex;
+}
+
+.search-bar {
+  width: 48em;
+}
+
+.search-container {
+  width: 25em;
+}
+
+.search-button {
+  margin-left: 1em;
+  display: flex;
+  justify-content: flex-end;
+  width: 1em;
+  &:hover {
+    cursor: pointer;
+  }
+}
