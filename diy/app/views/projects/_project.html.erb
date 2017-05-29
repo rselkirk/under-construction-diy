@@ -17,12 +17,19 @@
     <footer>
       <ul class="icon_group">
         <li class="rating">
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <%= project.avg_rating %>
+          <% project.avg_rating.to_i.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% if (project.avg_rating % 1 != 0) %>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <% (4 - project.avg_rating.to_i).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>       
+          <% elsif (project.avg_rating % 1 == 0) %>
+            <% (5 - project.avg_rating.to_i).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
         </li>
         <li class="rating_count">(<%= project.review_count %>)</li>
         <li class="favourite"><i class="fa fa-bookmark-o" aria-hidden="true"></i>(<%= project.save_count %>)</li>
