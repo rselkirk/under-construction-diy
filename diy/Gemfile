@@ -51,6 +51,7 @@ gem 'elasticsearch-rails'
 gem 'elasticsearch-persistence'
 gem 'bonsai-elasticsearch-rails'
 gem 'acts-as-taggable-on', :git => 'https://github.com/F3pix/acts-as-taggable-on'
+gem 'metainspector'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
