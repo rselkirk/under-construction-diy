@@ -36,11 +36,7 @@
 }
 
 .search-button {
-  margin-left: 1em;
   display: flex;
   justify-content: flex-end;
-  width: 1em;
-  &:hover {
-    cursor: pointer;
-  }
+  width: 3.5em;
 }

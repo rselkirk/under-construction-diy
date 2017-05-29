@@ -4,10 +4,11 @@
   </div>
     <!-- Left Nav Section -->
   <div class="nav-bar-left">
-    <div class="search-container">
+    <div class="center-container">
       <%= form_tag("/search", method: "get", class:"search-menu") do %>
           <%= label_tag "Search" %>
           <%= text_field_tag :q, params[:q], class:"search-bar" %>
+          <div class="spacer-l"> </div>
           <%= submit_tag "Go", class: "button search-button", name: nil %>
       <% end %>
     </div>
