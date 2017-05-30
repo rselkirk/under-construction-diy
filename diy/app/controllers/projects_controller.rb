@@ -1,14 +1,12 @@
 class ProjectsController < ApplicationController
 
+  # This is not being used to render the page, but is still being used in certain situations (like searching by tag)
   def index
     if
       params[:tag]
       @projects = Project.tagged_with(params[:tag])
     else
-      @projects = Project
-      .includes(:reviews)
-      .all
-      .order(created_at: :desc)
+      @projects = Project.includes(:reviews).all.order(created_at: :desc)
     end
   end
 
