@@ -35,65 +35,6 @@ $a-tags-hover: 'a:active, a:hover';
   &:active {
     background: $color-accent-dark;
   }
-  &.flip {
-    perspective: 1000;
-  &.flipped {
-    transform: rotateX(180deg);
-  }
-  &.flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
-  }
-  }
-  &.complete {
-  color: #fff;
-  background: #95AB63;
-    &:hover {
-      background: #779f1f;
-    }
-  }
-  &.save {
-  color: #fff;
-  background: #4257ae;
-    &:hover {
-      background: #1839bd;
-    }
-  }
-  .backside {
-    display: none;
-    &.show {
-      display: inline-block;
-      transform: rotateX(180deg);
-    }
-  }
-  .front.hide {
-    display: none;
-  }
-  &.save {
-    &:before {
-      display: inline-block;
-      content: '\f067';
-      font-family: fontawesome;
-      padding: 0 10px 0 0;
-    }
-    &.added:before {
-      content: '\f02e';
-      transform: rotateX(180deg);
-    }
-  }
-  &.complete {
-    &:before {
-      display: inline-block;
-      content: '\f046';
-      font-family: fontawesome;
-      padding: 0 10px 0 0;
-    }
-    &.added:before {
-      content: '\f00c';
-      transform: rotateX(180deg);
-    }
-  }
 }
 
 h1 {
@@ -166,12 +107,22 @@ body {
   // add styles here
 }
 
-
-
 .row-centered {
   display: flex;
   justify-content: center;
   align-items: center
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .shadow-box {
@@ -180,45 +131,4 @@ body {
   box-shadow: 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12), 0px 8px 10px -5px rgba(0, 0, 0, 0.3);
   z-index: 10;
   padding: 25px;
-}
-
-/************************************/
-/* FORMS */
-
-input {
-  width: 100%;
-  color: rgba(0, 0, 0, 0.87);
-  background: transparent;
-  font-size: 13px;
-  padding: 10px;
-  padding-left: 42px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
-  cursor: text;
-  transition: 0.3s;
-  &:hover, &:focus {
-    border: 1px solid rgba(0, 0, 0, 1);
-  }
-  &::-webkit-input-placeholder, &::-moz-placeholder {
-    color: rgba(0, 0, 0, 0.54);
-  }
-}
-
-input[type="button"] {
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 10px;
-  cursor: pointer;
-}
-
-label {
-  height: 37px;
-  width: 37px;
-  position: absolute;
-  .material-icons {
-    height: 100%;
-    width: 100%;
-    color: rgba(0, 0, 0, 0.87);
-    line-height: 37px;
-    font-size: 24px;
-  }
 }
