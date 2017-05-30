@@ -3,3 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "_variables";
+
+.user-review {
+  border-bottom: 1px solid #4383D0;
+}
+
+.review-image img {
+  width: 100px;
+  max-height: 100px;
+}
+
+.reviewer {
+  float: left;
+}
+
+.review-cost {
+  float: right;
+  padding-right: 20px;
+}
+
+.review-time {
+  float: right;
+  padding-right: 20px;
+}
