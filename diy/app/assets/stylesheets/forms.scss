@@ -1,0 +1,228 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "_variables";
+
+#external_link_toggle, #create_project_toggle {
+  // display: none;
+}
+
+/************************************/
+/* FORMS */
+
+input {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  background: transparent;
+  font-size: 13px;
+  padding: 10px;
+  padding-left: 42px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  cursor: text;
+  transition: 0.3s;
+  &:hover, &:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  &::-webkit-input-placeholder, &::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
+
+input[type="button"] {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+}
+
+label {
+  height: 37px;
+  width: 37px;
+  position: absolute;
+  .material-icons {
+    height: 100%;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 37px;
+    font-size: 24px;
+  }
+}
+
+//this goes to app.scss
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.animation {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+// .wrapper {
+//   width: 80%;
+//   padding: 4%;
+//   margin: 20px auto;
+//   background: #fff;
+//   &.cards {
+//     background: 0;
+//     width: 88%;
+//     padding: 20px 0 0 0;
+//   }
+// }
+
+.container {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 260px;
+  margin: 10px 0 10px 4%;
+  background: #fff;
+  /* Set the depth of the elements */
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  /* Set the transition effects */
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  -o-transition: -o-transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  &.flipped {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  .front {
+    display: block;
+    height: 100%;
+    width: 100%;
+    // line-height: 260px;
+    color: white;
+    text-align: center;
+    font-size: 4em;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+  }
+  .back {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 260px;
+    color: white;
+    text-align: center;
+    font-size: 4em;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+    width: 94%;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 16px;
+    text-align: left;
+    line-height: 25px;
+  }
+  .front {
+    height: initial;
+    border: 1px solid blue;
+  }
+  .back {
+    height: initial;
+    border: 1px solid blue;
+  }
+}
+
+.formItem:first-child {
+  margin-top: 20px;
+}
+
+.card {
+  .back label {
+    display: inline-block;
+    width: 70px;
+    text-align: left;
+  }
+  .front {
+    // background: #096AA3;
+  }
+  .back {
+    // background: #03446A;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+// .container:first-child .card {
+//   .front {
+//     background: #228653;
+//   }
+//   .back {
+//     background: #007539;
+//   }
+// }
+
+.cardTitle {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.content {
+  padding: 4%;
+  font-weight: 100;
+  text-align: left;
+}
+
+button.btnSend {
+  display: inline-block;
+  min-width: 100px;
+  padding: 3px 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #03446A;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+.fa-chevron-right {
+  float: right;
+  color: $color-primary;
+}

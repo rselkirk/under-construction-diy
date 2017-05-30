@@ -18,7 +18,7 @@
             <%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%>
           <% end %>
         <div class="project-title"> <%= @project.title.titlecase %> </div>
-        <div class="project-by"> by Alvin time stamp </div>
+        <div class="project-by"> by <%= current_user.first_name %>  <%= current_user.last_name %> </div>
       </div>
     </div>
     <div class="mid-page">
