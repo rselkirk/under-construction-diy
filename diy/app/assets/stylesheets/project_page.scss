@@ -114,147 +114,19 @@
 
 /*************************************/
 
-.project-page {
-  width: 50%;
-  padding: 40px 0;
-  margin: -30px auto 0 auto;
-  box-sizing: border-box;
-}
-
-.project-content{
-  display: grid;
-}
-// top page/user info
-.top-page{
-  position: relative;
-}
-
-.user-project-info {
-  padding: 3%;
-}
-
 .user-pic-size {
-  padding: 1%;
-  float: left;
-  border-radius: 50%;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 19%;
-  max-height: 100%;
+  width: 50px;
+  max-height: 50px;
 }
 
-.project-title {
-  font-size: 2.7em;
-  padding-left: 4%;
-}
-
-.project-by {
-  padding-left: 4%;
-}
-
-//middle page
-.mid-page {
-  width: 100%;
+.flex-column {
+  display: -webkit-flex;
   display: flex;
-  border-radius: 3px;
-  background-color: $color-accent-light;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-}
-
-// middle page left
-//shots contains both both project pictures and its sub pictures
-.mid-left {
-  width: 700px;
-  min-height: 300px;
-  margin: 0 0 30px 0;
-  padding: 10px;
-}
-
-//note: project-pictures will push right content; adjust the width
-.project-pictures {
-
-}
-
-.main-project-img {
-  max-width: 700px;
-  padding: 20px;
-  max-height: 600px;
-}
-
-.attach-pictures {
-  display: inline-table;
-  padding: 20px 20px 0px 20px;
-  min-height: 40px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.sub-project-img {
-  width: 20%
-}
-
-//midle page right
-.mid-right {
-  padding-top: 1.21%;
-  display: flex;
-  justify-content: space-around;
-  width: 314px;
+  -webkit-flex-direction: column;
   flex-direction: column;
-}
-
-.complete-check {
-  font-size: 1em;
-}
-
-.share-bar {
-
-}
-
-.ratings {
-
-}
-
-.completed-number {
-
-}
-
-.favourites {
-
-}
-
-.related-project-pictures{
-
-}
-
-.tags {
-
-}
-
-//bottom
-
-.project-summary{
-
-}
-
-
-.project-tabs {
-
-}
-
-#tag_cloud {
-  width: 400px;
-  line-height:1.7 em;
-  .s { font-size: .8em; }
-  .s { font-size: .8em; }
-  .s { font-size: .8em; }
-}
-
-
-.wrapper{
-	min-width: 600px;
-	max-width: 900px;
-	margin: 0 auto;
+  max-width: 800px;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .tabs-project{
