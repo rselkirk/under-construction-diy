@@ -66,7 +66,7 @@ body {
   display: block;
   background: #FFFFFF;
   min-width: 300px;
-  height: 470px;
+  height: 400px;
   -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.15);
@@ -194,7 +194,7 @@ body {
 }
 
 .container {
-  max-width: 400px;
+  max-width: 300px;
   min-width: 400px;
   margin: 0 auto;
   &:before, &:after {
@@ -271,7 +271,7 @@ body,html{
 .modal-trigger {
   cursor: pointer;
   text-align: center;
-  padding: 10px 20px;
+  padding: 20px 20px;
   font-style: italic;
   outline: none;
 }

@@ -5,10 +5,7 @@ class ProjectsController < ApplicationController
       params[:tag]
       @projects = Project.tagged_with(params[:tag])
     else
-      @projects = Project
-      .includes(:reviews)
-      .all
-      .order(created_at: :desc)
+      @projects = Project.includes(:reviews).all.order(created_at: :desc)
     end
   end
 

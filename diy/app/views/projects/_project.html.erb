@@ -7,13 +7,15 @@
             <div class="save">
               <i class="fa fa-check"></i>
             </div> 
-            <% if project.project_uploads.blank? %>
-              <img src="blueprint.jpeg"/>
-            <% else %>
-              <% project.project_uploads.each do |img| %>
-                <%= image_tag img.image_url, class: "thumbnail_lg" %>
-              <% end %>
+          <% if project.project_uploads.present? %>
+            <% project.project_uploads.each do |img| %>
+              <%= image_tag img.image_url %>
             <% end %>
+          <% elsif project.image? %>
+            <%= image_tag project.image, class: "thumbnail_lg" %>
+          <% else %>
+            <img src="blueprint.jpeg"/>
+          <% end %>
           <div class="post-content">
             <div class="category">Complete</div>
             <h2 class="title"><%= link_to project.title.titlecase, project_path(project.id) %></h2>
