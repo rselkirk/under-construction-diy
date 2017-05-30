@@ -49,14 +49,6 @@ label {
   }
 }
 
-//this goes to app.scss
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
-
-html {
-  height: 100%;
-  margin: 0;
-}
-
 .animation {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -65,17 +57,17 @@ html {
   transition: all 0.3s ease;
 }
 
-// .wrapper {
-//   width: 80%;
-//   padding: 4%;
-//   margin: 20px auto;
-//   background: #fff;
-//   &.cards {
-//     background: 0;
-//     width: 88%;
-//     padding: 20px 0 0 0;
-//   }
-// }
+.wrapper {
+  width: 80%;
+  padding: 4%;
+  margin: 20px auto;
+  background: #fff;
+  &.cards {
+    background: 0;
+    width: 88%;
+    padding: 20px 0 0 0;
+  }
+}
 
 .container {
   position: relative;
@@ -133,6 +125,8 @@ html {
     -o-backface-visibility: hidden;
     backface-visibility: hidden;
     box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+    background: #222 url(https://www.awesomestories.com/images/user/70c268c6ab2d4cd02efb25977b9de7f3.jpg) 90% 35%;
+      background-size: 115%;
   }
   .back {
     display: block;
@@ -157,11 +151,11 @@ html {
   }
   .front {
     height: initial;
-    border: 1px solid blue;
+    // border: 1px solid blue;
   }
   .back {
     height: initial;
-    border: 1px solid blue;
+    // border: 1px solid blue;
   }
 }
 
@@ -226,3 +220,26 @@ button.btnSend {
   float: right;
   color: $color-primary;
 }
+
+// .instructions{
+//   background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
+  // background-size: 30px 30px;
+  // background-position: 11px 8px;
+  // background-repeat: no-repeat;
+// }
+
+// .body_text_header {
+//   color:#191919;
+//   font-family:'Lato';
+//   font-weight:700;
+//   opacity:0.6;
+//   border-style:groove;
+//   border-top:none;
+//   border-left:none;
+//   border-right:none;
+//   padding:24px;
+//   width:100px;
+//   margin:auto;
+//   border-width:1px;
+// }
+

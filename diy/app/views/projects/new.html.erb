@@ -7,7 +7,8 @@
         <div class="front">
           <div class="link">
             <%= form_for @project, :url => { :action => "scrape" }, :html => { :method => "get" },remote: true do |f| %>
-              Link
+              <!-- <label for="">Link</label> -->
+              <!-- <p class="body_text_header">add your link here</p> -->
               <%= f.text_field :url , placeholder: "https:", id: "project_url" %>
               <td class="button postfix" ><%= f.submit "Enter" %></td>
             <% end %>
@@ -63,11 +64,11 @@
 
           <div class="spacer-m"></div>
           Instructions
-          <%= f.text_field :instructions , placeholder: "Instructions" %>
+          <%= f.text_field :instructions, class: 'instructions', placeholder: "Instructions" %>
 
           <div class="spacer-m"></div>
           Materials
-          <%= f.text_field :material , placeholder: "Materials" %>
+          <%= f.text_field :material, placeholder: "Materials" %>
 
           <div class="spacer-m"></div>
           Time (hours)
