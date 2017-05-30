@@ -88,8 +88,11 @@ html {
 }
 
 body {
-  // contains all visible content, including navbar
-  // add styles here
+  background: #f2f2f2;
+  font-family: 'proxima-nova-soft', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .center-container {
