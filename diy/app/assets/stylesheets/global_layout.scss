@@ -107,21 +107,7 @@ body {
   // add styles here
 }
 
-.navbar {
-  display: inline-flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 70px;
-  background: #E7E3D8;
-  border-bottom: 1px solid #ADA397;
-  left: 0;
-  padding: 20px 20px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 3;
-}
+
 
 .row-centered {
   display: flex;

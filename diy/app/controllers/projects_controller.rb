@@ -1,20 +1,28 @@
 class ProjectsController < ApplicationController
 
+  # This is not being used to render the page, but is still being used in certain situations (like searching by tag)
   def index
     if
       params[:tag]
       @projects = Project.tagged_with(params[:tag])
     else
-      @projects = Project
-      .includes(:reviews)
-      .all
-      .order(created_at: :desc)
+      @projects = Project.includes(:reviews).all.order(created_at: :desc)
     end
   end
 
   def new
     @project = Project.new
     @project_upload = ProjectUpload.new
+  end
+
+  def scrape
+    @page = MetaInspector.new(project_params[:url])
+    @page_url = @page.url
+    @page_title = @page.title
+    @page_description = @page.description
+    @page_image = @page.images.best
+
+    render :json => { :url => @page_url, :title => @page_title, :description => @page_description,  :image => @page_image }
   end
 
   def create
@@ -44,9 +52,9 @@ class ProjectsController < ApplicationController
       :time,
       :cost,
       :url,
+      :image,
       :tag_list,
       project_uploads_attributes: [:id, :project_id, :image_url]
     )
   end
-
 end

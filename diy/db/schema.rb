@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526195123) do
+ActiveRecord::Schema.define(version: 20170529185034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20170526195123) do
     t.float    "avg_rating"
     t.integer  "avg_cost"
     t.integer  "avg_time"
+    t.string   "image"
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 

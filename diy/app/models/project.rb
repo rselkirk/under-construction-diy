@@ -13,7 +13,7 @@ class Project < ApplicationRecord
   has_many :project_statuses
 
   accepts_nested_attributes_for :project_uploads, allow_destroy: true
-  
+
   after_create :update_project_stats
 
   def update_project_stats
