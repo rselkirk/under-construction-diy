@@ -1,15 +1,15 @@
+<<<<<<< HEAD
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "_variables";
 
-#external_link_toggle, #create_project_toggle {
-  // display: none;
-}
-
 /************************************/
 /* FORMS */
+
+@import "_variables";
+
 
 input {
   width: 100%;
@@ -283,6 +283,4 @@ button.btnSend {
 #project_image {
   background: #f2f2f2;
 }
-
-
 

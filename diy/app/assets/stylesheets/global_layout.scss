@@ -35,65 +35,6 @@ $a-tags-hover: 'a:active, a:hover';
   &:active {
     background: $color-accent-dark;
   }
-  &.flip {
-    perspective: 1000;
-  &.flipped {
-    transform: rotateX(180deg);
-  }
-  &.flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
-  }
-  }
-  &.complete {
-  color: #fff;
-  background: #95AB63;
-    &:hover {
-      background: #779f1f;
-    }
-  }
-  &.save {
-  color: #fff;
-  background: #4257ae;
-    &:hover {
-      background: #1839bd;
-    }
-  }
-  .backside {
-    display: none;
-    &.show {
-      display: inline-block;
-      transform: rotateX(180deg);
-    }
-  }
-  .front.hide {
-    display: none;
-  }
-  &.save {
-    &:before {
-      display: inline-block;
-      content: '\f067';
-      font-family: fontawesome;
-      padding: 0 10px 0 0;
-    }
-    &.added:before {
-      content: '\f02e';
-      transform: rotateX(180deg);
-    }
-  }
-  &.complete {
-    &:before {
-      display: inline-block;
-      content: '\f046';
-      font-family: fontawesome;
-      padding: 0 10px 0 0;
-    }
-    &.added:before {
-      content: '\f00c';
-      transform: rotateX(180deg);
-    }
-  }
 }
 
 h1 {
@@ -147,8 +88,11 @@ html {
 }
 
 body {
-  // contains all visible content, including navbar
-  // add styles here
+  background: #f2f2f2;
+  font-family: 'proxima-nova-soft', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .center-container {
@@ -166,11 +110,22 @@ body {
   // add styles here
 }
 
-
 .row-centered {
   display: flex;
   justify-content: center;
   align-items: center
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .shadow-box {
