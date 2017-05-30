@@ -3,18 +3,18 @@
 input {
   width: 100%;
   color: rgba(0, 0, 0, 0.87);
-  background: transparent;
+  background: $color-background;
   font-size: 13px;
   padding: 10px;
   padding-left: 42px;
-  border: 1px solid rgba(0, 0, 0, 0.38);
+  border: 1px solid $color-accent-light;
   cursor: text;
   transition: 0.3s;
   &:hover, &:focus {
-    border: 1px solid rgba(0, 0, 0, 1);
+    border: 1px solid $color-accent-dark;
   }
   &::-webkit-input-placeholder, &::-moz-placeholder {
-    color: rgba(0, 0, 0, 0.54);
+    color: $color-accent-light;
   }
 }
 

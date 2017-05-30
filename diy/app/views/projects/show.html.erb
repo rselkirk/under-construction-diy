@@ -3,13 +3,6 @@
 <div class="flex-column">
 <div class="spacer-l"></div>
 
-<!-- Project Details Panel -->
-<div class="flex-column">
-  <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%></div>
-  <div><%= @project.title.titlecase %></div>
-  <div>by -INSERT NAME?-</div>
-</div><!--/ 'flex-column' - User/Title -->
-
 <!-- Image -->
 <div class="flex-row">
 <div class="flex-column">
@@ -21,13 +14,18 @@
     <% elsif @project.image? %>
     <%= image_tag @project.image, class: "thumbnail_lg"%>
     <% else %>
-    <img src="blueprint.jpeg"/>
+    <%= image_tag('/blueprint.jpeg') %>
     <% end %>
   </div>
 </div><!--/ 'flex-column' - Image -->
 
 <!-- Sidebar with Icons/Buttons -->
 <div class="flex-column">
+
+  <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%></div>
+  <div><%= @project.title.titlecase %></div>
+  <div>by -INSERT NAME?-</div>
+
   <div>
     <h4>-INSERT SAVE/COMPLETE BUTTONS-</h4>
   </div>
