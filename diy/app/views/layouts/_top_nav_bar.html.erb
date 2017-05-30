@@ -4,20 +4,11 @@
   </div>
     <!-- Left Nav Section -->
   <div class="nav-bar-left">
-    <div class="center-container">
-    <h4 class="search-title"> Search for </h4>
+    <div class="center-search">
       <%= form_tag("/search", method: "get", class:"search-menu") do %>
-          <%= text_field_tag :q, params[:q], class:"search-bar" %>
-          <div class="spacer-l"> </div>
+          <%= text_field_tag :q, params[:q], class:"search-bar", placeholder:"Search" %>
+          <div class="fa fa-search fa-2x"></div>
           <%= submit_tag "Go", class: "button search-button", name: nil %>
-      <% end %>
-    </div>
-    <div>
-      <% if @projects.nil? %>
-        <% elsif @projects.size == 0 %>
-        No results
-        <% else %>
-        <%= @projects.size %> Project(s)
       <% end %>
     </div>
   </div> <!-- Left Nav -->
@@ -26,23 +17,25 @@
     <ul class="dropdown menu" data-dropdown-menu>
       <% if current_user %>
         <li class="has-submenu">
-          <span class="fa fa-user-circle-o fa-2x"></span>
-          <ul class="submenu menu vertical" data-submenu>
-            <li><%= link_to 'Profile', user_path(current_user)%></li>
-            <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-            <li><%= link_to 'Logout', logout_path %></li>
-          </ul>
+          <span class="fa fa-user-circle-o fa-3x">
+            <ul class="submenu menu vertical" data-submenu>
+              <li><%= link_to 'Profile', user_path(current_user)%></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li><%= link_to 'Logout', logout_path %></li>
+            </ul>
+          </span>
+         <a href="/projects/new" class="fa fa-plus-circle fa-3x"></a>
         </li>
       </ul>
       <% else %>
-      <li class="has-submenu">
-        <a href="#">Login</a>
-        <ul class="submenu menu vertical" data-submenu>
-          <li><%= link_to 'Login', login_path %></li>
-          <li><%= link_to 'Signup', signup_path %></li>
-        </ul>
-      </li>
+      <span class="fa fa fa-sign-in fa-3x">
+        <li class="vertical">
+          <ul class="login-signup" data-submenu>
+            <li><%= link_to 'Login', login_path %></li>
+            <li><%= link_to 'Signup', signup_path %></li>
+          </ul>
+        </li>
+      </span>
       <% end %>
-    <%= link_to 'Add Project', new_project_path %>
   </div><!-- /nav-bar-right -->
 </div><!-- /nav-bar -->
