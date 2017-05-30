@@ -100,6 +100,7 @@ body {
     height: 300px;
     overflow: hidden;
     .save {
+      opacity: 0;
       position: absolute;
       top: 20px;
       right: 20px;
@@ -142,7 +143,8 @@ body {
     -moz-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
     -ms-transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
     transition: all 0.3s cubic-bezier(0.37, 0.75, 0.61, 1.05) 0s;
-    .category {
+    .complete {
+      opacity: 0;
       position: absolute;
       top: -34px;
       left: 0;

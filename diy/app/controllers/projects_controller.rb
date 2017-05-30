@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
 
-  def index
-    if
-      params[:tag]
-      @projects = Project.tagged_with(params[:tag])
-    else
-      @projects = Project.includes(:reviews).all.order(created_at: :desc)
-    end
-  end
+  # The project index is currently being created by the search controller. This may change.
+  # def index
+  #   if
+  #     params[:tag]
+  #     @projects = Project.tagged_with(params[:tag])
+  #   else
+  #     @projects = Project.includes(:reviews).all.order(created_at: :desc)
+  #   end
+  # end
 
   def new
     @project = Project.new

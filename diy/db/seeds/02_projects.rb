@@ -113,7 +113,7 @@ project_array = [
 },
 {
   url: 'http://www.instructables.com/id/DIY-Custom-Rock-Band-Pedal-just-like-the-Destroye/',
-  title: 'DIY Custom Rock Band Pedal, just like the Destroyer Pedal!!!',
+  title: 'Custom Rock Band Pedal, just like the Destroyer Pedal!!!',
   user_id: 3,
   summary: Faker::Hipster.paragraph(1),
 },
@@ -245,7 +245,7 @@ project_array = [
 },
 {
   url: 'http://www.instructables.com/id/DIY-BUTTER-SLIME-NO-BORAX-NEEDED/',
-  title: 'DIY BUTTER SLIME - NO BORAX NEEDED!',
+  title: 'BUTTER SLIME - NO BORAX NEEDED!',
   user_id: 3,
   summary: Faker::Hipster.paragraph(1),
 },
@@ -341,7 +341,7 @@ project_array = [
 },
 {
   url: 'http://www.instructables.com/id/A-DIY-Sun-Protective-Brim-for-a-Bicycle-Helmet/',
-  title: 'A DIY Sun-Protective Brim for a Bicycle Helmet',
+  title: 'A Sun-Protective Brim for a Bicycle Helmet',
   user_id: 3,
   summary: Faker::Hipster.paragraph(1),
 },
@@ -533,7 +533,7 @@ project_array = [
 },
 {
   url: 'http://www.instructables.com/id/DIY-Medical-Steam-Inhaler/',
-  title: 'DIY Medical Steam Inhaler',
+  title: 'Medical Steam Inhaler',
   user_id: 3,
   summary: Faker::Hipster.paragraph(1),
 },
@@ -599,9 +599,9 @@ project_array = [
 },
 {
   url: 'http://www.instructables.com/id/DIY-Camera-Chest-HarnessMount-GoPro-Inspired/',
-  title: 'DIY Camera Chest Harness/Mount (GoPro Inspired)',
-    summary: Faker::Hipster.paragraph(1),user_id: 3,
-
+  title: 'Camera Chest Harness/Mount (GoPro Inspired)',
+  user_id: 3,
+  summary: Faker::Hipster.paragraph(1),user_id: 3,
 }
 ]
 
@@ -636,7 +636,7 @@ Project.create(
   title: 'Industrial Bookshelf',
   summary: Faker::Hipster.paragraph(1),
   instructions: Faker::Hipster.paragraph(5),
-  user_id: 2,
+  user_id: 3,
   cost: 200,
   time: 3,
   material: Faker::Hipster.paragraph(1),
