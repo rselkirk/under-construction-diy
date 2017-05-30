@@ -1,15 +1,13 @@
 
-<h1>My Profile</h1>
+<h1>Hello, <%= current_user.first_name %>!</h1>
 
-<p>Here are your saved projects:</p>
-<ul>
+<ul class="profile-tab-bar">
   <li><a id="saved_projects_button" class="button">Saved Projects</a></li>    
   <li class="divider"></li>  
   <li><a id="created_projects_button" class="button">Created Projects</a></li>
   <li class="divider"></li>
   <li><a id="completed_projects_button" class="button">Completed Projects</a></li>
 </ul>
-
 <div class="profile-row">
   <div class="medium-9 columns">
     <div id="saved_projects">
@@ -23,12 +21,6 @@
     <div id="completed_projects">
       <p>Completed Projects</p>
       <%= render(:partial => 'projects/project', :collection => @completed_projects) %>
-    </div>
-  </div>
-  <div class="medium-3 columns">
-    <div class="profile-bar">
-      <p>Profile</p>
-      <p>Hello, <%= current_user.first_name %>!</p>
     </div>
   </div>
 </div>
