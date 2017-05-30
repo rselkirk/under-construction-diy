@@ -1,27 +1,27 @@
-// input {
-//   width: 100%;
-//   color: rgba(0, 0, 0, 0.87);
-//   background: transparent;
-//   font-size: 13px;
-//   padding: 10px;
-//   padding-left: 42px;
-//   border: 1px solid rgba(0, 0, 0, 0.38);
-//   cursor: text;
-//   transition: 0.3s;
-//   &:hover, &:focus {
-//     border: 1px solid rgba(0, 0, 0, 1);
-//   }
-//   &::-webkit-input-placeholder, &::-moz-placeholder {
-//     color: rgba(0, 0, 0, 0.54);
-//   }
-// }
+input {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.87);
+  background: transparent;
+  font-size: 13px;
+  padding: 10px;
+  padding-left: 42px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  cursor: text;
+  transition: 0.3s;
+  &:hover, &:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  &::-webkit-input-placeholder, &::-moz-placeholder {
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
 
-// input[type="button"] {
-//   font-weight: 700;
-//   text-transform: uppercase;
-//   padding: 10px;
-//   cursor: pointer;
-// }
+input[type="button"] {
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+}
 
 label {
   height: 37px;

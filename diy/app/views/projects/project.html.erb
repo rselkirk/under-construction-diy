@@ -1,9 +1,19 @@
+<!-- ***************************************** -->
+<!-- DELETE this after projects#show page is done.
+Using this as reference. This code works.
+- Amber -->
+<!-- ***************************************** -->
+
 <% if current_user %>
 
 <%-# the Save/Unsave button -%>
-<div id="saves-count"><%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }
- %></div>
+<div class="save-button-container">
+  <div id="saves-count"><%= button_to "", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }, id: "save", class: "button flip save", name: "save-button" %></div>
+  <div id="plus-icon" class="front"><span class="fa fa-plus" aria-hidden="true"></span></div>
+  <div id="bookmark-icon" class="backside"><span class="fa fa-bookmark" aria-hidden="true"></span></div>
+</div>
 <% end %>
+
 
 <h6>Number of Saved Projects</h6>
 <div id="saves-count-show"><%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %></div>
@@ -84,142 +94,3 @@
       <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
-
-<!-- ********** Delete code below? ********** -->
-
-<div class="tag-bar-container">
-  <div class="tag-bar-wrapper">
-    <div class="tag-bar-wrapper-flex">
-      <div class="tag-bar-wrapper-flex">
-      <div class="tag-word"> Wood </div>
-      <div class="tag-word"> Wood </div>
-      <div class="tag-word"> Wood </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<article class="project-page">
-  <div class="project-content">
-    <div class="top-page">
-      <div class="user-project-info">
-          <%= link_to root_path do %>
-            <%= image_tag "http://www.reactiongifs.us/wp-content/uploads/2016/01/fry_clapping_with_food_futurama.gif", class: "user-pic-size"%>
-          <% end %>
-        <div class="project-title"> Alvin's Wood </div>
-        <div class="project-by"> by Alvin time stamp </div>
-      </div>
-    </div>
-
-    <div class="mid-page">
-      <div class="mid-left">
-        <div class="project-pictures">
-          <%= link_to root_path do %>
-          <%= image_tag "https://assets.pcmag.com/media/images/486771-futurama-game-of-drones.jpg?thumb=y&width=810&height=456", class: "main-project-img" %>
-          <% end %>
-        </div>
-        <div class="attach-pictures">
-          <%= link_to root_path do %>
-          <%= image_tag "https://static.pexels.com/photos/172292/pexels-photo-172292.jpeg", class: "sub-project-img" %>
-          <% end %>
-          <%= link_to root_path do %>
-          <%= image_tag "https://static.pexels.com/photos/139312/pexels-photo-139312.jpeg", class: "sub-project-img" %>
-          <% end %>
-          <%= link_to root_path do %>
-          <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFedLwRl4DpUEIpnDSFBSlpFFuYvCd8g8KQ4RwnP1tLgcdSHomSg", class: "sub-project-img" %>
-          <% end %>
-          <%= link_to root_path do %>
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Taxus_wood.jpg/220px-Taxus_wood.jpg", class: "sub-project-img" %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="mid-right">
-        <div class="complete-check">
-          <h4> Complete! </h4>
-        </div>
-
-        <div class="share-bar">
-          <button class="button" type="button" data-toggle="example-dropdown-1">Share</button>
-          <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
-              <%= link_to "http://www.facebook.com" do %>
-              <i class="fa fa-facebook-official" aria-hidden="true"> </i>
-              <% end %>
-              <%= link_to "http://www.tweeter.com" do %>
-              <i class="fa fa-twitter" aria-hidden="true"> </i>
-              <% end %>
-              <%= link_to "http://www.plus.google.com" do %>
-              <i class="fa fa-google-plus" aria-hidden="true"> </i>
-              <% end %>
-              <%= link_to "http://www.pinterest.com" do %>
-              <i class="fa fa-pinterest-p" aria-hidden="true"> </i>
-              <% end %>
-          </div>
-        </div>
-
-        <div class="ratings">
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          (4.7)
-        </div>
-
-        <div class="completed-number">
-          <i class="fa fa-wrench" aria-hidden="true">(30)</i>
-        </div>
-
-        <div class="favourites">
-          <i class="fa fa-bookmark-o" aria-hidden="true">(149)</i>
-        </div>
-
-        <div class="related-project-pictures">
-        </div>
-
-        <div class="tags">
-        <h4> #wood #morewood #evenmorewood #woodworks </h4>
-        </div>
-        <div class="related-project-pictures">
-          <%= link_to root_path do %>
-          <%= image_tag "https://static.pexels.com/photos/172292/pexels-photo-172292.jpeg", class: "sub-project-img" %>
-          <% end %>
-          <%= link_to root_path do %>
-          <%= image_tag "https://static.pexels.com/photos/139312/pexels-photo-139312.jpeg", class: "sub-project-img" %>
-          <% end %>
-          <%= link_to root_path do %>
-          <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFedLwRl4DpUEIpnDSFBSlpFFuYvCd8g8KQ4RwnP1tLgcdSHomSg", class: "sub-project-img" %>
-          <% end %>
-          <%= link_to root_path do %>
-          <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Taxus_wood.jpg/220px-Taxus_wood.jpg", class: "sub-project-img" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="bottom-page">
-      <div class="project-summary">
-        <h4> Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood  Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood
-        Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood Wood </h4>
-      </div>
-
-      <div class="project-tabs">
-
-        <ul class="tabs" data-deep-link="true" data-update-history="true" data-deep-link-smudge="true" data-deep-link-smudge="500" data-tabs id="deeplinked-tabs">
-          <li class="tabs-title is-active"><a href="#panel1d" aria-selected="true">Instructions</a></li>
-          <li class="tabs-title"><a href="#panel2d">Reviews</a></li>
-          <li class="tabs-title"><a href="#panel3d">Tips and Comments</a></li>
-        </ul>
-        <div class="tabs-content" data-tabs-content="deeplinked-tabs">
-          <div class="tabs-panel is-active" id="panel1d">
-            <p>Instructions</p>
-          </div>
-          <div class="tabs-panel" id="panel2d">
-          <p> Reviews </p>
-          </div>
-          <div class="tabs-panel" id="panel3d">
-            Tips and Comments
-          </div>
-        </div>
-      </div>
-    </div>
-</article>
