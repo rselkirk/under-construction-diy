@@ -1,167 +1,113 @@
-<div class="tag-bar-container">
-  <div class="tag-bar-wrapper">
-    <div class="tag-bar-wrapper-flex">
-      <div class="tag-bar-wrapper-flex">
-      <div class="tag-word"> Wood </div>
-      <div class="tag-word"> Wood </div>
-      <div class="tag-word"> Wood </div>
-      <div class="tag-word"> Wood </div>
-      </div>
+<div>-INSERT tag_bar partial-<div>
+<div class="row-centered">
+<div class="flex-column">
+<div class="spacer-l"></div>
+
+<!-- Project Details Panel -->
+<div class="flex-column">
+  <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%></div>
+  <div><%= @project.title.titlecase %></div>
+  <div>by -INSERT NAME?-</div>
+</div><!--/ 'flex-column' - User/Title -->
+
+<!-- Image -->
+<div class="flex-row">
+<div class="flex-column">
+  <div>
+    <% if @project_uploads.present? %>
+    <% @project_uploads.each do |img| %>
+    <%= image_tag img.image_url %>
+    <% end %>
+    <% elsif @project.image? %>
+    <%= image_tag @project.image, class: "thumbnail_lg"%>
+    <% else %>
+    <img src="blueprint.jpeg"/>
+    <% end %>
+  </div>
+</div><!--/ 'flex-column' - Image -->
+
+<!-- Sidebar with Icons/Buttons -->
+<div class="flex-column">
+  <div>
+    <h4>-INSERT SAVE/COMPLETE BUTTONS-</h4>
+  </div>
+
+  <div>
+    <button class="button">Share</button>
+    <div>
+      <%= link_to "http://www.facebook.com" do %>
+      <i class="fa fa-facebook-official" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to "http://www.tweeter.com" do %>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to "http://www.plus.google.com" do %>
+      <i class="fa fa-google-plus" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to "http://www.pinterest.com" do %>
+      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+      <% end %>
     </div>
   </div>
-</div>
-<article class="project-page">
-  <div class="project-content">
-    <div class="top-page">
-      <div class="user-project-info">
-          <%= link_to root_path do %>
-            <%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%>
-          <% end %>
-        <div class="project-title"> <%= @project.title.titlecase %> </div>
-        <div class="project-by"> by Alvin time stamp </div>
-      </div>
-    </div>
-    <div class="mid-page">
-      <div class="mid-left">
-        <div class="project-pictures">
-          <div>
-            <% if @project_uploads.present? %>
-              <% @project_uploads.each do |img| %>
-              <%= image_tag img.image_url %>
-              <% end %>
-            <% elsif @project.image? %>
-              <%= image_tag @project.image, class: "thumbnail_lg"%>
-            <% else %>
-              <img src="blueprint.jpeg"/>
-            <% end %>
-          <div>
-        </div>
-        <div class="attach-pictures">
-        </div>
-      </div>
-      <div class="mid-right">
-        <div class="complete-check">
-          <h4> Complete! </h4>
-        </div>
 
-        <div class="share-bar">
-          <button class="button" type="button" data-toggle="example-dropdown-1">Share</button>
-          <div class="dropdown-pane" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
-              <%= link_to "http://www.facebook.com" do %>
-              <i class="fa fa-facebook-official" aria-hidden="true"> </i>
-              <% end %>
-              <%= link_to "http://www.tweeter.com" do %>
-              <i class="fa fa-twitter" aria-hidden="true"> </i>
-              <% end %>
-              <%= link_to "http://www.plus.google.com" do %>
-              <i class="fa fa-google-plus" aria-hidden="true"> </i>
-              <% end %>
-              <%= link_to "http://www.pinterest.com" do %>
-              <i class="fa fa-pinterest-p" aria-hidden="true"> </i>
-              <% end %>
+  <div>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <dd><%= @project.avg_rating %></dd>
+  </div>
+
+  <div>
+    <i class="fa fa-wrench" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>)</i>
+  </div>
+
+  <div>
+    <i class="fa fa-bookmark-o" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>)</i>
+  </div>
+
+  <div>
+    <h4>tag, tag, tag<%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></h4>
+  </div>
+</div><!--/ 'flex-column' - Sidebar -->
+</div><!--/ 'flex-row' -->
+
+<!-- Bottom Section -->
+  <div>
+    <h4><%= @project.summary %></h4>
+  </div>
+
+  <div class="project-tabs">
+    <section class="wrapper">
+
+      <ul class="tabs-project">
+        <li class="active">Reviews</li>
+        <li>Instructions</li>
+      </ul>
+
+      <ul class="tab__content">
+        <li class="active">
+          <div class="content__wrapper">
+            <%-# Reviews are rendered to review partial  -%>
+            <% @project.reviews.reverse_each do |review| %>
+            <%= render 'review', review:review %>
+            <% end %>
           </div>
-        </div>
-
-        <div class="ratings">
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <dd><%= @project.avg_rating %></dd>
-        </div>
-
-        <div class="completed-number">
-          <i class="fa fa-wrench" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>)</i>
-        </div>
-
-        <div class="favourites">
-          <i class="fa fa-bookmark-o" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>)</i>
-        </div>
-
-        <div class="related-project-pictures">
-        </div>
-
-        <div class="tags">
-        <h4><%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></h4>
-        </div>
-      </div>
+        </li>
+        <li>
+          <div class="content__wrapper">
+            <p>Project Instructions: <%= @project.instructions %></p>
+            <p>Project Cost: <%= @project.cost %></p>
+            <p>Project Time: <%= @project.time %></p>
+            <p>Project Material: <%= @project.material %></p>
+          </div>
+        </li>
+      </ul>
+    </section><!--/ 'wrapper' -->
+    <div>
+      <%= render 'form_review' %>
     </div>
-    <div class="bottom-page">
-      <div class="project-summary">
-        <h4> <%= @project.summary %> </h4>
-      </div>
-
-      <div class="project-tabs">
-
-        <section class="wrapper">
-          <ul class="tabs-project">
-            <li class="active">Reviews</li>
-            <li>Instructions</li>
-          </ul>
-          <ul class="tab__content">
-            <li class="active">
-              <div class="content__wrapper">
-                <% @project.reviews.reverse_each do |review| %>
-                  <%= render 'review', review:review %>
-                <% end %> </p>
-              </div>
-            </li>
-            <li>
-              <div class="content__wrapper">
-                <p>Project Instructions: <%= @project.instructions %></p>
-                <p>Project Cost: <%= @project.cost %></p>
-                <p>Project Time: <%= @project.time %></p>
-                <p>Project Material: <%= @project.material %></p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <div class="writable-reivews">
-        <%-# Review form displays only to logged in users -%>
-          <% if current_user %>
-            <%= form_for [@project, @review], html: { multipart: true } do |form| %>
-
-              <%= form.label :rating %>
-              <%= form.select(:rating) do %>
-                <% [1, 2, 3, 4, 5].each do |c| -%>
-                  <%= content_tag(:option, c, value: c) %>
-                <% end %>
-              <% end %>
-              <%= form.label :content %>
-              <%= form.text_area :content, class: 'form-control' %>
-              <%= form.label :time %>
-              <%= form.text_area :time, class: 'form-control' %>
-              <%= form.label :cost %>
-              <%= form.text_area :cost, class: 'form-control' %>
-              <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
-                <%= ff.label :image %><br>
-                <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
-              <% end %>
-
-              <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-</article>
-
-<% if current_user %>
-  <%-# the Save/Unsave button -%>
-  <div id="saves-count">
-    <%= button_to "Save/unsave", [@project, @project_status], method: :patch, remote: true, params: { project_status: { saves: true } }%>
-  </div>
-<% end %>
-
-<h6>Number of Saved Projects</h6>
-<div id="saves-count-show">
-  <%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>
+  </div><!--/ 'project-tabs' -->
+</div><!--/ 'center-container' -->
 </div>
-  <% if current_user %>
-  <%-# Completed/Uncompleted button -%>
-  <div id="completes-count">
-    <%= button_to "Complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } } %>
-  </div>
-  <% end %>

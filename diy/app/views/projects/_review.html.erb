@@ -1,4 +1,4 @@
-<Article>
+<div>
   <% if current_user && current_user.id == review.user_id %>
     <%= link_to fa_icon('trash'), [review], class: 'btn btn-sm btn-danger review-delete pull-right', method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
@@ -18,5 +18,5 @@
       <% end %>
     </dd>
   </dl>
-</Article>
+</div>
 
