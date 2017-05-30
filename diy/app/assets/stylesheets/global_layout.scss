@@ -152,8 +152,7 @@ body {
 }
 
 .center-container {
-  margin-top: 3em;
-  text-align: center;
+  padding-bottom: .2em;
   &::before {
     height: 100%;
     vertical-align: middle;
