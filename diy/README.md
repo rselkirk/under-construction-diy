@@ -30,7 +30,10 @@ bundle exec rspec
 
 * Deployment instructions
 
-* ...
+## The heroku site is connected to alvin.cl.ng@gmail.com unable to connect if not on that email.
+## Connection command is "git heroku push origin master"
+## Updating the database is heroku run rake db:migrate
+## Precompile as
 
 * Search set up
 ## First start with 'bundle install'
