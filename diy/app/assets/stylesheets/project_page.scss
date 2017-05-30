@@ -1,5 +1,119 @@
 @import "_variables";
 
+/************************************/
+/* SAVE/COMPLETE BUTTONS */
+
+// be careful changing these class names since they're attached to jquery/ajax functions
+
+
+.save-button-container {
+  position: relative;
+  width: 55px;
+  height: 55px;
+  z-index: 1;
+}
+
+// input element for Save/Unsave button
+#save {
+  position: absolute;
+  top: 0;
+  left: 1;
+  z-index: 1;
+}
+
+// icons for Save/Unsave button
+#plus-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  color: #fff;
+  background-color: red;
+  font-size: 40px;
+  width: 55px;
+  height: 55px;
+}
+
+#bookmark-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  color: #fff;
+  background-color: blue;
+  font-size: 40px;
+  width: 55px;
+  height: 55px;
+}
+
+.button, input[name="save"] {
+  &.flip {
+    perspective: 1000;
+  &.flipped {
+    transform: rotateX(180deg);
+  }
+  &.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  }
+  }
+  &.complete {
+  color: #fff;
+  background: #95AB63;
+    &:hover {
+      background: #779f1f;
+    }
+  }
+  &.save {
+  color: #fff;
+  background: #4257ae;
+    &:hover {
+      background: #1839bd;
+    }
+  }
+  .backside {
+    display: none;
+    &.show {
+      display: inline-block;
+      transform: rotateX(180deg);
+    }
+  }
+  .front.hide {
+    display: none;
+  }
+  &.save {
+    &:before {
+      display: inline-block;
+      content: '\f067'; // plus icon
+      font-family: fontawesome;
+      // padding: 5px;
+    }
+    &.added:before {
+      content: '\f02e'; // bookmark icon
+      transform: rotateX(180deg);
+    }
+  }
+  &.complete {
+    &:before {
+      display: inline-block;
+      content: '\f046';
+      font-family: fontawesome;
+      // padding: 5px;
+    }
+    &.added:before {
+      content: '\f00c';
+      // padding: 5px;
+    }
+  }
+}
+
+
+
+/*************************************/
+
 .project-page {
   width: 50%;
   padding: 40px 0;
