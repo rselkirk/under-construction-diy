@@ -1,125 +1,30 @@
 @import "_variables";
 
-/************************************/
-/* SAVE/COMPLETE BUTTONS */
 
-// be careful changing these class names since they're attached to jquery/ajax functions
-
-
-.save-button-container {
-  position: relative;
-  width: 55px;
-  height: 55px;
-  z-index: 1;
-}
-
-// input element for Save/Unsave button
-#save {
-  position: absolute;
-  top: 0;
-  left: 1;
-  z-index: 1;
-}
-
-// icons for Save/Unsave button
-#plus-icon {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  color: #fff;
-  background-color: red;
-  font-size: 40px;
-  width: 55px;
-  height: 55px;
-}
-
-#bookmark-icon {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
-  color: #fff;
-  background-color: blue;
-  font-size: 40px;
-  width: 55px;
-  height: 55px;
-}
-
-.button, input[name="save"] {
-  &.flip {
-    perspective: 1000;
-  &.flipped {
-    transform: rotateX(180deg);
-  }
-  &.flipper {
-  transition: 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
-  }
-  }
-  &.complete {
-  color: #fff;
-  background: #95AB63;
-    &:hover {
-      background: #779f1f;
-    }
-  }
-  &.save {
-  color: #fff;
-  background: #4257ae;
-    &:hover {
-      background: #1839bd;
-    }
-  }
-  .backside {
-    display: none;
-    &.show {
-      display: inline-block;
-      transform: rotateX(180deg);
-    }
-  }
-  .front.hide {
-    display: none;
-  }
-  &.save {
-    &:before {
-      display: inline-block;
-      content: '\f067'; // plus icon
-      font-family: fontawesome;
-      // padding: 5px;
-    }
-    &.added:before {
-      content: '\f02e'; // bookmark icon
-      transform: rotateX(180deg);
-    }
-  }
-  &.complete {
-    &:before {
-      display: inline-block;
-      content: '\f046';
-      font-family: fontawesome;
-      // padding: 5px;
-    }
-    &.added:before {
-      content: '\f00c';
-      // padding: 5px;
-    }
+.twitter-share, .facebook-share, .pinterest-share {
+  color: $color-accent-dark;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 200ms linear;
+  &:hover {
+    background: $color-accent-dark;
+    color: #fff;
   }
 }
 
-
-
-/*************************************/
-
-.user-pic-size {
-  width: 50px;
-  max-height: 50px;
+.share-button {
+  color: $color-accent-light;
+  &:before {
+    display: inline-block;
+    content: '\f064';
+    font-family: fontawesome;
+    padding: 0 5px;
+  }
 }
 
-.flex-column {
+.column-flex-centered {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -129,80 +34,116 @@
   justify-content: center;
 }
 
+// *** fix this to resize large images to max-width
+// *** right now it just crops them
+.column-image {
+  max-width: 479px; // same width as our fallback image (blueprint.jpeg)
+  overflow: hidden;
+}
+
+.column-sidebar {
+  // width: 40vh;
+  width: 30%;
+}
+
+.project-creator {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: .5em;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+hr.dividing-line {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+
 .tabs-project{
-	display: table;
-	table-layout: fixed;
-	width: 100%;
-	-webkit-transform: translateY(5px);
-	transform: translateY(5px);
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
 
-	>li{
-		transition-duration: .25s;
-		display: table-cell;
-		list-style: none;
-		text-align: center;
-		padding: 20px 20px 25px 20px;
-		position: relative;
-		overflow: hidden;
-		cursor: pointer;
-		color: $color-accent-dark;
+  >li{
+    transition-duration: .2s;
+    display: table-cell;
+    list-style: none;
+    text-align: center;
+    padding: 20px 20px 25px 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    color: $color-accent-dark;
 
-		&:before{
-			z-index: -1;
-			position: absolute;
-			content: "";
-			width: 100%;
-			height: 120%;
-			top: 0;
-			left: 0;
-			background-color: rgba(255, 255, 255, .3);
-			-webkit-transform: translateY(100%);
-			transform: translateY(100%);
-			transition-duration: .25s;
-			border-radius: 5px 5px 0 0;
-		}
+    &:before{
+      z-index: -1;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 120%;
+      top: 0;
+      left: 0;
+      background-color: rgba(255, 255, 255, .5);
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+      transition-duration: .25s;
+      border-radius: 5px 5px 0 0;
+    }
 
-		&:hover{
-			&:before{
-				-webkit-transform: translateY(70%);
-				transform: translateY(70%);
-			}
-		}
+    &:hover{
+      &:before{
+        -webkit-transform: translateY(70%);
+        transform: translateY(70%);
+      }
+    }
 
-		&.active{
-			color: rgb(80, 85, 90);
+    &.active{
+      color: $color-secondary;
 
-			&:before{
-				transition-duration: .5s;
-				background-color: white;
-				-webkit-transform: translateY(0);
-				transform: translateY(0);
-			}
-		}
-	}
+      &:before{
+        transition-duration: .5s;
+        background-color: white;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+  }
 }
 
 .tab__content{
   //this changes color when pressed
-	background-color: $color-accent-light;
-	position: relative;
-	width: 100%;
-	border-radius: 5px;
+  // background-color: $color-accent-light;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
 
-	>li{
-		width: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
+  >li{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-		display: none;
-		list-style: none;
+    display: none;
+    list-style: none;
 
-		.content__wrapper{
-			border-radius: 5px;
-			width: 100%;
-			padding: 45px 40px 40px 40px;
-			background-color: $color-accent-dark;
-		}
-	}
+    .content__wrapper{
+      border-radius: 5px;
+      width: 100%;
+      padding: 40px;
+      background-color: $color-accent-light;
+    }
+  }
 }

@@ -1,111 +1,117 @@
-<div>-INSERT tag_bar partial-<div>
 <div class="row-centered">
-<div class="flex-column">
-<div class="spacer-l"></div>
+  <div class="column-flex-centered">
+  <div class="spacer-l"></div>
 
-<!-- Image -->
-<div class="flex-row">
-<div class="flex-column">
-  <div>
-    <% if @project_uploads.present? %>
-    <% @project_uploads.each do |img| %>
-    <%= image_tag img.image_url %>
-    <% end %>
-    <% elsif @project.image? %>
-    <%= image_tag @project.image, class: "thumbnail_lg"%>
-    <% else %>
-    <%= image_tag('/blueprint.jpeg') %>
-    <% end %>
-  </div>
-</div><!--/ 'flex-column' - Image -->
+    <div class="flex-row">
 
-<!-- Sidebar with Icons/Buttons -->
-<div class="flex-column">
+      <!-- Image -->
+      <div class="column-image">
+        <% if @project_uploads.present? %>
+        <% @project_uploads.each do |img| %>
+        <%= image_tag img.image_url %>
+        <% end %>
+        <% elsif @project.image? %>
+        <%= image_tag @project.image, class: "thumbnail_lg"%>
+        <% else %>
+        <%= image_tag('/blueprint.jpeg') %>
+        <% end %>
+      </div>
 
-  <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%></div>
-  <div><%= @project.title.titlecase %></div>
-  <div>by -INSERT NAME?-</div>
+      <div class="spacer-l"></div>
 
-  <div>
-    <h4>-INSERT SAVE/COMPLETE BUTTONS-</h4>
-  </div>
+      <!-- Sidebar with Icons/Buttons -->
+      <div class="column-sidebar">
 
-  <div>
-    <button class="button">Share</button>
-    <div>
-      <%= link_to "http://www.facebook.com" do %>
-      <i class="fa fa-facebook-official" aria-hidden="true"></i>
-      <% end %>
-      <%= link_to "http://www.tweeter.com" do %>
-      <i class="fa fa-twitter" aria-hidden="true"></i>
-      <% end %>
-      <%= link_to "http://www.plus.google.com" do %>
-      <i class="fa fa-google-plus" aria-hidden="true"></i>
-      <% end %>
-      <%= link_to "http://www.pinterest.com" do %>
-      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-      <% end %>
-    </div>
-  </div>
-
-  <div>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <dd><%= @project.avg_rating %></dd>
-  </div>
-
-  <div>
-    <i class="fa fa-wrench" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and completes = ?", @project.id, true]).count %>)</i>
-  </div>
-
-  <div>
-    <i class="fa fa-bookmark-o" aria-hidden="true"> (<%= ProjectStatus.where(["project_id = ? and saves = ?", @project.id, true]).count %>)</i>
-  </div>
-
-  <div>
-    <h4>tag, tag, tag<%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></h4>
-  </div>
-</div><!--/ 'flex-column' - Sidebar -->
-</div><!--/ 'flex-row' -->
-
-<!-- Bottom Section -->
-  <div>
-    <h4><%= @project.summary %></h4>
-  </div>
-
-  <div class="project-tabs">
-    <section class="wrapper">
-
-      <ul class="tabs-project">
-        <li class="active">Reviews</li>
-        <li>Instructions</li>
-      </ul>
-
-      <ul class="tab__content">
-        <li class="active">
-          <div class="content__wrapper">
-            <%-# Reviews are rendered to review partial  -%>
-            <% @project.reviews.reverse_each do |review| %>
-            <%= render 'review', review:review %>
-            <% end %>
+        <div class="flex-row project-creator">
+          <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-avatar"%></div>
+          <div class="spacer-m"></div>
+          <div>
+          <h4>submitted by</h4>
+          <h5><%= @project_creator_name %></h5>
           </div>
-        </li>
-        <li>
-          <div class="content__wrapper">
-            <p>Project Instructions: <%= @project.instructions %></p>
-            <p>Project Cost: <%= @project.cost %></p>
-            <p>Project Time: <%= @project.time %></p>
-            <p>Project Material: <%= @project.material %></p>
+        </div>
+
+        <hr class="dividing-line">
+
+        <div>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <%= @project.avg_rating %>
+        </div>
+
+        <div class="spacer-m"></div>
+
+        <!-- Share Buttons -->
+        <div class="flex-row">
+          <div>
+            <h3 class="share-button">share</h3>
           </div>
-        </li>
-      </ul>
-    </section><!--/ 'wrapper' -->
+          <div>
+            <span class="pinterest-share" data-js="pinterest-share"><i class="fa fa-pinterest fa-2x"></i></span>
+          </div>
+          <div>
+            <span class="twitter-share" data-js="twitter-share"><i class="fa fa-twitter fa-2x"></i></span>
+          </div>
+          <div>
+            <span class="facebook-share" data-js="facebook-share"><i class="fa fa-facebook-official fa-2x"></i></span>
+          </div>
+        </div>
+
+        <div class="spacer-m"></div>
+
+        <!-- Save/Complete Buttons -->
+        <div class="flex-row">
+        <!-- insert save/complete buttons here -->
+        </div>
+
+        <div class="flex-row">
+          <h4>tag, tag, tag<%= raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ") %></h4>
+        </div>
+
+      </div><!--/ 'sidebar-column' -->
+    </div><!--/ 'flex-row' -->
+
+    <!-- Bottom Section -->
     <div>
-      <%= render 'form_review' %>
+      <h1><%= @project.title %></h1>
     </div>
-  </div><!--/ 'project-tabs' -->
-</div><!--/ 'center-container' -->
-</div>
+    <div>
+      <p><%= @project.summary %></p>
+    </div>
+
+    <div class="project-tabs">
+<!--       <section class="wrapper"> -->
+
+        <ul class="tabs-project">
+          <li class="active">Instructions</li>
+          <li>Reviews</li>
+        </ul>
+
+        <ul class="tab__content">
+          <li class="active">
+            <div class="content__wrapper">
+              <p>Project Instructions: <%= @project.instructions %></p>
+              <p>Project Cost: <%= @project.cost %></p>
+              <p>Project Time: <%= @project.time %></p>
+              <p>Project Material: <%= @project.material %></p>
+            </div>
+          </li>
+          <li>
+            <div class="content__wrapper">
+              <%-# Reviews are rendered to review partial  -%>
+              <% @project.reviews.reverse_each do |review| %>
+              <%= render 'review', review:review %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+<!--  ***Delete? ***  </section> --><!--/ 'wrapper' -->
+      <div>
+        <%= render 'form_review' %>
+      </div>
+    </div><!--/ 'project-tabs' -->
+  </div><!-- / 'column-flex-centered' -->
+</div><!-- / 'row-centered' -->

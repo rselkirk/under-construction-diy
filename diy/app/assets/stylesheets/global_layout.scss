@@ -26,7 +26,7 @@ $a-tags-hover: 'a:active, a:hover';
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
-  transition: all 100ms linear;
+  transition: all 200ms linear;
   &:hover {
     border: none;
     background: $color-accent-dark;
@@ -42,12 +42,12 @@ h1 {
   text-transform: uppercase;
 }
 
-h2 {
+h2, h5 {
   color: $color-secondary;
   font-style: italic;
 }
 
-h3 {
+h3, h6 {
   color: $color-accent-dark;
   text-transform: uppercase;
 }
@@ -121,11 +121,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
+  align-content: stretch;
 }
 
 .shadow-box {
