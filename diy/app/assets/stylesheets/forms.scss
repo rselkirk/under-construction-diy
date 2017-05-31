@@ -3,7 +3,7 @@
 input {
   width: 100%;
   color: rgba(0, 0, 0, 0.87);
-  background: red;
+  background: transparent;
   font-size: 13px;
   padding: 10px;
   padding-left: 42px;
@@ -11,8 +11,7 @@ input {
   cursor: text;
   transition: 0.3s;
   &:hover, &:focus {
-    border: 1px solid yellow;
-    background: blue;
+    border: 1px solid rgba(0, 0, 0, 1);
   }
   &::-webkit-input-placeholder, &::-moz-placeholder {
     color: $color-accent-light;
