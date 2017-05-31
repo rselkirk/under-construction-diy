@@ -39,8 +39,15 @@ class ProjectsController < ApplicationController
     @project_uploads = @project.project_uploads
     @review = Review.new
     @project_status = ProjectStatus.where(project_id: @project.id).first_or_create
-    @complete_test = ProjectStatus.where(project_id: @project.id, user_id: current_user.id, completes:true).count
-    puts "complete test is: ",@complete_test
+     
+    if (ProjectStatus.where(project_id: @project.id, user_id: current_user.id, completes:true).count == 1)
+      @complete_status = "true"
+    end
+
+    if (ProjectStatus.where(project_id: @project.id, user_id: current_user.id, saves:true).count == 1)
+      @save_status = "true"
+    end
+
   end
 
   private

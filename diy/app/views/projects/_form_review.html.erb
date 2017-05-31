@@ -1,10 +1,12 @@
 <%-# Review form displays only to logged in users -%>
 <% if current_user %>
+  <div class=review-form>
   <%= form_for [@project, @review], html: { multipart: true } do |form| %>
 
     <%= form.label :rating %>
+
     <%= form.select(:rating) do %>
-      <% [1, 2, 3, 4, 5].each do |c| -%>
+      <% [5, 4, 3, 2, 1].each do |c| -%>
         <%= content_tag(:option, c, value: c) %>
       <% end %>
     <% end %>
@@ -26,3 +28,4 @@
     <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
   <% end %>
 <% end %>
+</div>

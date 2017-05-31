@@ -1,30 +1,54 @@
 $(document).ready(function onReady() {
 
-  $(".mark_complete").click(function(){
-    // $(".mark_complete").hide();
-    // $(".completed").show();
+  // Complete button toggle colour and text
+  $(".start-complete").click(function(){
+    $(this).toggleClass("not-complete");
+  });
+
+  $(".start-not-complete").click(function(){
     $(this).toggleClass("completed");
-    // $( "div.mark_complete" ).replaceWith( "completed" );
   });
 
-  $(".completed").click(function(){
-    $(this).toggleClass("mark_complete");
+  $('#complete-button-text').click(function() {
+    if ($(this).val() == "Completed!") {
+      $(this).val("Mark Complete");
+    }
+    else if ($(this).val() == "Mark Complete") {
+      $(this).val("Completed!");
+    }
   });
 
+  // start button toggle color and text
+  $(".start-saved").click(function(){
+    $(this).toggleClass("not-saved");
+  });
 
+  $(".start-not-saved").click(function(){
+    $(this).toggleClass("saved");
+  });
+
+  $('#save-button-text').click(function() {
+    if ($(this).val() == "Saved to Favourites!") {
+      $(this).val("Add to Favourites");
+    }
+    else if ($(this).val() == "Add to Favourites") {
+      $(this).val("Saved to Favourites!");
+    }
+  });
+
+  // Changes save and complete counts
   $('#saves-count').on('ajax:success', (e, data, status, xhr) => {
     $('.fa-bookmark-o').text(`(${data.saves})`);
-    console.log(data.saves)
   }).on('ajax:error', (e, xhr, status, error) => {
     $('#saves-count').append('<p>ERROR</p>');
   });
 
   $('#completes-count').on('ajax:success', (e, data, status, xhr) => {
-    console.log(data.completes)
-    // console.log(data.status)
     $('.fa-wrench').text(`(${data.completes})`);
   }).on('ajax:error', (e, xhr, status, error) => {
     $('#completes-count').append('<p>ERROR</p>');
   });
 
 });
+
+
