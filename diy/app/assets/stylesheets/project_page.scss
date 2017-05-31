@@ -1,146 +1,130 @@
 @import "_variables";
 
-.project-page {
-  width: 50%;
-  padding: 40px 0;
-  margin: -30px auto 0 auto;
-  box-sizing: border-box;
-}
+/************************************/
+/* SAVE/COMPLETE BUTTONS */
 
-.project-content{
-  display: grid;
-}
-// top page/user info
-.top-page{
+// be careful changing these class names since they're attached to jquery/ajax functions
+
+
+.save-button-container {
   position: relative;
+  width: 55px;
+  height: 55px;
+  z-index: 1;
 }
 
-.user-project-info {
-  padding: 3%;
+// input element for Save/Unsave button
+#save {
+  position: absolute;
+  top: 0;
+  left: 1;
+  z-index: 1;
 }
+
+// icons for Save/Unsave button
+#plus-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  color: #fff;
+  background-color: red;
+  font-size: 40px;
+  width: 55px;
+  height: 55px;
+}
+
+#bookmark-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  color: #fff;
+  background-color: blue;
+  font-size: 40px;
+  width: 55px;
+  height: 55px;
+}
+
+.button, input[name="save"] {
+  &.flip {
+    perspective: 1000;
+  &.flipped {
+    transform: rotateX(180deg);
+  }
+  &.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  }
+  }
+  &.complete {
+  color: #fff;
+  background: #95AB63;
+    &:hover {
+      background: #779f1f;
+    }
+  }
+  &.save {
+  color: #fff;
+  background: #4257ae;
+    &:hover {
+      background: #1839bd;
+    }
+  }
+  .backside {
+    display: none;
+    &.show {
+      display: inline-block;
+      transform: rotateX(180deg);
+    }
+  }
+  .front.hide {
+    display: none;
+  }
+  &.save {
+    &:before {
+      display: inline-block;
+      content: '\f067'; // plus icon
+      font-family: fontawesome;
+      // padding: 5px;
+    }
+    &.added:before {
+      content: '\f02e'; // bookmark icon
+      transform: rotateX(180deg);
+    }
+  }
+  &.complete {
+    &:before {
+      display: inline-block;
+      content: '\f046';
+      font-family: fontawesome;
+      // padding: 5px;
+    }
+    &.added:before {
+      content: '\f00c';
+      // padding: 5px;
+    }
+  }
+}
+
+
 
 .user-pic-size {
-  padding: 1%;
-  float: left;
-  border-radius: 50%;
-  position: relative;
-  top: 0;
-  left: 0;
-  width: 19%;
-  max-height: 100%;
+  width: 50px;
+  max-height: 50px;
 }
 
-.project-title {
-  font-size: 2.7em;
-  padding-left: 4%;
-}
-
-.project-by {
-  padding-left: 4%;
-}
-
-//middle page
-.mid-page {
-  width: 100%;
+.flex-column {
+  display: -webkit-flex;
   display: flex;
-  border-radius: 3px;
-  background-color: grey;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-}
-
-// middle page left
-//shots contains both both project pictures and its sub pictures
-.mid-left {
-  width: 520px;
-  min-height: 300px;
-  margin: 0 0 30px 0;
-  padding: 10px;
-}
-
-//note: project-pictures will push right content; adjust the width
-.project-pictures {
-
-}
-
-.main-project-img {
-  max-width: 520px;
-  padding: 20px;
-  max-height: 600px;
-}
-
-.attach-pictures {
-  display: inline-table;
-  padding: 20px 20px 0px 20px;
-  min-height: 40px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.sub-project-img {
-  width: 20%
-}
-
-//midle page right
-.mid-right {
-  padding-top: 1.21%;
-  display: flex;
-  justify-content: space-around;
-  width: 314px;
+  -webkit-flex-direction: column;
   flex-direction: column;
-}
-
-.complete-check {
-  font-size: 2em;
-}
-
-.share-bar {
-
-}
-
-.ratings {
-
-}
-
-.completed-number {
-
-}
-
-.favourites {
-
-}
-
-.related-project-pictures{
-
-}
-
-.tags {
-
-}
-
-//bottom
-
-.project-summary{
-
-}
-
-
-.project-tabs {
-
-}
-
-#tag_cloud {
-  width: 400px;
-  line-height:1.7 em;
-  .s { font-size: .8em; }
-  .s { font-size: .8em; }
-  .s { font-size: .8em; }
-}
-
-
-.wrapper{
-	min-width: 600px;
-	max-width: 900px;
-	margin: 0 auto;
+  max-width: 800px;
+  -webkit-justify-content: center;
+  justify-content: center;
 }
 
 .tabs-project{
@@ -149,7 +133,7 @@
 	width: 100%;
 	-webkit-transform: translateY(5px);
 	transform: translateY(5px);
-	
+
 	>li{
 		transition-duration: .25s;
 		display: table-cell;
@@ -160,7 +144,7 @@
 		overflow: hidden;
 		cursor: pointer;
 		color: $color-accent-dark;
-		
+
 		&:before{
 			z-index: -1;
 			position: absolute;
@@ -175,17 +159,17 @@
 			transition-duration: .25s;
 			border-radius: 5px 5px 0 0;
 		}
-		
+
 		&:hover{
 			&:before{
 				-webkit-transform: translateY(70%);
 				transform: translateY(70%);
 			}
 		}
-		
+
 		&.active{
 			color: rgb(80, 85, 90);
-			
+
 			&:before{
 				transition-duration: .5s;
 				background-color: white;
@@ -202,16 +186,16 @@
 	position: relative;
 	width: 100%;
 	border-radius: 5px;
-	
+
 	>li{
 		width: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
-		
+
 		display: none;
 		list-style: none;
-		
+
 		.content__wrapper{
 			border-radius: 5px;
 			width: 100%;
