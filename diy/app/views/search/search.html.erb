@@ -1,13 +1,8 @@
-<div class="overlay-layer"></div>
+<%= render 'projects/tag_bar' %>
 
+
+<div class="overlay-layer"></div>
 <div class="background-layer">
-  <!-- List of Tags -->
-  <div id='tag_cloud'>
-    <% tag_cloud  Project.tag_counts, %w[s s s] do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class:css_class  %>
-    <% end %>
-  </div>
-  <!-- Grid of Project Tiles -->
   <%= render @projects %>
 </div>
 
