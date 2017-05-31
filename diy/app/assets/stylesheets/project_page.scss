@@ -206,12 +206,20 @@
 }
 
 
-.mark_complete {
+.start-not-complete {
   background-color: tomato;
 }
 
-.completed{
+.completed {
   background-color: blue;
+}
+
+.start-complete {
+  background-color: blue;
+}
+
+.not-complete {
+  background-color: tomato;
 }
 
 

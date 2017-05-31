@@ -10,12 +10,6 @@ class ProjectStatusesController < ApplicationController
     project_id = params[:project_id]
     @status = ProjectStatus.where(project_id: project_id, user_id: current_user.id).first_or_create
 
-    # if (ProjectStatus.where(project_id: @project.id, user_id: current_user.id, completes:true).count == 1)
-    #   @status_completes = "mark_complete"
-    #  else
-    #   @status_completes = "completed"
-    # end
-
     if params[:project_status].has_key?(:saves)
       @status.saves = !@status.saves
       @status.save!

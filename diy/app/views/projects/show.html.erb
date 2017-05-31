@@ -31,22 +31,33 @@
 <!-- Sidebar with Icons/Buttons -->
 <div class="flex-column">
   <div>
-    <h4>-INSERT SAVE/COMPLETE BUTTONS-</h4>
 
       <% if current_user %>
-
-        <div id="completes-count"><%= button_to "Mark complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => 'mark_complete'%></div>
+      
+        <!-- COMPLETE BUTTON -->
+        <% if @complete_status == "true" %>
+          <% complete_variable = "start-complete" %>
+        <% else %>
+          <% complete_variable = "start-not-complete" %>
         <% end %>
 
-      <% if current_user %>
-        <%-# the Save/Unsave button -%>
-        <div id="saves-count" ><%= button_to "save/unsave", [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } } %>
-        </div>
-      <% end %>
-    </div>
+        <div id="completes-count"><%= button_to "Mark complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => complete_variable %></div>
 
-    <% class_test= @status_completes %>
-    <div class= <% class_test %> >testing </div>
+        <div class=spacer-s></div> 
+
+        <!-- SAVE BUTTON -->
+        <% if @save_status == "true" %>
+          <% start_variable = "start-complete" %>
+        <% else %>
+          <% start_variable = "start-not-complete" %>
+        <% end %>
+
+        <div id="saves-count" ><%= button_to "save/unsave", [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } }, :form_class => start_variable %>
+        </div>
+
+      <% end %>
+    
+    </div>
 
     <div>
     <button class="button">Share</button>
@@ -73,7 +84,7 @@
     <% if (@project.avg_rating % 1 != 0) %>
       <i class="fa fa-star-half-o" aria-hidden="true"></i>
         <% (4 - @project.avg_rating.to_i).times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
+        <i class="fa fa-star-o" aria-hidden="true"></i>s
       <% end %>
     <% elsif (@project.avg_rating % 1 == 0) %>
       <% (5 - @project.avg_rating.to_i).times do %>
