@@ -4,10 +4,40 @@
 
 @import "_variables";
 
+.main-profile {
+ 
+}
+
+.top-profile{
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/blueprint.jpeg");
+  height: 240px;
+}
+
+.user-profile-pic {
+  width: 124px;
+  height: 124px;
+  border: 5px white solid;
+}
+
+.user-profile {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: inherit;
+}
+
+.user-name {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
 .profile-row {
   margin-left: 80px;
   margin-right: 80px;
-  max-width: 80rem;
+  max-width: 80em;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-bar {
@@ -24,5 +54,6 @@
 
 .profile-tab-bar {
   display: flex;
-  margin-top: 3em;
+  margin-top: 6em;
+  justify-content: center;
 }
