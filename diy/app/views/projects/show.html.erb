@@ -32,30 +32,36 @@
 <div class="flex-column">
   <div>
 
-      <% if current_user %>
+    <% if current_user %>
       
-        <!-- COMPLETE BUTTON -->
-        <% if @complete_status == "true" %>
-          <% complete_variable = "start-complete" %>
-        <% else %>
-          <% complete_variable = "start-not-complete" %>
-        <% end %>
-
-        <div id="completes-count"><%= button_to "Mark complete", [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => complete_variable %></div>
-
-        <div class=spacer-s></div> 
-
-        <!-- SAVE BUTTON -->
-        <% if @save_status == "true" %>
-          <% start_variable = "start-complete" %>
-        <% else %>
-          <% start_variable = "start-not-complete" %>
-        <% end %>
-
-        <div id="saves-count" ><%= button_to "save/unsave", [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } }, :form_class => start_variable %>
-        </div>
-
+      <!-- COMPLETE BUTTON -->
+      <% if @complete_status == "true" %>
+        <% complete_variable = "start-complete" %>
+        <% complete_text = "Completed!" %>
+      <% else %>
+        <% complete_variable = "start-not-complete" %>
+        <% complete_text = "Mark Complete" %>
       <% end %>
+
+      <div id="completes-count">
+        <%= button_to complete_text, [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => complete_variable, :id => "complete-button-text" %>
+      </div>
+
+      <div class=spacer-s></div> 
+
+      <!-- SAVE BUTTON -->
+      <% if @save_status == "true" %>
+        <% start_variable = "start-complete" %>
+        <% start_text = "Saved to Favourites!" %>
+      <% else %>
+        <% start_variable = "start-not-complete" %>
+        <% start_text = "Add to Favourites" %>
+      <% end %>
+
+      <div id="saves-count" ><%= button_to start_text, [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } }, :form_class => start_variable, :id => "save-button-text" %>
+      </div>
+
+    <% end %>
     
     </div>
 
