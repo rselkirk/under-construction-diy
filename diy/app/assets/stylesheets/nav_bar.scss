@@ -3,17 +3,17 @@
 .nav-bar{
   display: flex;
   justify-content: space-between;
-  padding-top: 1em;
   border-bottom: 1px black solid;
   padding-bottom: 1em;
   background-color: lightgrey;
-  height: 100px;
+  height: 72px;
 }
 
 .nav-bar-title {
   margin-left: 2em;
   display: flex;
   align-items: center;
+  padding-top: 1em;
 }
 
 .center-container > .search-bar{
