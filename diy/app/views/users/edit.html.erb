@@ -1,7 +1,6 @@
 <div class="center-container">
   <div class="row-centered">
     <div class="shadow-box">
-      <div class="col-md-6 col-md-offset-3">
       <%= form_for(@user) do |f| %>
         <h3>Update your profile</h3>
         <%= f.label :first %>
@@ -19,7 +18,7 @@
         <%= f.label :password_confirmation, "Confirmation" %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
         <div class="spacer-m"></div>
-        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%= f.submit "Save changes" %>
       <% end %>
     </div>
   </div>
