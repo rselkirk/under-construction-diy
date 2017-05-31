@@ -39,6 +39,8 @@ class ProjectsController < ApplicationController
     @project_uploads = @project.project_uploads
     @review = Review.new
     @project_status = ProjectStatus.where(project_id: @project.id).first_or_create
+    @project_creator = User.find @project.user_id
+    @project_creator_name = "#{@project_creator.first_name} #{@project_creator.last_name}"
   end
 
   private
