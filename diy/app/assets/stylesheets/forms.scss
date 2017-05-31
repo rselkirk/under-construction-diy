@@ -1,4 +1,14 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import "_variables";
+
+/************************************/
+/* FORMS */
+
+@import "_variables";
+
 
 input {
   width: 100%;
@@ -9,6 +19,7 @@ input {
   padding-left: 42px;
   border: 1px solid $color-accent-light;
   cursor: text;
+  font-family: 'Archivo Black', sans-serif;
   transition: 0.3s;
   &:hover, &:focus {
     border: 1px solid rgba(0, 0, 0, 1);
@@ -29,4 +40,246 @@ label {
   height: 37px;
   width: 37px;
   position: absolute;
+  .material-icons {
+    height: 100%;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.87);
+    line-height: 37px;
+    font-size: 24px;
+  }
 }
+
+.title {
+  font-family: 'Archivo Black', sans-serif;
+  color: black;
+}
+
+.animation {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.wrapper {
+  width: 80%;
+  padding: 4%;
+  margin: 20px auto;
+  background: #fff;
+  &.cards {
+    background: 0;
+    width: 88%;
+    padding: 20px 0 0 0;
+  }
+}
+
+.container {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 260px;
+  margin: 10px 0 10px 4%;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  -o-perspective: 800px;
+  perspective: 800px;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  /* Set the transition effects */
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  -o-transition: -o-transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  &.flipped {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  .front {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 100px;
+    text-align: center;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('/blueprint.jpeg');
+  }
+  .back {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 260px;
+    text-align: center;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
+    width: 94%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3%;
+    font-size: 16px;
+    text-align: left;
+    line-height: 25px;
+    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url('/blueprint.jpeg');
+  }
+  .front {
+    height: initial;
+  }
+  .back {
+    height: initial;
+  }
+}
+
+.formItem:first-child {
+  margin-top: 20px;
+}
+
+.card {
+  .back label {
+    display: inline-block;
+    width: 70px;
+    text-align: left;
+  }
+  .front {
+  }
+  .back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+}
+
+.cardTitle {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+.content {
+  padding: 4%;
+  font-weight: 100;
+  text-align: left;
+}
+
+button.btnSend {
+  display: inline-block;
+  min-width: 100px;
+  padding: 3px 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: #03446A;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+.fa-arrow-right {
+  float: right;
+  padding: 15px;
+  color: $color-primary;
+}
+
+#create_project {
+  padding: 15px;
+  border: none;
+  background: $color-primary;
+  color: #fff;
+  font-size: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: all 100ms linear;
+  &:hover {
+    border: none;
+    background: $color-accent-dark;
+    color: $color-primary;
+  }
+  &:active {
+    background: $color-accent-dark;
+  }
+}
+
+#project_url {
+  width: 60%;
+  background: #f2f2f2;
+}
+
+#new_project input[name="commit"]{&:hover {
+    border: none;
+    background: $color-accent-dark;
+    color: $color-primary;
+  }
+  &:active {
+    background: $color-accent-dark;
+  }
+}
+
+#image-show img{
+  align-items: center;
+  justify-content: center;
+  max-width: 80%
+}
+
+#new_project input{
+  width: 60%;
+}
+
+#project_title {
+  background: #f2f2f2;
+}
+
+#project_summary {
+  background: #f2f2f2;
+}
+
+#project_instructions {
+  background: #f2f2f2;
+}
+
+#project_material {
+  background: #f2f2f2;
+}
+
+#project_time {
+  background: #f2f2f2;
+}
+
+#project_cost {
+  background: #f2f2f2;
+}
+
+#project_tag_list {
+  background: #f2f2f2;
+}
+
+#project_image {
+  background: #f2f2f2;
+}
+
