@@ -4,6 +4,7 @@
 .tag-bar-container{
   position: relative;
   margin: 0px auto;
+  padding-top: 10px;
 }
 
 .tag-bar-wrapper {
@@ -28,7 +29,7 @@
   margin: 0 5px;
   background-size: cover;
   white-space: nowrap;
-  background-color: green;
+  background-color: $color-accent-light;
   border-radius: 20px;
 }
 
