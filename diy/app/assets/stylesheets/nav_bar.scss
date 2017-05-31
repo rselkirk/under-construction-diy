@@ -3,32 +3,61 @@
 .nav-bar{
   display: flex;
   justify-content: space-between;
-  padding-top: 1em;
   border-bottom: 1px black solid;
   padding-bottom: 1em;
   background-color: lightgrey;
+  height: 72px;
 }
 
 .nav-bar-title {
-  margin-left: 1em;
+  margin-left: 2em;
   display: flex;
   align-items: center;
+  padding-top: 1em;
 }
 
-.nav-bar-left {
-  height: 2em;
+.center-container > .search-bar{
+  border:0;
 }
+
 
 .nav-bar-right {
   margin-right: 1em;
+  .dropdown {
+    padding: 0;
+    margin-right: 20px;
+  }
 }
+
+
+
+.center-search {
+  height: 79%;
+  &::before {
+    height: 100%;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
 
 .search-menu {
   display: flex;
+  margin-top: 17px;  
 }
 
 .search-bar {
-  width: 48em;
+  width: 75em;
+  border: 0;
+  border-radius: 1px;
+  &:hover, &:focus {
+    background: $color-accent-dark;
+  }
+}
+
+.search-menu > input {
+  padding-left: 10px;
+  
 }
 
 .search-container {
@@ -38,5 +67,46 @@
 .search-button {
   display: flex;
   justify-content: flex-end;
-  width: 3.5em;
+  width: .01em;
+  height: .01em;
+  opacity: 0;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.vertical {
+position: absolute;
+z-index: 1;
+box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+padding-left: 1px;
+}
+
+.vertical > li {
+  font-size: .7em;
+  background-color: lightgrey;
+  padding: .5em;
+}
+
+.fa-user-circle-o {
+  cursor: pointer;
+  margin-right: 25px;
+}
+
+.fa-sign-in {
+  cursor: pointer;
+  margin-right: 50px;
+}
+
+.login-signup {
+  padding: 0;
+}
+.login-signup > li {
+  font-size: .7em;
+  background-color: lightgrey;
+  padding: .5em;
+}
+
+.fa-search {
+  padding: 6px;
 }

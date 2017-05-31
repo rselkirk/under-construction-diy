@@ -4,6 +4,7 @@
 <div class="flex-column">
 <div class="spacer-l"></div>
 
+
 <!-- Project Details Panel -->
 <div class="flex-column">
   <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%></div>
@@ -16,13 +17,13 @@
 <div class="flex-column">
   <div>
     <% if @project_uploads.present? %>
-    <% @project_uploads.each do |img| %>
-    <%= image_tag img.image_url %>
+      <% @project_uploads.each do |img| %>
+      <%= image_tag img.image_url %>
     <% end %>
     <% elsif @project.image? %>
-    <%= image_tag @project.image, class: "thumbnail_lg"%>
+      <%= image_tag @project.image, class: "thumbnail_lg"%>
     <% else %>
-    <%= image_tag('/blueprint.jpeg') %>
+      <%= image_tag('/blueprint.jpeg') %>
     <% end %>
   </div>
 </div><!--/ 'flex-column' - Image -->
@@ -66,11 +67,19 @@
   </div>
 
   <div>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
-    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <% @project.avg_rating.to_i.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+    <% if (@project.avg_rating % 1 != 0) %>
+      <i class="fa fa-star-half-o" aria-hidden="true"></i>
+        <% (4 - @project.avg_rating.to_i).times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+    <% elsif (@project.avg_rating % 1 == 0) %>
+      <% (5 - @project.avg_rating.to_i).times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
     <dd><%= @project.avg_rating %></dd>
   </div>
 

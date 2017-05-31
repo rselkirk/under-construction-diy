@@ -3,20 +3,35 @@
     <%= link_to fa_icon('trash'), [review], class: 'btn btn-sm btn-danger review-delete pull-right', method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 
-  <dl>
-    <dt>By <%= review.user.first_name %> <%= review.user.last_name %></dt>
-    <dd>Content: <%= review.content %></dd>
-    <dd>Time (hours): <%= review.time %></dd>
-    <dd>Cost (dollars): <%= review.cost %></dd>
-    <dd>
+  <div class=user-review>
+  <div class=spacer-m></div>
+    <dt>
+    <div>
+    <% review.rating.to_i.times do %>
+      <i class="fa fa-star"></i>
+    <% end %>
+    <% (5 - review.rating.to_i).times do %>
+        <i class="fa fa-star-o" aria-hidden="true"></i>
+    <% end %>
+    </div>
+    </dt> 
+    <div class=spacer-s></div>
+    <div class=reviewer> By <%= review.user.first_name %> <%= review.user.last_name %></div>
+    <div class=review-time>Time: <%= review.time %> hours</div><div class=review-cost>Cost: $<%= review.cost %> </div>
+    <div class=spacer-m></div>
+    <p class=review-content><%= review.content %></p>
+    <div class=spacer-s></div>
+    
+    <dd class = review-image>
       <% if review.review_uploads.any? %>
         <% review.review_uploads.each do |img|%>
           <%= image_tag img.image_url.thumb.url %>
         <% end %>
       <% else %>
-        <p><em>no images for this review</em></p>
+        <%= image_tag('/popsicle_house.jpg') %>
       <% end %>
     </dd>
-  </dl>
+    <div class=spacer-m></div>
+  </div>
 </div>
 
