@@ -8,6 +8,10 @@
  
 }
 
+.hide {
+  display: none;
+}
+
 .top-profile{
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/blueprint.jpeg");
   height: 240px;
@@ -44,16 +48,16 @@
   border: 1px solid black;
 }
 
-#created_projects {
-  display: none;
-}
-
-#completed_projects {
-  display: none;
-}
-
 .profile-tab-bar {
   display: flex;
   margin-top: 6em;
   justify-content: center;
+}
+
+
+// button styling
+
+.tab-selected {
+  background-color:#1779BA;
+  border: 2px solid black;
 }

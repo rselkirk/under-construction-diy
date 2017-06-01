@@ -6,24 +6,21 @@
     <h2 class="user-name"><%= current_user.first_name %> <%= current_user.last_name %></h2>
   </div>
   <ul class="profile-tab-bar">
-    <li><a id="saved_projects_button" class="button">Saved Projects</a></li> 
+    <li><a id="saved-projects-button" class="button tab-selected">Saved Projects</a></li> 
     <li class="spacer-m"></li>  
-    <li><a id="created_projects_button" class="button">Created Projects</a></li>
+    <li><a id="created-projects-button" class="button">Created Projects</a></li>
     <li class="spacer-m"></li>
-    <li><a id="completed_projects_button" class="button">Completed Projects</a></li>
+    <li><a id="completed-projects-button" class="button">Completed Projects</a></li>
   </ul>
   <div class="profile-row">
     <div class="medium-9 columns">
       <div id="saved_projects">
-        <p>Saved Projects</p>
         <%= render(:partial => 'projects/project', :collection => @saved_projects) %>
       </div>
-      <div id="created_projects">
-        <p>Created Projects</p>
+      <div id="created_projects" class="hide">
         <%= render(:partial => 'projects/project', :collection => @created_projects) %>
       </div>
-      <div id="completed_projects">
-        <p>Completed Projects</p>
+      <div id="completed_projects" class="hide">
         <%= render(:partial => 'projects/project', :collection => @completed_projects) %>
       </div>
     </div>
