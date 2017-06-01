@@ -2,7 +2,7 @@ $(document).ready(function(){
   var title, content, fetchAndInsert, toggleModal;
   var overlayLayer = $(".overlay-layer");
   var backgroundLayer = $(".background-layer");
-  title = $('.title');
+  title = $('.project_thumbnail');
   modal = $('.modal');
 
   toggleModal = function() {
