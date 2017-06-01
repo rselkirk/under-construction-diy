@@ -3,19 +3,26 @@
   <div class="spacer-l"></div>
 
     <div class="flex-row">
+      <div>
+        <h1><%= @project.title %></h1>
+        <h4><em><%= @project.summary %></em></h4>
+      </div>
+    </div>
+
+    <div class="flex-row">
 
       <!-- Image -->
       <div class="column-image">
         <% if @project_uploads.present? %>
-        <%= image_tag @project_uploads.first.image_url %>
+          <%= image_tag @project_uploads.first.image_url %>
         <% elsif @project.image? %>
-        <%= image_tag @project.image %>
+          <%= image_tag @project.image %>
         <% else %>
-        <%= image_tag('/blueprint.jpeg') %>
+          <%= image_tag('/blueprint.jpeg') %>
         <% end %>
       </div>
 
-      <div class="spacer-l"></div>
+      <div class="spacer-m"></div>
 
       <!-- Sidebar with Icons/Buttons -->
       <div class="column-sidebar">
@@ -29,9 +36,11 @@
           </div>
         </div>
 
+        <div class="spacer-s"></div>
         <hr class="dividing-line">
+        <div class="spacer-s"></div>
 
-        <div>
+        <div class="star-rating-project-page">
           <% @project.avg_rating.to_i.times do %>
             <i class="fa fa-star" aria-hidden="true"></i>
           <% end %>
@@ -47,13 +56,12 @@
           <% end %>
         </div>
 
-        <div class="spacer-m"></div>
+        <div class="spacer-s"></div>
+        <hr class="dividing-line">
+        <div class="spacer-s"></div>
 
         <!-- Share Buttons -->
-        <div class="flex-row">
-          <div>
-            <h3 class="share-button">share</h3>
-          </div>
+        <div class="share-button-row">
           <div>
             <span class="pinterest-share" data-js="pinterest-share"><i class="fa fa-pinterest fa-2x"></i></span>
           </div>
@@ -65,30 +73,25 @@
           </div>
         </div>
 
-        <div class="spacer-m"></div>
-
         <!-- Save/Complete Buttons -->
         <div class="flex-row">
         <!-- insert save/complete buttons here -->
         </div>
 
-        <div class="flex-row">
-          <h4>tag, tag, tag<%= raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ") %></h4>
+        <div class="spacer-s"></div>
+        <hr class="dividing-line">
+        <div class="spacer-s"></div>
+
+        <div class="row-project-details-text">
+          <h3>Tags</h3>
+          <h5><%= raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ") %></h5>
         </div>
 
       </div><!--/ 'sidebar-column' -->
     </div><!--/ 'flex-row' -->
 
     <!-- Bottom Section -->
-    <div>
-      <h1><%= @project.title %></h1>
-    </div>
-    <div>
-      <p><%= @project.summary %></p>
-    </div>
-
     <div class="project-tabs">
-<!--       <section class="wrapper"> -->
 
         <ul class="tabs-project">
           <li class="active">Instructions</li>
@@ -113,7 +116,6 @@
             </div>
           </li>
         </ul>
-<!--  ***Delete? ***  </section> --><!--/ 'wrapper' -->
       <div>
         <%= render 'form_review' %>
       </div>

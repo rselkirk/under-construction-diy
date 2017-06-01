@@ -13,6 +13,14 @@
   }
 }
 
+.share-button-row {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 .share-button {
   color: $color-accent-light;
   &:before {
@@ -33,13 +41,23 @@
   justify-content: center;
 }
 
+// use same dimension as fallback image (blueprint.jpeg) so layout looks consistent
 .column-image img {
-  max-width: 479px; // same width as our fallback image (blueprint.jpeg) so layout has some consistency
+  max-width: 479px;
 }
 
-// .column-sidebar {
-//   width: 30%;
-// }
+.column-image {
+  max-height: 479px;
+  overflow: hidden;
+  &:hover {
+    max-width: 479px;
+    overflow: auto;
+  }
+}
+
+.column-sidebar {
+  min-width: 250px;
+}
 
 .project-creator {
   display: -webkit-flex;
@@ -62,6 +80,11 @@ hr.dividing-line {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.star-rating-project-page {
+  font-size: 2em;
+  color: $color-accent-dark;
 }
 
 .tabs-project{
