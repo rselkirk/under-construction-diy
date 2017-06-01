@@ -1,154 +1,159 @@
 <div class="row-centered">
-<div class="flex-column">
-<div class="spacer-l"></div>
+  <div class="column-flex-centered">
+  <div class="spacer-l"></div>
 
-
-<!-- Project Details Panel -->
-<div class="flex-column">
-  <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-pic-size"%></div>
-  <div><%= @project.title.titlecase %></div>
-  <div>by -INSERT NAME?-</div>
-</div><!--/ 'flex-column' - User/Title -->
-
-<!-- Image -->
-<div class="flex-row">
-<div class="flex-column">
-  <div>
-    <% if @project_uploads.present? %>
-      <% @project_uploads.each do |img| %>
-      <%= image_tag img.image_url %>
-    <% end %>
-    <% elsif @project.image? %>
-      <%= image_tag @project.image, class: "thumbnail_lg"%>
-    <% else %>
-      <%= image_tag('/blueprint.jpeg') %>
-    <% end %>
-  </div>
-</div><!--/ 'flex-column' - Image -->
-
-<!-- Sidebar with Icons/Buttons -->
-<div class="flex-column">
-  <div>
-
-    <% if current_user %>
-
-      <!-- COMPLETE BUTTON -->
-      <% if @complete_status == "true" %>
-        <% complete_variable = "start-complete" %>
-        <% complete_text = "Completed!" %>
-      <% else %>
-        <% complete_variable = "start-not-complete" %>
-        <% complete_text = "Mark Complete" %>
-      <% end %>
-
-      <div id="completes-count">
-        <%= button_to complete_text, [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => complete_variable, :id => "complete-button-text" %>
+    <div class="flex-row">
+      <div>
+        <h1><%= @project.title %></h1>
+        <h4><em><%= @project.summary %></em></h4>
       </div>
-
-      <div class=spacer-s></div>
-
-      <!-- SAVE BUTTON -->
-      <% if @save_status == "true" %>
-        <% start_variable = "start-complete" %>
-        <% start_text = "Saved to Favourites!" %>
-      <% else %>
-        <% start_variable = "start-not-complete" %>
-        <% start_text = "Add to Favourites" %>
-      <% end %>
-
-      <div id="saves-count" ><%= button_to start_text, [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } }, :form_class => start_variable, :id => "save-button-text" %>
-      </div>
-
-    <% end %>
-
     </div>
 
-    <div>
-    <button class="button">Share</button>
-    <div>
-      <%= link_to "http://www.facebook.com" do %>
-      <i class="fa fa-facebook-official" aria-hidden="true"></i>
-      <% end %>
-      <%= link_to "http://www.tweeter.com" do %>
-      <i class="fa fa-twitter" aria-hidden="true"></i>
-      <% end %>
-      <%= link_to "http://www.plus.google.com" do %>
-      <i class="fa fa-google-plus" aria-hidden="true"></i>
-      <% end %>
-      <%= link_to "http://www.pinterest.com" do %>
-      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-      <% end %>
-    </div>
-  </div>
+    <div class="flex-row">
 
-  <div>
-    <% @project.avg_rating.to_i.times do %>
-      <i class="fa fa-star" aria-hidden="true"></i>
-    <% end %>
-    <% if (@project.avg_rating % 1 != 0) %>
-      <i class="fa fa-star-half-o" aria-hidden="true"></i>
-        <% (4 - @project.avg_rating.to_i).times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>s
-      <% end %>
-    <% elsif (@project.avg_rating % 1 == 0) %>
-      <% (5 - @project.avg_rating.to_i).times do %>
-        <i class="fa fa-star-o" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
-    <dd><%= @project.avg_rating %></dd>
-  </div>
+      <!-- Image -->
+      <div class="column-image">
+        <% if @project_uploads.present? %>
+          <%= image_tag @project_uploads.first.image_url %>
+        <% elsif @project.image? %>
+          <%= image_tag @project.image %>
+        <% else %>
+          <%= image_tag('/blueprint.jpeg') %>
+        <% end %>
+      </div>
 
-  <div>
-    <i class="fa fa-wrench" aria-hidden="true">(<%= @project.complete_count %>)</i>
-  </div>
+      <div class="spacer-m"></div>
 
-  <div>
-    <i class="fa fa-bookmark-o" aria-hidden="true">(<%= @project.save_count %>)</i>
-  </div>
+      <!-- Sidebar with Icons/Buttons -->
+      <div class="column-sidebar">
 
-  <div>
-    <h4>tag, tag, tag<%=  raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ")%></h4>
-  </div>
-</div><!--/ 'flex-column' - Sidebar -->
-</div><!--/ 'flex-row' -->
+        <div class="flex-row project-creator">
+          <div><%= image_tag "https://www.1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png", class: "user-avatar"%></div>
+          <div class="spacer-m"></div>
+          <div>
+          <h4>submitted by</h4>
+          <h5><%= @project_creator_name %></h5>
+          </div>
+        </div>
 
-<!-- Bottom Section -->
-  <div>
-    <h4><%= @project.summary %></h4>
-  </div>
+        <div class="spacer-s"></div>
+        <hr class="dividing-line">
+        <div class="spacer-s"></div>
 
-  <div class="project-tabs">
-    <section class="wrapper">
-
-      <ul class="tabs-project">
-        <li class="active">Reviews</li>
-        <li>Instructions</li>
-      </ul>
-
-      <ul class="tab__content">
-        <li class="active">
-          <div class="content__wrapper">
-            <%-# Reviews are rendered to review partial  -%>
-            <% @project.reviews.reverse_each do |review| %>
-            <%= render 'review', review:review %>
+        <div class="star-rating-project-page">
+          <% @project.avg_rating.to_i.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% if (@project.avg_rating % 1 != 0) %>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <% (4 - @project.avg_rating.to_i).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
             <% end %>
+          <% elsif (@project.avg_rating % 1 == 0) %>
+            <% (5 - @project.avg_rating.to_i).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="spacer-s"></div>
+        <hr class="dividing-line">
+        <div class="spacer-s"></div>
+
+        <!-- Share Buttons -->
+        <div class="share-button-row">
+          <div>
+            <span class="pinterest-share" data-js="pinterest-share"><i class="fa fa-pinterest fa-2x"></i></span>
           </div>
-        </li>
-        <li>
-          <div class="content__wrapper">
-            <p>Project Instructions: <%= @project.instructions %></p>
-            <p>Project Cost: <%= @project.cost %></p>
-            <p>Project Time: <%= @project.time %></p>
-            <p>Project Material: <%= @project.material %></p>
+          <div>
+            <span class="twitter-share" data-js="twitter-share"><i class="fa fa-twitter fa-2x"></i></span>
           </div>
-        </li>
-      </ul>
-    </section><!--/ 'wrapper' -->
-    <div>
-    </div>
-  </div><!--/ 'project-tabs' -->
-</div><!--/ 'center-container' -->
-</div>
-<div>
-<%= render 'form_review' %>
-</div>
+          <div>
+            <span class="facebook-share" data-js="facebook-share"><i class="fa fa-facebook-official fa-2x"></i></span>
+          </div>
+        </div>
+
+        <div class="spacer-s"></div>
+        <hr class="dividing-line">
+        <div class="spacer-s"></div>
+
+        <!-- Save/Complete Buttons -->
+        <div class="flex-row">
+        <div>
+        <% if current_user %>
+
+          <!-- COMPLETE BUTTON -->
+          <% if @complete_status == "true" %>
+            <% complete_variable = "start-complete" %>
+            <% complete_text = "Completed!" %>
+          <% else %>
+            <% complete_variable = "start-not-complete" %>
+            <% complete_text = "Mark Complete" %>
+          <% end %>
+
+          <div id="completes-count">
+            <%= button_to complete_text, [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => complete_variable, :id => "complete-button-text" %>
+          </div>
+
+          <div class=spacer-s></div>
+
+          <!-- SAVE BUTTON -->
+          <% if @save_status == "true" %>
+            <% start_variable = "start-complete" %>
+            <% start_text = "Saved to Favourites!" %>
+          <% else %>
+            <% start_variable = "start-not-complete" %>
+            <% start_text = "Add to Favourites" %>
+          <% end %>
+
+          <div id="saves-count" ><%= button_to start_text, [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } }, :form_class => start_variable, :id => "save-button-text" %>
+          </div>
+
+        <% end %>
+        </div>
+        </div>
+
+        <div class="spacer-s"></div>
+        <hr class="dividing-line">
+        <div class="spacer-s"></div>
+
+        <div class="row-project-details-text">
+          <h3>Tags</h3>
+          <h5><%= raw @project.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(", ") %></h5>
+        </div>
+
+      </div><!--/ 'sidebar-column' -->
+    </div><!--/ 'flex-row' -->
+
+    <!-- Bottom Section -->
+    <div class="project-tabs">
+
+        <ul class="tabs-project">
+          <li class="active">Instructions</li>
+          <li>Reviews</li>
+        </ul>
+
+        <ul class="tab__content">
+          <li class="active">
+            <div class="content__wrapper">
+              <p>Project Instructions: <%= @project.instructions %></p>
+              <p>Project Cost: <%= @project.cost %></p>
+              <p>Project Time: <%= @project.time %></p>
+              <p>Project Material: <%= @project.material %></p>
+            </div>
+          </li>
+          <li>
+            <div class="content__wrapper">
+              <%-# Reviews are rendered to review partial  -%>
+              <% @project.reviews.reverse_each do |review| %>
+              <%= render 'review', review:review %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      <div>
+        <%= render 'form_review' %>
+      </div>
+    </div><!--/ 'project-tabs' -->
+  </div><!-- / 'column-flex-centered' -->
+</div><!-- / 'row-centered' -->

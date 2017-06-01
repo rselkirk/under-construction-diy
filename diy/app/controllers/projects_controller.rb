@@ -39,8 +39,10 @@ class ProjectsController < ApplicationController
     @project_uploads = @project.project_uploads
     @review = Review.new
     @project_status = ProjectStatus.where(project_id: @project.id).first_or_create
-     
-    if current_user 
+    @project_creator = User.find @project.user_id
+    @project_creator_name = "#{@project_creator.first_name} #{@project_creator.last_name}"
+
+    if current_user
       if (ProjectStatus.where(project_id: @project.id, user_id: current_user.id, completes:true).count == 1)
         @complete_status = "true"
       end
