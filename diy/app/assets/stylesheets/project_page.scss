@@ -173,18 +173,34 @@ hr.dividing-line {
   padding: 10px;
 }
 
-.start-not-complete {
+.start-complete {
   background-color: tomato;
 }
 
-.completed {
-  background-color: blue;
-}
-
-.start-complete {
-  background-color: blue;
-}
-
 .not-complete {
+  background-color:blue;
+}
+
+.start-not-complete {
+  background-color:blue;
+}
+
+.completed {
+  background-color: tomato;
+}
+
+.start-saved {
+  background-color: tomato;
+}
+
+.not-saved {
+  background-color: blue;
+}
+
+.start-not-saved {
+  background-color: blue;
+}
+
+.saved {
   background-color: tomato;
 }

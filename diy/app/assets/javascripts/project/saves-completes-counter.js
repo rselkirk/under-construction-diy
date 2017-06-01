@@ -46,7 +46,7 @@ $(document).ready(function onReady() {
   $('#completes-count').on('ajax:success', (e, data, status, xhr) => {
     $('.fa-wrench').text(`(${data.completes})`);
   }).on('ajax:error', (e, xhr, status, error) => {
-    $('#completes-count').append('<p>ERROR</p>');
+  //   $('#completes-count').append('<p>ERROR</p>');
   });
 
 });
