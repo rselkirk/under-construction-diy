@@ -268,7 +268,7 @@ button.btnSend {
 
 #project_instructions {
   background: #f2f2f2;
-  width: 586px;
+  width: 60%;
   height: 81px;
   color: rgba(0, 0, 0, 0.87);
   font-size: 13px;
@@ -288,7 +288,7 @@ button.btnSend {
 
 #project_material {
   background: #f2f2f2;
-  width: 586px;
+  width: 60%;
   height: 81px;
   color: rgba(0, 0, 0, 0.87);
   font-size: 13px;
@@ -322,3 +322,6 @@ button.btnSend {
   background: #f2f2f2;
 }
 
+.external_link {
+  text-align: center;
+}
