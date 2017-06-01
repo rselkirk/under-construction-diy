@@ -1,19 +1,24 @@
 <div class="nav-bar">
+  <div class="spacer-m"></div>
   <div class="nav-bar-title">
     <%= link_to 'Site Title', '/' %>
   </div>
-    <!-- Left Nav Section -->
-  <div class="nav-bar-left">
-    <div class="center-search">
-      <%= form_tag("/search", method: "get", class:"search-menu") do %>
-          <%= text_field_tag :q, params[:q], class:"search-bar", placeholder:"Search" %>
-          <div class="fa fa-search fa-2x"></div>
-          <%= submit_tag "Go", class: "button search-button", name: nil %>
-      <% end %>
-    </div>
-  </div> <!-- Left Nav -->
+
+  <div class="spacer-m"></div>
+
+  <!-- Center Nav Section -->
+  <div class="center-search">
+    <%= form_tag("/search", method: "get", class:"search-menu") do %>
+        <%= text_field_tag :q, params[:q], class:"search-bar", placeholder:"Search" %>
+        <div class="fa fa-search fa-2x"></div>
+        <%= submit_tag "Go", class: "button search-button", name: nil %>
+    <% end %>
+  </div>
+
+  <div class="spacer-m"></div>
+
   <!-- Right Nav Section -->
-  <div class="nav-bar-right">
+  <div>
     <ul class="dropdown menu" data-dropdown-menu>
       <% if current_user %>
         <li class="has-submenu">
@@ -24,18 +29,22 @@
               <li><%= link_to 'Logout', logout_path %></li>
             </ul>
           </span>
-         <a href="/projects/new" class="fa fa-plus-circle fa-3x"></a>
         </li>
-      </ul>
       <% else %>
-      <span class="fa fa fa-sign-in fa-3x">
-        <li class="vertical">
-          <ul class="login-signup" data-submenu>
+      <li class="has-submenu">
+        <span class="fa fa fa-sign-in fa-3x">
+          <ul class="login-signup vertical" data-submenu>
             <li><%= link_to 'Login', login_path %></li>
             <li><%= link_to 'Signup', signup_path %></li>
           </ul>
-        </li>
-      </span>
+        </span>
+      </li>
       <% end %>
-  </div><!-- /nav-bar-right -->
+    </ul>
+  </div>
+  <div class="spacer-m"></div>
+  <div>
+    <%= link_to fa_icon("plus-circle"), new_project_path, class: "fa-3x" %>
+  </div>
+  <div class="spacer-m"></div>
 </div><!-- /nav-bar -->
