@@ -56,7 +56,7 @@
         </div> <!--/ "front" -->
 
         <div class="back">
-          <%= fa_icon('arrow-right 5x') %>
+          <div class='test'><%= fa_icon('arrow-right 5x') %></div>
           <h1 class="title">start your project</h1>
           <%= form_for @project, html: { multipart: true } do |f| %>
             <%= f.fields_for :project_uploads, ProjectUpload.new do |ff| %>

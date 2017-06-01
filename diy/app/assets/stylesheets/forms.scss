@@ -52,6 +52,7 @@ label {
 .title {
   font-family: 'Archivo Black', sans-serif;
   color: black;
+  text-align: center;
 }
 
 .animation {
@@ -200,10 +201,12 @@ button.btnSend {
   border-radius: 0;
 }
 
-.fa-arrow-right {
-  float: right;
+.back .fa-arrow-right {
+  display: flex;
   padding: 15px;
   color: $color-primary;
+  width: inherit;
+  justify-content: flex-end;
 }
 
 #create_project {
@@ -249,6 +252,10 @@ button.btnSend {
 
 #new_project input{
   width: 60%;
+}
+
+#new_project {
+  text-align: center;
 }
 
 #project_title {
