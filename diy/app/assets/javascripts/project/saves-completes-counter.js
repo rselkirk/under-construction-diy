@@ -40,7 +40,7 @@ $(document).ready(function onReady() {
   $('#saves-count').on('ajax:success', (e, data, status, xhr) => {
     $('.fa-bookmark-o').text(`(${data.saves})`);
   }).on('ajax:error', (e, xhr, status, error) => {
-    $('#saves-count').append('<p>ERROR</p>');
+//     $('#saves-count').append('<p>ERROR</p>');
   });
 
   $('#completes-count').on('ajax:success', (e, data, status, xhr) => {
