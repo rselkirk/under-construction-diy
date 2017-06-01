@@ -16,7 +16,9 @@
         <% if @project_uploads.present? %>
           <%= image_tag @project_uploads.first.image_url %>
         <% elsif @project.image? %>
-          <%= image_tag @project.image %>
+          <%= link_to @project.url do %>
+            <%= image_tag @project.image %>
+          <% end %>
         <% else %>
           <%= image_tag('/blueprint.jpeg') %>
         <% end %>

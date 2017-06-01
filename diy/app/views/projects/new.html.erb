@@ -23,19 +23,19 @@
 
             <%= form_for @project, html: { multipart: true } do |f| %>
               <div id='url-show'>
-                <%= f.text_field :url %>
+                <span class="URL-words"> Project URL: <%= f.text_field :url %></span>
               </div>
 
               <div id='title-show'>
-                <%= f.text_field :title %>
+               <span class="URL-words"> Project Title: <%= f.text_field :title %></span>
               </div>
 
               <div id='description-show'>
-                <%= f.text_field :summary %>
+               <span class="URL-words"> Project Summary: <%= f.text_field :summary %></span>
               </div>
 
               <div id="image-show-upload">
-                <%= f.text_field :image %>
+               <span class="URL-words"> Project Image: <%= f.text_field :image %></span>
               </div>
 
               <div id='image-show'></div>
