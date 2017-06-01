@@ -18,8 +18,7 @@
           Cost: <%= form.text_field :cost, class: 'form-control' %>
           <div class="spacer-m"></div>
           <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
-            <%= ff.label :image %><br>
-            <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
+           Upload an image of your completed project: <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
           <% end %>
 
           <%= form.submit 'Submit Review', class: 'btn btn-primary' %>

@@ -69,3 +69,4 @@ class ProjectsController < ApplicationController
       project_uploads_attributes: [:id, :project_id, :image_url]
     )
   end
+end
