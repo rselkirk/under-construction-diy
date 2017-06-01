@@ -123,6 +123,7 @@
       <ul class="tabs-project">
         <li class="active">Reviews</li>
         <li>Instructions</li>
+        <li>Submit Review</li>
       </ul>
 
       <ul class="tab__content">
@@ -142,11 +143,16 @@
             <p>Project Material: <%= @project.material %></p>
           </div>
         </li>
+        <li>
+          <div class="content__wrapper">
+            <%= render 'form_review' %>
+          </div>
+          </li>
+        </li>
       </ul>
     </section><!--/ 'wrapper' -->
     <div>
     </div>
-    <%= render 'form_review' %>
   </div><!--/ 'project-tabs' -->
 </div><!--/ 'center-container' -->
 </div>
