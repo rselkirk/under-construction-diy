@@ -33,17 +33,13 @@
   justify-content: center;
 }
 
-// *** fix this to resize large images to max-width
-// *** right now it just crops them
-.column-image {
-  max-width: 479px; // same width as our fallback image (blueprint.jpeg)
-  overflow: hidden;
+.column-image img {
+  max-width: 479px; // same width as our fallback image (blueprint.jpeg) so layout has some consistency
 }
 
-.column-sidebar {
-  // width: 40vh;
-  width: 30%;
-}
+// .column-sidebar {
+//   width: 30%;
+// }
 
 .project-creator {
   display: -webkit-flex;
@@ -67,7 +63,6 @@ hr.dividing-line {
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
-
 
 .tabs-project{
   display: table;

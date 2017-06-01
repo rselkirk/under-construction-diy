@@ -7,11 +7,9 @@
       <!-- Image -->
       <div class="column-image">
         <% if @project_uploads.present? %>
-        <% @project_uploads.each do |img| %>
-        <%= image_tag img.image_url %>
-        <% end %>
+        <%= image_tag @project_uploads.first.image_url %>
         <% elsif @project.image? %>
-        <%= image_tag @project.image, class: "thumbnail_lg"%>
+        <%= image_tag @project.image %>
         <% else %>
         <%= image_tag('/blueprint.jpeg') %>
         <% end %>
@@ -34,12 +32,19 @@
         <hr class="dividing-line">
 
         <div>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <i class="fa fa-star-o" aria-hidden="true"></i>
-          <%= @project.avg_rating %>
+          <% @project.avg_rating.to_i.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% if (@project.avg_rating % 1 != 0) %>
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+              <% (4 - @project.avg_rating.to_i).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          <% elsif (@project.avg_rating % 1 == 0) %>
+            <% (5 - @project.avg_rating.to_i).times do %>
+              <i class="fa fa-star-o" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
         </div>
 
         <div class="spacer-m"></div>
