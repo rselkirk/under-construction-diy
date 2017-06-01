@@ -131,6 +131,7 @@
         <ul class="tabs-project">
           <li class="active">Instructions</li>
           <li>Reviews</li>
+          <li>Submit Review</li>
         </ul>
 
         <ul class="tab__content">
@@ -150,9 +151,13 @@
               <% end %>
             </div>
           </li>
+          <li>
+            <div class="content__wrapper">
+            <%= render 'form_review' %>
+            </div>
+          </li>
         </ul>
       <div>
-        <%= render 'form_review' %>
       </div>
     </div><!--/ 'project-tabs' -->
   </div><!-- / 'column-flex-centered' -->
