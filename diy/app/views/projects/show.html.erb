@@ -140,7 +140,7 @@
           <li class="active">
             <div class="content__wrapper">
               <% if @project.url.present? %>
-                <p>Project URL: <span class="bold"><%= @project.url %></span></p>
+                <p>Project URL: <span class="bold"><%= link_to @project.url, @project.url , :target => "_blank" %></span></p>
                 <% else %>
                   <p>Project Instructions: <%= @project.instructions %></p>
                   <p>Project Cost: <%= @project.cost %></p>
