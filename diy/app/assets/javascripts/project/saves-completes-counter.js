@@ -10,11 +10,11 @@ $(document).ready(function onReady() {
   });
 
   $('#complete-button-text').click(function() {
-    if ($(this).val() == "Completed!") {
-      $(this).val("Mark Complete");
+    if ($(this).val() == "✔ Completed") {
+      $(this).val("☑ Mark Complete");
     }
-    else if ($(this).val() == "Mark Complete") {
-      $(this).val("Completed!");
+    else if ($(this).val() == "☑ Mark Complete") {
+      $(this).val("✔ Completed");
     }
   });
 
@@ -28,11 +28,11 @@ $(document).ready(function onReady() {
   });
 
   $('#save-button-text').click(function() {
-    if ($(this).val() == "Saved to Favourites!") {
-      $(this).val("Add to Favourites");
+    if ($(this).val() == "⚑ Saved") {
+      $(this).val("+ Save for Later");
     }
-    else if ($(this).val() == "Add to Favourites") {
-      $(this).val("Saved to Favourites!");
+    else if ($(this).val() == "+ Save for Later") {
+      $(this).val("⚑ Saved");
     }
   });
 

@@ -87,14 +87,14 @@ hr.dividing-line {
   color: $color-accent-dark;
 }
 
-.tabs-project{
+.tabs-project {
   display: table;
   table-layout: fixed;
   width: 100%;
   -webkit-transform: translateY(5px);
   transform: translateY(5px);
 
-  >li{
+  >li {
     transition-duration: .2s;
     display: table-cell;
     list-style: none;
@@ -165,26 +165,38 @@ hr.dividing-line {
   }
 }
 
-#save-button-text {
+#save-button-text, #complete-button-text {
+  font-family: $font-regular;
+  font-size: 1.5em;
   padding: 10px;
 }
 
-#complete-button-text {
-  padding: 10px;
+#completes-count, #saves-count {
+  width: 200px;
 }
 
+// default color (not saved)
 .start-not-complete {
-  background-color: tomato;
+  background-color: $color-accent-dark;
 }
 
-.completed {
-  background-color: blue;
-}
+// .completed {
+//   background-color: $color-secondary;
+// }
 
+input[value^="☑ Mark Complete"] {color:#fff;}
+input[value^="✔ Completed"] {color:blue;}
+
+input[value^="+ Save for Later"] {color:#fff;}
+input[value^="⚑ Saved"] {color:red;}
+
+
+
+// saved (after click)
 .start-complete {
-  background-color: blue;
+  // background-color: blue;
 }
 
 .not-complete {
-  background-color: tomato;
+  // background-color: yellow;
 }

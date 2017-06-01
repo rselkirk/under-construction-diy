@@ -99,20 +99,20 @@
       font-weight: 600;
       text-transform: uppercase;
     }
-    .title h1{
-      margin: 0;
-      padding: 0 0 10px;
-      color: #333333;
-      font-size: 26px;
-      font-weight: 700;
-    }
-    .sub_title {
-      margin: 0;
-      padding: 0 0 20px;
-      color: #e74c3c;
-      font-size: 20px;
-      font-weight: 400;
-    }
+    // .title h1{
+    //   margin: 0;
+    //   padding: 0 0 10px;
+    //   color: #333333;
+    //   font-size: 26px;
+    //   font-weight: 700;
+    // }
+    // .sub_title {
+    //   margin: 0;
+    //   padding: 0 0 20px;
+    //   color: #e74c3c;
+    //   font-size: 20px;
+    //   font-weight: 400;
+    // }
     .summary {
       display: none;
       color: #666666;
@@ -194,10 +194,6 @@
 // Styles for modal/overlay. If you makes changes below, make sure you
 // don't break code in 'modal.js' by altering class names used by jquery.
 
-*{box-sizing: border-box;}
-body,html{
-  min-height: 100%;
-}
 
 .overlay-layer {
   position: fixed;
@@ -220,7 +216,7 @@ body,html{
   cursor: pointer;
   text-align: center;
   padding: 20px 20px;
-  font-style: italic;
+  // font-style: italic;
   outline: none;
 }
 .modal-trigger:active {
