@@ -15,7 +15,6 @@ class Review < ApplicationRecord
   # validates :time, presence: true, numericality: { only_integer: true }
   # validates :cost, presence: true, numericality: { only_integer: true }
 
-
   def update_project_average_rating
     self.project.update_average_rating
   end

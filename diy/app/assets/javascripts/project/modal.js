@@ -5,7 +5,6 @@ $(document).ready(function(){
   title = $('.title');
   modal = $('.modal');
 
-
   toggleModal = function() {
     backgroundLayer.addClass('blur');
     modal.addClass('open');
@@ -23,10 +22,6 @@ $(document).ready(function(){
     });
   };
 
-  // $(window).on('popstate', function(){
-  //   fetchAndInsert("/");
-  // });
-
   title.find('a').on('click', function(e){
     var href = $(this).attr('href');
     history.pushState(null, null, href);
@@ -34,7 +29,7 @@ $(document).ready(function(){
     e.preventDefault();
   });
 
- overlayLayer.on('click', function(){
+  overlayLayer.on('click', function(){
     overlayLayer.removeClass('open');
     modal.removeClass('open');
     backgroundLayer.removeClass('blur');
