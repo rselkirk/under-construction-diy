@@ -1,0 +1,11 @@
+<div class="tag-bar-container">
+   <div class="tag-bar-wrapper">
+     <div class="tag-bar-wrapper-flex">
+       <div class="tag-bar-wrapper-flex">
+          <% tag_cloud  Project.tag_counts, %w[s s s] do |tag, css_class| %>
+            <div class="tag-word"><%= link_to tag.name.titlecase, tag_path(tag.name), class:css_class  %></div>
+          <% end %>
+       </div>
+     </div>
+   </div>
+ </div>

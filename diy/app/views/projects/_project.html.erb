@@ -14,7 +14,7 @@
           <% elsif project.image? %>
             <%= image_tag project.image, class: "thumbnail_lg" %>
           <% else %>
-            <img src="blueprint.jpeg"/>
+            <%= image_tag('/blueprint.jpeg') %>
           <% end %>
           <div class="post-content">
             <div class="complete">Complete</div>

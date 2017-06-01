@@ -12,8 +12,8 @@ class Review < ApplicationRecord
   # validates :content, presence: true
   # validates :project_id, presence: true
   # validates :user_id, presence: true
-  # validates :time, presence: true
-  # validates :cost, presence: true
+  # validates :time, presence: true, numericality: { only_integer: true }
+  # validates :cost, presence: true, numericality: { only_integer: true }
 
 
   def update_project_average_rating
