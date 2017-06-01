@@ -18,7 +18,7 @@ Things you may want to cover:
 
 * How to run the server
 run elastic search server first: bin/elastic search
-rails s -p 8080
+run rails server in second terminal: rails s -p 8080
 
 
 * Run `bundle install` to install dependencies

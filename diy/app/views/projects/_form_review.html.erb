@@ -1,28 +1,30 @@
 <%-# Review form displays only to logged in users -%>
 <% if current_user %>
-  <%= form_for [@project, @review], html: { multipart: true } do |form| %>
+  <div class="center-container">
+    <div class="row-centered">
+      <div class="shadow-box">
+        <%= form_for [@project, @review], html: { multipart: true } do |form| %>
+          <div class="spacer-m"></div>
+          Rating: <%= form.select(:rating) do %>
+            <% [5, 4, 3, 2, 1].each do |c| -%>
+              <%= content_tag(:option, c, value: c) %>
+            <% end %>
+          <% end %>
+          <div class="spacer-m"></div>
+          Content: <%= form.text_field :content, class: 'form-control' %>
+          <div class="spacer-m"></div>
+          Time(in hours): <%= form.text_field :time, class: 'form-control' %>
+          <div class="spacer-m"></div>
+          Cost: <%= form.text_field :cost, class: 'form-control' %>
+          <div class="spacer-m"></div>
+          <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
+            <%= ff.label :image %><br>
+            <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
+          <% end %>
 
-    <%= form.label :rating %>
-    <%= form.select(:rating) do %>
-      <% [1, 2, 3, 4, 5].each do |c| -%>
-        <%= content_tag(:option, c, value: c) %>
-      <% end %>
-    <% end %>
-
-    <%= form.label :content %>
-    <%= form.text_area :content, class: 'form-control' %>
-
-    <%= form.label :time %>
-    <%= form.text_area :time, class: 'form-control' %>
-
-    <%= form.label :cost %>
-    <%= form.text_area :cost, class: 'form-control' %>
-
-    <%= form.fields_for :review_uploads, ReviewUpload.new do |ff| %>
-      <%= ff.label :image %><br>
-      <%= ff.file_field :image_url, :multiple => true, name: "review[review_uploads_attributes][][image_url]" %>
-    <% end %>
-
-    <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
-  <% end %>
+          <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
+        <% end %>
+      </div><!--/ "shadow-box" -->
+    </div><!--/ "row-centered" -->
+  </div><!--/ "center-container" -->
 <% end %>

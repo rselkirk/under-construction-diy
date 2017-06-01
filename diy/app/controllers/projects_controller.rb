@@ -41,6 +41,15 @@ class ProjectsController < ApplicationController
     @project_status = ProjectStatus.where(project_id: @project.id).first_or_create
     @project_creator = User.find @project.user_id
     @project_creator_name = "#{@project_creator.first_name} #{@project_creator.last_name}"
+
+    if (ProjectStatus.where(project_id: @project.id, user_id: current_user.id, completes:true).count == 1)
+      @complete_status = "true"
+    end
+
+    if (ProjectStatus.where(project_id: @project.id, user_id: current_user.id, saves:true).count == 1)
+      @save_status = "true"
+    end
+
   end
 
   private

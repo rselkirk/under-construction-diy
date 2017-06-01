@@ -164,3 +164,27 @@ hr.dividing-line {
     }
   }
 }
+
+#save-button-text {
+  padding: 10px;
+}
+
+#complete-button-text {
+  padding: 10px;
+}
+
+.start-not-complete {
+  background-color: tomato;
+}
+
+.completed {
+  background-color: blue;
+}
+
+.start-complete {
+  background-color: blue;
+}
+
+.not-complete {
+  background-color: tomato;
+}
