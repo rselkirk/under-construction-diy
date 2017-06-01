@@ -177,18 +177,18 @@ hr.dividing-line {
 
 
 input[value^="☑ Mark Complete"] {color:#fff;}
-input[value^="✔ Completed"] {color:blue;}
+input[value^="✔ Completed"] {color: #fff;}
 
 input[value^="+ Save for Later"] {color:#fff;}
-input[value^="⚑ Saved"] {color:red;}
+input[value^="⚑ Saved"] {color: #fff;}
 
 
 .start-complete {
-  background-color: tomato;
+  background-color: $color-accent-main;
 }
 
 .not-complete {
-  background-color: blue;
+  background-color: $color-accent-dark;
 }
 
 .start-not-complete {
@@ -196,21 +196,21 @@ input[value^="⚑ Saved"] {color:red;}
 }
 
 .completed {
-  background-color: tomato;
+  background-color: $color-accent-main;
 }
 
 .start-saved {
-  background-color: tomato;
+  background-color: $color-accent-main;
 }
 
 .not-saved {
-  background-color: blue;
+  background-color: $color-accent-dark;
 }
 
 .start-not-saved {
-  background-color: blue;
+  background-color: $color-accent-dark;
 }
 
 .saved {
-  background-color: tomato;
+  background-color: $color-accent-main;
 }

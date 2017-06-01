@@ -68,17 +68,12 @@
 }
 
 .vertical {
-  position: fixed;
-  // top: 0;
-  // right: 0;
+  position: absolute;
+  right: 0;
   z-index: 1;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  // margin-top: 70px;
-  // padding-top: 25px;
   width: 175px;
   background-color: $color-accent-light;
-  // padding-left: 1px;
-  // z-index: 3;
 }
 
 .vertical > li {

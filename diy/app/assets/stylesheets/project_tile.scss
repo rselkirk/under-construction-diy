@@ -254,7 +254,8 @@
   top: 75px;
   left: 15%;
   right: 15%;
-  width: 800px;
+  width: inherit;
+  min-width: 800px;
   min-height: 800px;
   padding: 20px;
   opacity: 1;
