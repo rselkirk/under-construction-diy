@@ -1,6 +1,6 @@
 <div class="overlay-layer"></div>
 
-<div class="background-layer">
+<div id="background-layer", class="background-layer">
   <!-- List of Tags -->
   <div id='tag_cloud'>
     <% tag_cloud  Project.tag_counts, %w[s s s] do |tag, css_class| %>
@@ -12,5 +12,4 @@
 </div>
 
 <div class="modal">
-  use 'pushstate' to render projects#show page here
 </div>

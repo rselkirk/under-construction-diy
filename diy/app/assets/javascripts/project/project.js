@@ -6,12 +6,16 @@ $(document).ready(function onReady() {
   var $backgroundLayer = $(".background-layer");
 
   function toggleModal() {
-    $modal.toggleClass('open');
-    $overlayLayer.toggleClass('open');
-    $backgroundLayer.toggleClass('blur');
+    $modal.addClass('open');
+    $overlayLayer.addClass('open');
+    $backgroundLayer.addClass('blur');
   }
 
   $modalTrigger.on('click', toggleModal);
-  $overlayLayer.on('click', toggleModal);
+  $overlayLayer.on('click', function(){
+    $overlayLayer.removeClass('open');
+    $modal.removeClass('open');
+    $backgroundLayer.removeClass('blur');
+  });
 
 });
