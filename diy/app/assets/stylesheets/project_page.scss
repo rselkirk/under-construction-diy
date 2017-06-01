@@ -175,14 +175,6 @@ hr.dividing-line {
   width: 200px;
 }
 
-// default color (not saved)
-.start-not-complete {
-  background-color: $color-accent-dark;
-}
-
-// .completed {
-//   background-color: $color-secondary;
-// }
 
 input[value^="☑ Mark Complete"] {color:#fff;}
 input[value^="✔ Completed"] {color:blue;}
@@ -191,12 +183,34 @@ input[value^="+ Save for Later"] {color:#fff;}
 input[value^="⚑ Saved"] {color:red;}
 
 
-
-// saved (after click)
 .start-complete {
-  // background-color: blue;
+  background-color: tomato;
 }
 
 .not-complete {
-  // background-color: yellow;
+  background-color: blue;
+}
+
+.start-not-complete {
+  background-color: $color-accent-dark;
+}
+
+.completed {
+  background-color: tomato;
+}
+
+.start-saved {
+  background-color: tomato;
+}
+
+.not-saved {
+  background-color: blue;
+}
+
+.start-not-saved {
+  background-color: blue;
+}
+
+.saved {
+  background-color: tomato;
 }

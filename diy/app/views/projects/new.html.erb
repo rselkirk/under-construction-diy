@@ -23,19 +23,19 @@
 
             <%= form_for @project, html: { multipart: true } do |f| %>
               <div id='url-show'>
-                <%= f.text_field :url %>
+                <span class="URL-words"> Project URL: <%= f.text_field :url %></span>
               </div>
 
               <div id='title-show'>
-                <%= f.text_field :title %>
+               <span class="URL-words"> Project Title: <%= f.text_field :title %></span>
               </div>
 
               <div id='description-show'>
-                <%= f.text_field :summary %>
+               <span class="URL-words"> Description: <%= f.text_field :summary %></span>
               </div>
 
               <div id="image-show-upload">
-                <%= f.text_field :image %>
+               <span class="URL-words"> Project Image: <%= f.text_field :image %></span>
               </div>
 
               <div id='image-show'></div>
@@ -43,6 +43,7 @@
               <div class="small-12 columns">
                 <td class="button postfix"><%= f.submit "Submit" %></td>
               </div>
+
             <% end %>
           </div>
 
@@ -56,7 +57,7 @@
         </div> <!--/ "front" -->
 
         <div class="back">
-          <%= fa_icon('arrow-right 5x') %>
+          <div class='test'><%= fa_icon('arrow-right 5x') %></div>
           <h1 class="title">start your project</h1>
           <%= form_for @project, html: { multipart: true } do |f| %>
             <%= f.fields_for :project_uploads, ProjectUpload.new do |ff| %>
@@ -70,10 +71,10 @@
           <%= f.text_field :summary , placeholder: "Summary" %>
 
           <div class="spacer-m"></div>
-          <%= f.text_field :instructions, class: 'instructions', placeholder: "Instructions" %>
+          <%= f.text_area :instructions, class: 'instructions', placeholder: "Instructions" %>
 
           <div class="spacer-m"></div>
-          <%= f.text_field :material, placeholder: "Materials", :size=>"50" %>
+          <%= f.text_area :material, placeholder: "Materials", :size=>"50" %>
 
           <div class="spacer-m"></div>
           <%= f.text_field :time , placeholder: "Time(hrs)" %>

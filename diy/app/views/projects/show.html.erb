@@ -13,12 +13,14 @@
 
       <!-- Image -->
       <div class="column-image">
-
-
         <% if @project_uploads.present? %>
           <%= image_tag @project_uploads.first.image_url %>
+
         <% elsif @project.image? %>
-          <%= @project.image %>
+          <%= link_to @project.url do %>
+            <%= image_tag @project.image %>
+          <% end %>
+
         <% else %>
           <%= image_tag('/blueprint.jpeg') %>
         <% end %>
@@ -101,10 +103,10 @@
 
           <!-- SAVE BUTTON -->
           <% if @save_status == "true" %>
-            <% start_variable = "start-complete" %>
+            <% start_variable = "start-saved" %>
             <% start_text = "⚑ Saved" %>
           <% else %>
-            <% start_variable = "start-not-complete" %>
+            <% start_variable = "start-not-saved" %>
             <% start_text = "+ Save for Later" %>
           <% end %>
 
@@ -133,15 +135,20 @@
         <ul class="tabs-project">
           <li class="active">Instructions</li>
           <li>Reviews</li>
+          <li>Submit Review</li>
         </ul>
 
         <ul class="tab__content">
           <li class="active">
             <div class="content__wrapper">
-              <p>Project Instructions: <%= @project.instructions %></p>
-              <p>Project Cost: <%= @project.cost %></p>
-              <p>Project Time: <%= @project.time %></p>
-              <p>Project Material: <%= @project.material %></p>
+              <% if @project.url.present? %>
+                <p>Project URL: <span class="bold"><%= link_to @project.url, @project.url , :target => "_blank" %></span></p>
+                <% else %>
+                  <p>Project Instructions: <%= @project.instructions %></p>
+                  <p>Project Cost: <%= @project.avg_cost %></p>
+                  <p>Project Time: <%= @project.avg_time %></p>
+                  <p>Project Material: <%= @project.material %></p>
+              <% end %>
             </div>
           </li>
           <li>
@@ -152,9 +159,13 @@
               <% end %>
             </div>
           </li>
+          <li>
+            <div class="content__wrapper">
+            <%= render 'form_review' %>
+            </div>
+          </li>
         </ul>
       <div>
-        <%= render 'form_review' %>
       </div>
     </div><!--/ 'project-tabs' -->
   </div><!-- / 'column-flex-centered' -->
