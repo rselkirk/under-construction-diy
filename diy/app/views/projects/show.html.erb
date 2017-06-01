@@ -139,10 +139,14 @@
         <ul class="tab__content">
           <li class="active">
             <div class="content__wrapper">
-              <p>Project Instructions: <%= @project.instructions %></p>
-              <p>Project Cost: <%= @project.cost %></p>
-              <p>Project Time: <%= @project.time %></p>
-              <p>Project Material: <%= @project.material %></p>
+              <% if @project.url.present? %>
+                <p>Project URL: <span class="bold"><%= @project.url %></span></p>
+                <% else %>
+                  <p>Project Instructions: <%= @project.instructions %></p>
+                  <p>Project Cost: <%= @project.cost %></p>
+                  <p>Project Time: <%= @project.time %></p>
+                  <p>Project Material: <%= @project.material %></p>
+              <% end %>
             </div>
           </li>
           <li>

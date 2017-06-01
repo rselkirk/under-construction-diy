@@ -7,9 +7,6 @@
 /************************************/
 /* FORMS */
 
-@import "_variables";
-
-
 input {
   width: 100%;
   color: rgba(0, 0, 0, 0.87);
@@ -52,6 +49,7 @@ label {
 .title {
   font-family: 'Archivo Black', sans-serif;
   color: black;
+  text-align: center;
 }
 
 .animation {
@@ -200,10 +198,12 @@ button.btnSend {
   border-radius: 0;
 }
 
-.fa-arrow-right {
-  float: right;
+.back .fa-arrow-right {
+  display: flex;
   padding: 15px;
   color: $color-primary;
+  width: inherit;
+  justify-content: flex-end;
 }
 
 #create_project {
@@ -251,6 +251,10 @@ button.btnSend {
   width: 60%;
 }
 
+#new_project {
+  text-align: center;
+}
+
 #project_title {
   background: #f2f2f2;
 }
@@ -261,10 +265,42 @@ button.btnSend {
 
 #project_instructions {
   background: #f2f2f2;
+  width: 60%;
+  height: 81px;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 13px;
+  padding: 10px;
+  padding-left: 42px;
+  border: 1px solid $color-accent-light;
+  cursor: text;
+  font-family: 'Archivo Black', sans-serif;
+  transition: 0.3s;
+  &:hover, &:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  &::-webkit-input-placeholder, &::-moz-placeholder {
+    color: $color-accent-light;
+  }
 }
 
 #project_material {
   background: #f2f2f2;
+  width: 60%;
+  height: 81px;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 13px;
+  padding: 10px;
+  padding-left: 42px;
+  border: 1px solid $color-accent-light;
+  cursor: text;
+  font-family: 'Archivo Black', sans-serif;
+  transition: 0.3s;
+  &:hover, &:focus {
+    border: 1px solid rgba(0, 0, 0, 1);
+  }
+  &::-webkit-input-placeholder, &::-moz-placeholder {
+    color: $color-accent-light;
+  }
 }
 
 #project_time {
