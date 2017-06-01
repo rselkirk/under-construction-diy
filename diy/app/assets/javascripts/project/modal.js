@@ -9,7 +9,7 @@ $(document).ready(function(){
     backgroundLayer.addClass('blur');
     modal.addClass('open');
     overlayLayer.addClass('open');
-  }
+  };
 
   fetchAndInsert = function(href){
     $.ajax({
