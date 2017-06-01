@@ -31,7 +31,7 @@
   <div>
 
     <% if current_user %>
-      
+
       <!-- COMPLETE BUTTON -->
       <% if @complete_status == "true" %>
         <% complete_variable = "start-complete" %>
@@ -45,7 +45,7 @@
         <%= button_to complete_text, [@project, @project_status], method: :patch, remote: true, params: { project_status: { completes: true } }, :form_class => complete_variable, :id => "complete-button-text" %>
       </div>
 
-      <div class=spacer-s></div> 
+      <div class=spacer-s></div>
 
       <!-- SAVE BUTTON -->
       <% if @save_status == "true" %>
@@ -60,7 +60,7 @@
       </div>
 
     <% end %>
-    
+
     </div>
 
     <div>
@@ -146,8 +146,9 @@
     </section><!--/ 'wrapper' -->
     <div>
     </div>
-    <%= render 'form_review' %>
   </div><!--/ 'project-tabs' -->
 </div><!--/ 'center-container' -->
 </div>
-
+<div>
+<%= render 'form_review' %>
+</div>
