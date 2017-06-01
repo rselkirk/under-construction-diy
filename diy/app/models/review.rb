@@ -9,12 +9,11 @@ class Review < ApplicationRecord
   after_create :update_project_average_rating, :update_project_review_count, :update_project_complete_count, :update_project_save_count, :update_project_average_cost, :update_project_average_time
 
   #*** Removed these validations for testing. Uncomment before deploying to production.
-  validates :content, presence: true
-  validates :project_id, presence: true
-  validates :user_id, presence: true
-  validates :time, presence: true, numericality: { only_integer: true }
-  validates :cost, presence: true, numericality: { only_integer: true }
-
+  # validates :content, presence: true
+  # validates :project_id, presence: true
+  # validates :user_id, presence: true
+  # validates :time, presence: true, numericality: { only_integer: true }
+  # validates :cost, presence: true, numericality: { only_integer: true }
 
   def update_project_average_rating
     self.project.update_average_rating

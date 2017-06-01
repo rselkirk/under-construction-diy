@@ -6,16 +6,15 @@
           <div class="thumbnail">
             <div class="save">
               <i class="fa fa-check"></i>
-            </div> 
+            </div>
           <% if project.project_uploads.present? %>
-            <% project.project_uploads.each do |img| %>
-              <%= image_tag img.image_url %>
-            <% end %>
+            <%= image_tag project.project_uploads.first.image_url %>
           <% elsif project.image? %>
-            <%= image_tag project.image, class: "thumbnail_lg" %>
+            <%= image_tag project.image %>
           <% else %>
             <%= image_tag('/blueprint.jpeg') %>
           <% end %>
+
           <div class="post-content">
             <div class="complete">Complete</div>
             <h2 class="title"><%= link_to project.title.titlecase, project_path(project.id) %></h2>
@@ -37,7 +36,7 @@
                 <% end %>
                 </span>
                 <span class="comments"><i class="fa fa-bookmark-o" aria-hidden="true"></i><a href="#"> <%= project.save_count %></a></span>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
