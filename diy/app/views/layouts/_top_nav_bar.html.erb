@@ -1,7 +1,9 @@
 <div class="nav-bar">
-  <div class="spacer-m"></div>
+  <div class="spacer-l"></div>
   <div class="nav-bar-title">
-    <%= link_to 'Site Title', '/' %>
+    <%= link_to '/' do %>
+      <%= image_tag('/UC.png') %>
+    <% end %>
   </div>
 
   <div class="spacer-m"></div>
@@ -44,5 +46,5 @@
   <div>
     <%= link_to fa_icon("plus-circle"), new_project_path, class: "fa-3x" %>
   </div>
-  <div class="spacer-m"></div>
+  <div class="spacer-l"></div>
 </div><!-- /nav-bar -->

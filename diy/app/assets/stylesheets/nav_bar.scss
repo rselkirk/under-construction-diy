@@ -7,7 +7,6 @@
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
   background-color: $color-accent-light;
-  height: 72px;
 }
 
 #nav-dropdown-menu {
@@ -19,6 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.nav-bar-title img {
+  max-width: 100px;
 }
 
 .center-container > .search-bar {
@@ -40,7 +43,6 @@
 .search-bar {
   width: 100%;
   border: 0;
-  text-align: right;
   &:hover, &:focus {
     background: $color-accent-dark;
   }
@@ -67,16 +69,16 @@
 
 .vertical {
   position: absolute;
+  right: 0;
   z-index: 1;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  padding-left: 1px;
-  z-index: 3;
+  width: 175px;
+  background-color: $color-accent-light;
 }
 
 .vertical > li {
-  font-size: .7em;
-  background-color: $color-accent-light;
-  padding: .5em;
+  font-size: .5em;
+  padding: 1em;
 }
 
 .fa-user-circle-o {
@@ -88,7 +90,7 @@
 }
 
 .login-signup {
-  padding: 0;
+  padding: 10px;
 }
 
 .login-signup > li {

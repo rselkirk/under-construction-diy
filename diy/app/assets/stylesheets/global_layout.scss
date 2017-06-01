@@ -38,21 +38,26 @@ $a-tags-hover: 'a:active, a:hover';
 }
 
 h1 {
+  font-family: $font-heading;
   color: $color-primary;
   text-transform: uppercase;
 }
 
 h2, h5 {
+  font-family: $font-regular;
   color: $color-secondary;
-  font-style: italic;
+  // font-style: italic;
+  font-weight: 700;
 }
 
 h3, h6 {
+  font-family: $font-heading;
   color: $color-accent-dark;
   text-transform: uppercase;
 }
 
 h4 {
+  font-family: $font-regular;
   color: $color-accent-dark;
 }
 
@@ -78,10 +83,17 @@ h4 {
 
 ul {
   list-style: none;
+  font-family: $font-regular;
 }
 
 /************************************/
 /* CONTAINERS */
+
+
+*{box-sizing: border-box;}
+body,html{
+  min-height: 100%;
+}
 
 html {
   box-sizing: border-box;
@@ -92,8 +104,9 @@ html {
 }
 
 body {
-  background: #f2f2f2;
-  font-family: 'proxima-nova-soft', sans-serif;
+  margin: 0;
+  background: $color-background;
+  font-family: $font-regular, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -134,8 +147,9 @@ body {
   box-shadow: 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12), 0px 8px 10px -5px rgba(0, 0, 0, 0.3);
   z-index: 10;
   padding: 25px;
+  margin-top: 50px;
 }
 
 .bold {
-  font-weight:bold;
+  font-weight: bold;
 }

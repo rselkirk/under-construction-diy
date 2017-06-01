@@ -16,7 +16,7 @@ input {
   padding-left: 42px;
   border: 1px solid $color-accent-light;
   cursor: text;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: $font-heading, sans-serif;
   transition: 0.3s;
   &:hover, &:focus {
     border: 1px solid rgba(0, 0, 0, 1);
@@ -47,7 +47,7 @@ label {
 }
 
 .title {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: $font-heading, sans-serif;
   color: black;
   text-align: center;
 }
@@ -273,7 +273,7 @@ button.btnSend {
   padding-left: 42px;
   border: 1px solid $color-accent-light;
   cursor: text;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: $font-heading, sans-serif;
   transition: 0.3s;
   &:hover, &:focus {
     border: 1px solid rgba(0, 0, 0, 1);
@@ -293,7 +293,7 @@ button.btnSend {
   padding-left: 42px;
   border: 1px solid $color-accent-light;
   cursor: text;
-  font-family: 'Archivo Black', sans-serif;
+  font-family: $font-heading, sans-serif;
   transition: 0.3s;
   &:hover, &:focus {
     border: 1px solid rgba(0, 0, 0, 1);
@@ -320,5 +320,5 @@ button.btnSend {
 }
 
 .URL-words {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: $font-heading, sans-serif;
 }

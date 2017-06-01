@@ -15,10 +15,12 @@
       <div class="column-image">
         <% if @project_uploads.present? %>
           <%= image_tag @project_uploads.first.image_url %>
+
         <% elsif @project.image? %>
           <%= link_to @project.url do %>
             <%= image_tag @project.image %>
           <% end %>
+
         <% else %>
           <%= image_tag('/blueprint.jpeg') %>
         <% end %>
@@ -87,10 +89,10 @@
           <!-- COMPLETE BUTTON -->
           <% if @complete_status == "true" %>
             <% complete_variable = "start-complete" %>
-            <% complete_text = "Completed!" %>
+            <% complete_text = "✔ Completed" %>
           <% else %>
             <% complete_variable = "start-not-complete" %>
-            <% complete_text = "Mark Complete" %>
+            <% complete_text = "☑ Mark Complete" %>
           <% end %>
 
           <div id="completes-count">
@@ -102,10 +104,10 @@
           <!-- SAVE BUTTON -->
           <% if @save_status == "true" %>
             <% start_variable = "start-saved" %>
-            <% start_text = "Saved to Favourites!" %>
+            <% start_text = "⚑ Saved" %>
           <% else %>
             <% start_variable = "start-not-saved" %>
-            <% start_text = "Add to Favourites" %>
+            <% start_text = "+ Save for Later" %>
           <% end %>
 
           <div id="saves-count" ><%= button_to start_text, [@project, @project_status],  method: :patch, remote: true, params: { project_status: { saves: true } }, :form_class => start_variable, :id => "save-button-text" %>
