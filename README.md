@@ -1,5 +1,7 @@
 # Under Construction
-A DIY-focused app for browsing and creating projects made by users or shared from other sites.
+For this final group project, we created a DIY-focused app for browsing and creating projects made by users or shared from other sites. Users can enter a new project, as well as star and review existing projects. 
+
+### Main Contributors: [Rachel Selkirk](https://github.com/rselkirk), [Fayez Saadi](https://github.com/fayezosaadi), [Alvin Ng](https://github.com/SomeChineseGuy), [Amber Tsosie](https://github.com/atsosie)
 
 # Screen Capture Demo:
 ## Homepage:
